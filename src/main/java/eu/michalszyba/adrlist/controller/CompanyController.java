@@ -44,4 +44,10 @@ public class CompanyController {
         return "company/addCompany";
         //        TODO: need add, if optional empty return error
     }
+
+    @GetMapping("/delete/{id}")
+    public String deleteCompanyById(@PathVariable Long id) {
+        companyRepository.deleteById(id);
+        return "redirect:/company/list";
+    }
 }
