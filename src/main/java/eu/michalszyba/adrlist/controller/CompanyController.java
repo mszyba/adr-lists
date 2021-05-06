@@ -38,7 +38,7 @@ public class CompanyController {
     }
 
     @GetMapping("/edit/{id}")
-    public String getCompanyFormEdit(@PathVariable Long id, Model model) {
+    public String editCompanyById(@PathVariable Long id, Model model) {
         Optional<Company> companyById = companyRepository.findById(id);
         model.addAttribute("company", companyById);
         return "company/addCompany";
