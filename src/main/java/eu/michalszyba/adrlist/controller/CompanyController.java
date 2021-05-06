@@ -4,10 +4,9 @@ import eu.michalszyba.adrlist.entity.Company;
 import eu.michalszyba.adrlist.repository.CompanyRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/company")
@@ -38,5 +37,11 @@ public class CompanyController {
         return "company/listCompany";
     }
 
-
+    @GetMapping("/edit/{id}")
+    public String getCompanyFormEdit(@PathVariable Long id, Model model) {
+        Optional<Company> companyById = companyRepository.findById(id);
+        model.addAttribute("company", companyById);
+        return "company/addCompany";
+        //        TODO: need add, if optional empty return error
+    }
 }
