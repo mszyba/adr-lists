@@ -22,7 +22,7 @@ public class CompanyController {
     @GetMapping("/form/add")
     public String getCompanyForm(Model model) {
         model.addAttribute("company", new Company());
-        return "addCompany";
+        return "company/addCompany";
     }
 
     @PostMapping("/form/add")
@@ -35,6 +35,8 @@ public class CompanyController {
     @GetMapping("/list")
     public String company(Model model) {
         model.addAttribute("companies", companyRepository.findAll());
-        return "listCompany";
+        return "company/listCompany";
     }
+
+
 }
