@@ -39,10 +39,21 @@ public class CompanyController {
 
     @GetMapping("/edit/{id}")
     public String editCompanyById(@PathVariable Long id, Model model) {
-        Optional<Company> companyById = companyRepository.findById(id);
-        model.addAttribute("company", companyById);
-        return "company/addCompany";
-        //        TODO: need add, if optional empty return error
+        Optional<Company> optionalCompany = companyRepository.findById(id);
+        if (optionalCompany.isPresent()) {
+            Company companyById = optionalCompany.get();
+            model.addAttribute("company", companyById);
+            return "/company/editCompany";
+        } else {
+            return "redirect:/company/list";
+        }
+    }
+
+    @PostMapping("/edit")
+    public String postEditCompany(@ModelAttribute Company company, Model model) {
+        model.addAttribute("company", company);
+        companyRepository.save(company);
+        return "redirect:/company/list";
     }
 
     @GetMapping("/delete/{id}")
