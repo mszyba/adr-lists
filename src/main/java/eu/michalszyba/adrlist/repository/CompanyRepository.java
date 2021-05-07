@@ -1,6 +1,6 @@
 package eu.michalszyba.adrlist.repository;
 
-import eu.michalszyba.adrlist.entity.Company;
+import eu.michalszyba.adrlist.model.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

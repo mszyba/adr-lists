@@ -1,6 +1,6 @@
 package eu.michalszyba.adrlist.controller;
 
-import eu.michalszyba.adrlist.entity.Company;
+import eu.michalszyba.adrlist.model.Company;
 import eu.michalszyba.adrlist.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

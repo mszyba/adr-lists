@@ -1,4 +1,4 @@
-package eu.michalszyba.adrlist.entity;
+package eu.michalszyba.adrlist.model;
 
 import javax.persistence.*;
 
