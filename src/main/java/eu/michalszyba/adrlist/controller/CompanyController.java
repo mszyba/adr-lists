@@ -18,13 +18,13 @@ public class CompanyController {
         this.companyRepository = companyRepository;
     }
 
-    @GetMapping("/form/add")
+    @GetMapping("/add")
     public String getCompanyForm(Model model) {
         model.addAttribute("company", new Company());
         return "company/addCompany";
     }
 
-    @PostMapping("/form/add")
+    @PostMapping("/add")
     public String postCompanyForm(@ModelAttribute Company company, Model model) {
         model.addAttribute("company", company);
         companyRepository.save(company);
