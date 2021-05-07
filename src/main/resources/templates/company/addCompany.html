@@ -30,6 +30,30 @@
                             <input type="text" th:field="*{address}" class="form-control" id="address" placeholder="Address">
 <!--                            <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="text-danger"></span>-->
                         </div>
+                        <div class="form-group col-md-8">
+                            <label for="postCode" class="col-form-label">postCode</label>
+                            <input type="text" th:field="*{postCode}" class="form-control" id="postCode" placeholder="postCode">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="city" class="col-form-label">City</label>
+                            <input type="text" th:field="*{city}" class="form-control" id="city" placeholder="City">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="email" class="col-form-label">E-mail</label>
+                            <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="E-mail">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="phone" class="col-form-label">Phone</label>
+                            <input type="tel" th:field="*{phone}" class="form-control" id="phone" placeholder="Phone">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="personContact" class="col-form-label">Person Contact</label>
+                            <input type="text" th:field="*{personContact}" class="form-control" id="personContact" placeholder="Person Contact">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="referenceNo" class="col-form-label">referenceNo</label>
+                            <input type="text" th:field="*{referenceNo}" class="form-control" id="referenceNo" placeholder="referenceNo">
+                        </div>
                         <div class="col-md-6">
                             <input type="submit" class="btn btn-primary" value="Add Company">
                         </div>

@@ -28,6 +28,12 @@
                                 <th>Id</th>
                                 <th>Name</th>
                                 <th>Address</th>
+                                <th>Post Code</th>
+                                <th>City</th>
+                                <th>Phone</th>
+                                <th>E-mail</th>
+                                <th>Person Contact</th>
+                                <th>Ref. No.</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
@@ -37,6 +43,12 @@
                                 <td th:text="${company.id}"></td>
                                 <td th:text="${company.companyName}"></td>
                                 <td th:text="${company.address}"></td>
+                                <td th:text="${company.postCode}"></td>
+                                <td th:text="${company.city}"></td>
+                                <td th:text="${company.phone}"></td>
+                                <td th:text="${company.email}"></td>
+                                <td th:text="${company.personContact}"></td>
+                                <td th:text="${company.referenceNo}"></td>
                                 <td><a th:href="@{/company/edit/{id}(id=${company.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
                                 <td><a th:href="@{/company/delete/{id}(id=${company.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
                             </tr>
