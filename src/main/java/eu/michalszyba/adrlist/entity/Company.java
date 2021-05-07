@@ -11,13 +11,25 @@ public class Company {
     private Long id;
     private String companyName;
     private String address;
+    private String postCode;
+    private String city;
+    private String phone;
+    private String email;
+    private String personContact;
+    private String referenceNo;
 
     public Company() {
     }
 
-    public Company(String companyName, String address) {
+    public Company(String companyName, String address, String postCode, String city, String phone, String email, String personContact, String referenceNo) {
         this.companyName = companyName;
         this.address = address;
+        this.postCode = postCode;
+        this.city = city;
+        this.phone = phone;
+        this.email = email;
+        this.personContact = personContact;
+        this.referenceNo = referenceNo;
     }
 
     @Override
@@ -26,6 +38,12 @@ public class Company {
                 "id=" + id +
                 ", companyName='" + companyName + '\'' +
                 ", address='" + address + '\'' +
+                ", postCode='" + postCode + '\'' +
+                ", city='" + city + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", personContact='" + personContact + '\'' +
+                ", referenceNo='" + referenceNo + '\'' +
                 '}';
     }
 
@@ -51,5 +69,53 @@ public class Company {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPostCode() {
+        return postCode;
+    }
+
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPersonContact() {
+        return personContact;
+    }
+
+    public void setPersonContact(String personContact) {
+        this.personContact = personContact;
+    }
+
+    public String getReferenceNo() {
+        return referenceNo;
+    }
+
+    public void setReferenceNo(String referenceNo) {
+        this.referenceNo = referenceNo;
     }
 }
