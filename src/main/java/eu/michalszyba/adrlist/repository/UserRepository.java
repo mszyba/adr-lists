@@ -1,9 +1,9 @@
 package eu.michalszyba.adrlist.repository;
 
-import eu.michalszyba.adrlist.model.Company;
+import eu.michalszyba.adrlist.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CompanyRepository extends JpaRepository<Company, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 }
