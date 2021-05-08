@@ -26,14 +26,14 @@ public class UserController {
     @GetMapping("/list")
     public String listUser(Model model) {
         model.addAttribute("users", userRepository.findAll());
-        return "/user/listUser";
+        return "/user/list-user";
     }
 
     @GetMapping("/add")
     public String getAddUserForm(Model model) {
         model.addAttribute("user", new User());
         model.addAttribute("companies", companyRepository.findAll());
-        return "/user/addUser";
+        return "/user/add-user";
     }
 
     @PostMapping("/add")
@@ -56,7 +56,7 @@ public class UserController {
             User user = optionalUser.get();
             model.addAttribute("user", user);
             model.addAttribute("companies", companyRepository.findAll());
-            return "/user/editUser";
+            return "/user/add-user";
         } else {
             return "redirect:/user/list";
         }
