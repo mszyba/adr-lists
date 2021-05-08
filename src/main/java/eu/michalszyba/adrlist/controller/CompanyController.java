@@ -20,39 +20,20 @@ public class CompanyController {
         this.companyRepository = companyRepository;
     }
 
+    @GetMapping("/list")
+    public String listCompany(Model model) {
+        model.addAttribute("companies", companyRepository.findAll());
+        return "/company/list-company";
+    }
+
     @GetMapping("/add")
-    public String getCompanyForm(Model model) {
+    public String getAddCompanyForm(Model model) {
         model.addAttribute("company", new Company());
-        return "company/addCompany";
+        return "/company/add-company";
     }
 
     @PostMapping("/add")
-    public String postCompanyForm(@ModelAttribute Company company, Model model) {
-        model.addAttribute("company", company);
-        companyRepository.save(company);
-        return "redirect:/company/list";
-    }
-
-    @GetMapping("/list")
-    public String company(Model model) {
-        model.addAttribute("companies", companyRepository.findAll());
-        return "company/listCompany";
-    }
-
-    @GetMapping("/edit/{id}")
-    public String editCompanyById(@PathVariable Long id, Model model) {
-        Optional<Company> optionalCompany = companyRepository.findById(id);
-        if (optionalCompany.isPresent()) {
-            Company companyById = optionalCompany.get();
-            model.addAttribute("company", companyById);
-            return "/company/editCompany";
-        } else {
-            return "redirect:/company/list";
-        }
-    }
-
-    @PostMapping("/edit")
-    public String postEditCompany(@ModelAttribute Company company, Model model) {
+    public String postAddCompanyForm(@ModelAttribute Company company, Model model) {
         model.addAttribute("company", company);
         companyRepository.save(company);
         return "redirect:/company/list";
@@ -62,5 +43,17 @@ public class CompanyController {
     public String deleteCompanyById(@PathVariable Long id) {
         companyRepository.deleteById(id);
         return "redirect:/company/list";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editCompanyById(@PathVariable Long id, Model model) {
+        Optional<Company> optionalCompany = companyRepository.findById(id);
+        if (optionalCompany.isPresent()) {
+            Company companyById = optionalCompany.get();
+            model.addAttribute("company", companyById);
+            return "/company/add-company";
+        } else {
+            return "redirect:/company/list";
+        }
     }
 }
