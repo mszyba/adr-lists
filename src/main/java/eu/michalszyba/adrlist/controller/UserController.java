@@ -49,5 +49,16 @@ public class UserController {
         return "redirect:/user/list";
     }
 
-
+    @GetMapping("/edit/{id}")
+    public String editUserById(@PathVariable Long id, Model model) {
+        Optional<User> optionalUser = userRepository.findById(id);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            model.addAttribute("user", user);
+            model.addAttribute("companies", companyRepository.findAll());
+            return "/user/editUser";
+        } else {
+            return "redirect:/user/list";
+        }
+    }
 }
