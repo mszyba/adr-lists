@@ -1,6 +1,8 @@
 package eu.michalszyba.adrlist.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "companies")
@@ -17,6 +19,9 @@ public class Company {
     private String email;
     private String personContact;
     private String referenceNo;
+
+    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
+    private List<User> users = new ArrayList<>();
 
     public Company() {
     }
@@ -117,5 +122,13 @@ public class Company {
 
     public void setReferenceNo(String referenceNo) {
         this.referenceNo = referenceNo;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }
