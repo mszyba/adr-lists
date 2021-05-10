@@ -33,7 +33,7 @@ public class UserController {
     @GetMapping("/add")
     public String getAddUserForm(Model model) {
         model.addAttribute("user", new User());
-        model.addAttribute("companies", userService.getAllUser());
+        model.addAttribute("companies", companyService.getAllCompany());
         return "/user/add-user";
     }
 
