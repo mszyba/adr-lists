@@ -29,6 +29,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void updateUser(User user) {
+        User userById = getUserById(user.getId());
+        userById.setId(user.getId());
+        userById.setEmail(user.getEmail());
+        userById.setPassword(user.getPassword());
+        userById.setFirstName(user.getFirstName());
+        userById.setLastName(user.getLastName());
+        userById.setDescription(user.getDescription());
+        userById.setCompany(user.getCompany());
+        userById.setModificationDate();
+
+        this.userRepository.save(userById);
+    }
+
+    @Override
     public void deleteUserById(Long id) {
         this.userRepository.deleteById(id);
     }
