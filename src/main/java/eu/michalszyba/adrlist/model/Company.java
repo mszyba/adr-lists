@@ -23,6 +23,9 @@ public class Company {
     @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
     private List<User> users = new ArrayList<>();
 
+    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
+    private List<Customer> customers = new ArrayList<>();
+
     public Company() {
     }
 
@@ -130,5 +133,13 @@ public class Company {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(List<Customer> customers) {
+        this.customers = customers;
     }
 }

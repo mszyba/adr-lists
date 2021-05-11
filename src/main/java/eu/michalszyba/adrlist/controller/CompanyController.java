@@ -2,6 +2,7 @@ package eu.michalszyba.adrlist.controller;
 
 import eu.michalszyba.adrlist.model.Company;
 import eu.michalszyba.adrlist.service.CompanyService;
+import eu.michalszyba.adrlist.service.CustomerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +12,11 @@ import org.springframework.web.bind.annotation.*;
 public class CompanyController {
 
     private final CompanyService companyService;
+    private final CustomerService customerService;
 
-    public CompanyController(CompanyService companyService) {
+    public CompanyController(CompanyService companyService, CustomerService customerService) {
         this.companyService = companyService;
+        this.customerService = customerService;
     }
 
     @GetMapping("/list")
@@ -45,5 +48,11 @@ public class CompanyController {
     public String editCompanyById(@PathVariable Long id, Model model) {
             model.addAttribute("company", companyService.getCompanyById(id));
             return "/company/add-company";
+    }
+
+    @GetMapping("/customers/list/{id}")
+    public String showCustomersByCompanyId(@PathVariable Long id, Model model) {
+        model.addAttribute("customers", customerService.getAllCustomerByCompanyId(id));
+        return "/company/list-company-customers";
     }
 }
