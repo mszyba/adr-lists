@@ -1,10 +1,11 @@
 package eu.michalszyba.adrlist.model;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users_company")
-public class User {
+public class User extends AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
