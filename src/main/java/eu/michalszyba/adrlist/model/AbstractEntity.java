@@ -10,26 +10,30 @@ import java.util.Date;
 public abstract class AbstractEntity {
 
     @Column(name = "creation_date")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date creationDate;
+    private LocalDateTime creationDate;
 
     @Column(name = "modification_date")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date modificationDate;
+    private LocalDateTime modificationDate;
+
+    public LocalDateTime getCreationDate() {
+        return creationDate;
+    }
 
     @PrePersist
-    protected void onCreate() {
-
+    public void setCreationDate() {
         if (this.creationDate == null) {
-            Date currentDate = new Date();
+            LocalDateTime currentDate = LocalDateTime.now();
             this.creationDate = currentDate;
             this.modificationDate = currentDate;
         }
     }
 
-    @PreUpdate
-    protected void onUpdate() {
-        this.modificationDate = new Date();
+    public LocalDateTime getModificationDate() {
+        return modificationDate;
     }
 
+    @PreUpdate
+    public void setModificationDate() {
+        this.modificationDate = LocalDateTime.now();
+    }
 }
