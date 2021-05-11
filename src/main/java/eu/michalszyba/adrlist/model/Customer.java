@@ -1,17 +1,15 @@
 package eu.michalszyba.adrlist.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-@Table(name = "companies")
-public class Company {
+@Table(name = "customers")
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String companyName;
+    private String customerName;
     private String address;
     private String postCode;
     private String city;
@@ -20,17 +18,15 @@ public class Company {
     private String personContact;
     private String referenceNo;
 
-    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
-    private List<User> users = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
 
-    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
-    private List<Customer> customers = new ArrayList<>();
-
-    public Company() {
+    public Customer() {
     }
 
-    public Company(String companyName, String address, String postCode, String city, String phone, String email, String personContact, String referenceNo) {
-        this.companyName = companyName;
+    public Customer(String customerName, String address, String postCode, String city, String phone, String email, String personContact, String referenceNo) {
+        this.customerName = customerName;
         this.address = address;
         this.postCode = postCode;
         this.city = city;
@@ -42,9 +38,9 @@ public class Company {
 
     @Override
     public String toString() {
-        return "Company{" +
+        return "Customer{" +
                 "id=" + id +
-                ", companyName='" + companyName + '\'' +
+                ", customerName='" + customerName + '\'' +
                 ", address='" + address + '\'' +
                 ", postCode='" + postCode + '\'' +
                 ", city='" + city + '\'' +
@@ -63,12 +59,12 @@ public class Company {
         this.id = id;
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     public String getAddress() {
@@ -127,19 +123,11 @@ public class Company {
         this.referenceNo = referenceNo;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public Company getCompany() {
+        return company;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
-    public List<Customer> getCustomers() {
-        return customers;
-    }
-
-    public void setCustomers(List<Customer> customers) {
-        this.customers = customers;
+    public void setCompany(Company company) {
+        this.company = company;
     }
 }
