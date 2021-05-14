@@ -1,16 +1,11 @@
 package eu.michalszyba.adrlist.controller;
 
 import eu.michalszyba.adrlist.model.User;
-import eu.michalszyba.adrlist.repository.CompanyRepository;
-import eu.michalszyba.adrlist.repository.UserRepository;
 import eu.michalszyba.adrlist.service.CompanyService;
 import eu.michalszyba.adrlist.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/user")
