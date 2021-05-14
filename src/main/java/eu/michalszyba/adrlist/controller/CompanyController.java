@@ -53,6 +53,7 @@ public class CompanyController {
     @GetMapping("/customers/list/{id}")
     public String showCustomersByCompanyId(@PathVariable Long id, Model model) {
         model.addAttribute("customers", customerService.getAllCustomerByCompanyId(id));
+        model.addAttribute("company", companyService.getCompanyById(id));
         return "/company/list-company-customers";
     }
 }
