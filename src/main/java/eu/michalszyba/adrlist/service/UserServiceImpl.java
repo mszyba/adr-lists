@@ -52,7 +52,9 @@ public class UserServiceImpl implements UserService {
     public User getUserById(Long id) {
         Optional<User> optionalUser = userRepository.findById(id);
         if (optionalUser.isPresent()) {
-            return optionalUser.get();
+            User user = optionalUser.get();
+            user.setPassword("");
+            return user;
         } else {
             throw new EntityNotFoundException();
         }
