@@ -5,7 +5,10 @@ import eu.michalszyba.adrlist.service.CompanyService;
 import eu.michalszyba.adrlist.service.CustomerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/company")
@@ -32,7 +35,10 @@ public class CompanyController {
     }
 
     @PostMapping("/add")
-    public String postAddCompanyForm(@ModelAttribute Company company, Model model) {
+    public String postAddCompanyForm(@Valid Company company, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "/company/add-company";
+        }
         model.addAttribute("company", company);
         companyService.saveCompany(company);
         return "redirect:/company/list";
