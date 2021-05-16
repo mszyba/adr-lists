@@ -57,7 +57,8 @@
                             <label for="email" class="form-label">E-mail</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text">@</span>
-                                <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="e-mail" required>
+                                <input type="email" th:field="*{email}" class="form-control" th:errorclass="is-invalid" id="email" placeholder="e-mail" required>
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
                             </div>
                         </div>
 
