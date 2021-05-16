@@ -1,6 +1,9 @@
 package eu.michalszyba.adrlist.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Entity
@@ -13,12 +16,18 @@ public class User extends AbstractEntity {
     private Long id;
 
     @Column(nullable = false, unique = true)
+    @Email
+    @NotBlank
     private String email;
 
     @Column(name = "password_user", nullable = false)
+    @NotBlank
     private String password;
 
+    @Size(min = 2, max = 50)
     private String firstName;
+
+    @Size(min = 2, max = 50)
     private String lastName;
 
     @Column(name = "description_user")

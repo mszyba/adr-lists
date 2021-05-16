@@ -31,29 +31,34 @@
                             <input type="hidden" th:field="*{id}" th:value="*{id}">
 
                             <label for="companyName" class="form-label">Company name</label>
-                            <input type="text" th:field="*{companyName}" class="form-control" id="companyName" placeholder="" value="" required>
+                            <input type="text" th:field="*{companyName}" class="form-control" th:errorclass="is-invalid" id="companyName" placeholder="" value="" required>
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('companyName')}" th:errors="*{companyName}"></div>
                         </div>
 
                         <div class="col-sm-12">
                             <label for="address" class="form-label">Address</label>
-                            <input type="text" th:field="*{address}" class="form-control" id="address" placeholder="" value="" required>
+                            <input type="text" th:field="*{address}" class="form-control" th:errorclass="is-invalid" id="address" placeholder="" value="" required>
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></div>
                         </div>
 
                         <div class="col-sm-12">
                             <label for="postCode" class="form-label">Post Code</label>
-                            <input type="text" th:field="*{postCode}" class="form-control" id="postCode" placeholder="" value="" required>
+                            <input type="text" th:field="*{postCode}" class="form-control" th:errorclass="is-invalid" id="postCode" placeholder="" value="" required>
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('postCode')}" th:errors="*{postCode}"></div>
                         </div>
 
                         <div class="col-sm-12">
                             <label for="city" class="form-label">City</label>
-                            <input type="text" th:field="*{city}" class="form-control" id="city" placeholder="" value="" required>
+                            <input type="text" th:field="*{city}" class="form-control" th:errorclass="is-invalid" id="city" placeholder="" value="" required>
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></div>
                         </div>
 
                         <div class="col-12">
                             <label for="email" class="form-label">E-mail</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text">@</span>
-                                <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="e-mail" required>
+                                <input type="email" th:field="*{email}" class="form-control" th:errorclass="is-invalid" id="email" placeholder="e-mail" required>
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
                             </div>
                         </div>
 
