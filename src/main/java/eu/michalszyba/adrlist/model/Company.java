@@ -1,6 +1,7 @@
 package eu.michalszyba.adrlist.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class Company {
     @NotBlank
     private String phone;
 
+    @Email
     private String email;
     private String personContact;
     private String referenceNo;
