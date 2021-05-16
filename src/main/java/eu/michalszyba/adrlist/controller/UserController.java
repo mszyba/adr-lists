@@ -55,13 +55,13 @@ public class UserController {
     public String getEditUserById(@PathVariable Long id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
         model.addAttribute("companies", companyService.getAllCompany());
-        return "/user/edit-user";
+        return "/user/add-user";
     }
 
-    @PostMapping("/edit")
-    public String postEditUserById(@ModelAttribute User user, Model model) {
-        model.addAttribute("user", user);
-        userService.updateUser(user);
-        return "redirect:/user/list";
-    }
+//    @PostMapping("/edit")
+//    public String postEditUserById(@ModelAttribute User user, Model model) {
+//        model.addAttribute("user", user);
+//        userService.updateUser(user);
+//        return "redirect:/user/list";
+//    }
 }
