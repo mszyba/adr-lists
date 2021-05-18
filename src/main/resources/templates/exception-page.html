@@ -1,14 +1,24 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8">
-    <title>exception-page</title>
+<head th:replace="parts/baseHead :: baseHeader(~{::link})">
+    <link rel="stylesheet">
 </head>
-<body>
 
-<p th:text="${exception}"></p>
-<p th:text="${url}"></p>
-<p th:text="${errorMessage}"></p>
+<body>
+<header th:replace="parts/header :: header"></header>
+<div class="container-fluid">
+    <div class="row">
+
+        <div th:insert="parts/sidebar :: sidebar"></div>
+
+            <p th:text="${exception}"></p>
+            <p th:text="${url}"></p>
+            <p th:text="${errorMessage}"></p>
+    </div>
+</div>
+
+<script th:replace="parts/script :: script"></script>
+
 </body>
 </html>
