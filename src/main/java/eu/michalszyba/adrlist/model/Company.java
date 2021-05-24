@@ -1,5 +1,7 @@
 package eu.michalszyba.adrlist.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -36,9 +38,11 @@ public class Company {
     private String personContact;
     private String referenceNo;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
     private List<User> users = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
     private List<Customer> customers = new ArrayList<>();
 

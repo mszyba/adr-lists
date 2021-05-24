@@ -1,5 +1,7 @@
 package eu.michalszyba.adrlist.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -33,6 +35,7 @@ public class Customer {
     private String personContact;
     private String referenceNo;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
