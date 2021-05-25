@@ -102,3 +102,5 @@ insert into un_table (id, un_number, description_un) values (27, 2606, 'Sub-Ex')
 insert into un_table (id, un_number, description_un) values (28, 9559, 'Treeflex');
 insert into un_table (id, un_number, description_un) values (29, 7794, 'Ventosanzap');
 insert into un_table (id, un_number, description_un) values (30, 9543, 'Tampflex');
+
+INSERT INTO adr_lists_entity (id, company, customer, first_name, last_name, un_rows) VALUES (1, '{"id": 1, "city": "Otrokovice", "email": "btissiman0@noaa.gov", "phone": "+420 827 667 2354", "address": "44 Clarendon Court", "postCode": "765 02", "companyName": "Yambee", "referenceNo": "59-478-6950", "personContact": "Booth Tissiman"}', '{"id": 6, "city": "Vimmerby", "email": "lstefanovic5@dagondesign.com", "phone": "724-852-0974", "address": "00821 Continental Terrace", "postCode": "598 24", "referenceNo": null, "customerName": "Laboratoires Dermo Cosmetik Inc.", "personContact": "Esbjörn"}', '', 'Davidovitchddddddd', '[{"unDesc": "", "unList": [{"id": 1, "unNumber": "5912", "descriptionUn": "Bytecard"}]}]');

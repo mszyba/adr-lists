@@ -4,12 +4,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import eu.michalszyba.adrlist.form.MainForm;
 import eu.michalszyba.adrlist.form.UnForm;
-import eu.michalszyba.adrlist.model.AdrListEntity;
+import eu.michalszyba.adrlist.model.AdrList;
 import eu.michalszyba.adrlist.model.Company;
 import eu.michalszyba.adrlist.model.Customer;
 import eu.michalszyba.adrlist.model.Un;
 import eu.michalszyba.adrlist.repository.AdrListRepository;
 import eu.michalszyba.adrlist.repository.MainFormRepository;
+import eu.michalszyba.adrlist.service.AdrListService;
 import eu.michalszyba.adrlist.service.CompanyService;
 import eu.michalszyba.adrlist.service.CustomerService;
 import eu.michalszyba.adrlist.service.UnService;
@@ -26,16 +27,16 @@ public class MainFormController {
     private final CompanyService companyService;
     private final CustomerService customerService;
     private final UnService unService;
+    private final AdrListService adrListService;
 
-    private final MainFormRepository mainFormRepository;
-    private final AdrListRepository adrListRepository;
-
-    public MainFormController(CompanyService companyService, CustomerService customerService, UnService unService, MainFormRepository mainFormRepository, AdrListRepository adrListRepository) {
+    public MainFormController(CompanyService companyService,
+                              CustomerService customerService,
+                              UnService unService,
+                              AdrListService adrListService) {
         this.companyService = companyService;
         this.customerService = customerService;
         this.unService = unService;
-        this.mainFormRepository = mainFormRepository;
-        this.adrListRepository = adrListRepository;
+        this.adrListService = adrListService;
     }
 
     @ModelAttribute("unList")
@@ -66,39 +67,26 @@ public class MainFormController {
     }
 
     @PostMapping(value = "/first-step", params = {"saveForm"})
-    @ResponseBody
     public String postFirstStepForm(MainForm mainForm, Model model) throws JsonProcessingException {
         System.out.println(mainForm);
 
         List<UnForm> unForms = mainForm.getUnForms();
-        Customer mainFormCustomer = mainForm.getCustomer();
 
         String unFormsJson = new ObjectMapper().writeValueAsString(unForms);
         String companyJson = new ObjectMapper().writeValueAsString(mainForm.getCompany());
         String customerJson = new ObjectMapper().writeValueAsString(mainForm.getCustomer());
 
+        AdrList adrList = new AdrList();
+        adrList.setCompany(companyJson);
+        adrList.setCustomer(customerJson);
+        adrList.setFirstName(mainForm.getFirstName());
+        adrList.setLastName(mainForm.getLastName());
+        adrList.setUnRows(unFormsJson);
 
-        System.out.println("=====================================");
-        System.out.println(unFormsJson);
-        System.out.println("=====================================");
-        System.out.println(companyJson);
-        System.out.println("++++++++++++++++++++++++++++++++++");
-        System.out.println(customerJson);
+        adrListService.saverAdrList(adrList);
 
-        AdrListEntity adrListEntity = new AdrListEntity();
-        adrListEntity.setCompany(companyJson);
-        adrListEntity.setCustomer(customerJson);
-        adrListEntity.setFirstName(mainForm.getFirstName());
-        adrListEntity.setLastName(mainForm.getLastName());
-        adrListEntity.setUnRows(unFormsJson);
-
-        adrListRepository.save(adrListEntity);
-
-//        mainFormRepository.add(mainForm);
-//        System.out.println(mainFormRepository.findAll());
         model.addAttribute("mainForm", mainForm);
-//        return "redirect:/form/show-main-form";
-        return "mainForm";
+        return "redirect:/adr/list";
     }
 
     @GetMapping("/second-step")

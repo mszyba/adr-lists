@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "adr_lists_entity")
-public class AdrListEntity {
+public class AdrList {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
