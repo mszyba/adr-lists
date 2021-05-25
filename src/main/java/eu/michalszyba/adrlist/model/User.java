@@ -1,5 +1,7 @@
 package eu.michalszyba.adrlist.model;
 
+import org.hibernate.annotations.Where;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -8,6 +10,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users_company")
+@Where(clause = "is_active=true")
 public class User extends AbstractEntity {
 
     @Id
@@ -33,6 +36,9 @@ public class User extends AbstractEntity {
     @Column(name = "description_user")
     private String description;
 
+    private boolean isSuperAdmin = false;
+    private boolean isActive = true;
+
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
@@ -53,7 +59,10 @@ public class User extends AbstractEntity {
         return "User{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
-                '}';
+                ", isSuperAdmin=" + isSuperAdmin +
+                ", isActive=" + isActive +
+                ", company=" + company +
+                "} " + super.toString();
     }
 
     public Long getId() {
@@ -110,5 +119,21 @@ public class User extends AbstractEntity {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public boolean isSuperAdmin() {
+        return isSuperAdmin;
+    }
+
+    public void setSuperAdmin(boolean superAdmin) {
+        isSuperAdmin = superAdmin;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

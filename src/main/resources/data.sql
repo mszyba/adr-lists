@@ -19,26 +19,26 @@ insert into companies (company_name, address, post_code, city, phone, email, per
 insert into companies (company_name, address, post_code, city, phone, email, person_contact, reference_no) values ('Jazzy', '93 Sullivan Parkway', null, 'Munjungan', '+62 756 386 7011', 'msoutherni@miibeian.gov.cn', 'Mordecai Southern', '79-276-9705');
 insert into companies (company_name, address, post_code, city, phone, email, person_contact, reference_no) values ('Zoomcast', '51141 Judy Plaza', '34-322', 'Gilowice', '+48 425 649 0210', 'fabrahmsonj@youku.com', 'Frasquito Abrahmson', '24-103-4863');
 
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('maecenas', 'cdavidovitch0@dedecms.com', 'Carolin', 'Davidovitch', 'xA81qir9', 8);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('elementum in', 'ndalman1@hexun.com', 'Nathaniel', 'Dalman', 'CxPhjhC6Orp0', 2);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('orci eget', 'biceton2@wikia.com', 'Bonnee', 'Iceton', 'XOuIbWtyn5s', 9);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('ultrices posuere cubilia', 'atremaine3@sphinn.com', 'Anjanette', 'Tremaine', 'iDV6gLiV', 5);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('eget nunc', 'ptixall4@edublogs.org', 'Paten', 'Tixall', 'm5BN8G3cqC', 8);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('purus', 'rbridgens5@com.com', 'Rivalee', 'Bridgens', 'tV6Gb4', 4);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('ultrices posuere', 'tjeanel6@naver.com', 'Teirtza', 'Jeanel', 'Kim8DaPp', 8);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('molestie nibh in', 'wprahl7@vimeo.com', 'Wainwright', 'Prahl', 'DrGMDy11o', 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('neque duis', 'hdabling8@arizona.edu', 'Harmony', 'Dabling', 'r0Bqqa1zdS', 7);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('enim', 'jrapps9@twitter.com', 'Jan', 'Rapps', 'DYdbnvbZb', 5);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('iaculis congue vivamus', 'mabramowitza@weebly.com', 'Milicent', 'Abramowitz', 'e2BZYss7v', 5);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('vitae consectetuer eget', 'bnindb@businessinsider.com', 'Barney', 'Nind', 'YxbVPacTWqlw', 9);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('tincidunt', 'mwattamc@tinyurl.com', 'Minne', 'Wattam', 'aCRlxCNbY8', 2);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('sit amet', 'omanolovd@mapquest.com', 'Obadias', 'Manolov', '8DoH3U1TeB', 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('sed lacus morbi', 'arouthame@com.com', 'Ardisj', 'Routham', 'e8oxVmjjxjp7', 7);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('id', 'cstuckleyf@wufoo.com', 'Corbin', 'Stuckley', 'JDYIjsvY', 2);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('pede justo lacinia', 'qgrigorushking@51.la', 'Quincy', 'Grigorushkin', 'ZAB1V8F5Nsv', 2);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('purus phasellus', 'hdriversh@digg.com', 'Haleigh', 'Drivers', 'LWG3e6k65', 8);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('aliquam non mauris', 'everheijdeni@nsw.gov.au', 'Edna', 'Verheijden', 'qby2V0Q5', 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id) values ('elit ac nulla', 'lgornallj@shinystat.com', 'Lauree', 'Gornall', 'QE5dcCl', 10);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('maecenas', 'cdavidovitch0@dedecms.com', 'Carolin', 'Davidovitch', 'xA81qir9', 8, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('elementum in', 'ndalman1@hexun.com', 'Nathaniel', 'Dalman', 'CxPhjhC6Orp0', 2, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('orci eget', 'biceton2@wikia.com', 'Bonnee', 'Iceton', 'XOuIbWtyn5s', 9, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('ultrices posuere cubilia', 'atremaine3@sphinn.com', 'Anjanette', 'Tremaine', 'iDV6gLiV', 5, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('eget nunc', 'ptixall4@edublogs.org', 'Paten', 'Tixall', 'm5BN8G3cqC', 8, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('purus', 'rbridgens5@com.com', 'Rivalee', 'Bridgens', 'tV6Gb4', 4, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('ultrices posuere', 'tjeanel6@naver.com', 'Teirtza', 'Jeanel', 'Kim8DaPp', 8, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('molestie nibh in', 'wprahl7@vimeo.com', 'Wainwright', 'Prahl', 'DrGMDy11o', 1, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('neque duis', 'hdabling8@arizona.edu', 'Harmony', 'Dabling', 'r0Bqqa1zdS', 7, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('enim', 'jrapps9@twitter.com', 'Jan', 'Rapps', 'DYdbnvbZb', 5, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('iaculis congue vivamus', 'mabramowitza@weebly.com', 'Milicent', 'Abramowitz', 'e2BZYss7v', 5, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('vitae consectetuer eget', 'bnindb@businessinsider.com', 'Barney', 'Nind', 'YxbVPacTWqlw', 9, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('tincidunt', 'mwattamc@tinyurl.com', 'Minne', 'Wattam', 'aCRlxCNbY8', 2, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('sit amet', 'omanolovd@mapquest.com', 'Obadias', 'Manolov', '8DoH3U1TeB', 1, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('sed lacus morbi', 'arouthame@com.com', 'Ardisj', 'Routham', 'e8oxVmjjxjp7', 7, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('id', 'cstuckleyf@wufoo.com', 'Corbin', 'Stuckley', 'JDYIjsvY', 2, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('pede justo lacinia', 'qgrigorushking@51.la', 'Quincy', 'Grigorushkin', 'ZAB1V8F5Nsv', 2, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('purus phasellus', 'hdriversh@digg.com', 'Haleigh', 'Drivers', 'LWG3e6k65', 8, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('aliquam non mauris', 'everheijdeni@nsw.gov.au', 'Edna', 'Verheijden', 'qby2V0Q5', 1, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('elit ac nulla', 'lgornallj@shinystat.com', 'Lauree', 'Gornall', 'QE5dcCl', 10, 0, 1);
 
 
 insert into customers (address, city, customer_name, email, person_contact, phone, post_code, company_id) values ('98 Shasta Street', 'Lapai', 'Sandoz Inc', 'rchurly0@constantcontact.com', 'Cléa', '725-493-5597', null, 1);

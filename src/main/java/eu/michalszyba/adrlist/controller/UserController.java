@@ -1,5 +1,6 @@
 package eu.michalszyba.adrlist.controller;
 
+import eu.michalszyba.adrlist.model.Company;
 import eu.michalszyba.adrlist.model.User;
 import eu.michalszyba.adrlist.service.CompanyService;
 import eu.michalszyba.adrlist.service.UserService;
@@ -9,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -22,46 +24,45 @@ public class UserController {
         this.companyService = companyService;
     }
 
+    @ModelAttribute("users")
+    public List<User> populateUser() {
+        return userService.getAllUser();
+    }
+
+    @ModelAttribute("companies")
+    public List<Company> populateCompany() {
+        return companyService.getAllCompany();
+    }
+
     @GetMapping("/list")
-    public String listUser(Model model) {
-        model.addAttribute("users", userService.getAllUser());
+    public String listUser() {
         return "/user/list-user";
     }
 
     @GetMapping("/add")
     public String getAddUserForm(Model model) {
         model.addAttribute("user", new User());
-        model.addAttribute("companies", companyService.getAllCompany());
         return "/user/add-user";
     }
 
     @PostMapping("/add")
-    public String postAddUserForm(@Valid User user, BindingResult result, Model model) {
+    public String postAddUserForm(@Valid User user, BindingResult result) {
         if (result.hasErrors()) {
             return "/user/add-user";
         }
-        model.addAttribute("user", user);
         userService.saveUser(user);
         return "redirect:/user/list";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteUserById(@PathVariable Long id) {
-        userService.deleteUserById(id);
+        userService.softDeleteUserById(id);
         return "redirect:/user/list";
     }
 
     @GetMapping("/edit/{id}")
     public String getEditUserById(@PathVariable Long id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
-        model.addAttribute("companies", companyService.getAllCompany());
         return "/user/add-user";
     }
-
-//    @PostMapping("/edit")
-//    public String postEditUserById(@ModelAttribute User user, Model model) {
-//        model.addAttribute("user", user);
-//        userService.updateUser(user);
-//        return "redirect:/user/list";
-//    }
 }
