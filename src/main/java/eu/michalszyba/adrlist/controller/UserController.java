@@ -65,4 +65,13 @@ public class UserController {
         model.addAttribute("user", userService.getUserById(id));
         return "/user/add-user";
     }
+
+    @PostMapping("/edit")
+    public String postEditUserById(@Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "/user/add-user";
+        }
+        userService.updateUser(user);
+        return "redirect:/user/list";
+    }
 }

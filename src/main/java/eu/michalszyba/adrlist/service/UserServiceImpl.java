@@ -30,18 +30,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUser(User user) {
-        User userById = getUserById(user.getId());
+//        User userById = getUserById(user.getId());
 //        userById.setId(user.getId());
-        userById.setEmail(user.getEmail());
-        userById.setPassword(user.getPassword());
-        userById.setFirstName(user.getFirstName());
-        userById.setLastName(user.getLastName());
-        userById.setDescription(user.getDescription());
-        userById.setCompany(user.getCompany());
-        userById.setCreationDate();
-        userById.setModificationDate();
+//        userById.setEmail(user.getEmail());
+//        userById.setPassword(user.getPassword());
+//        userById.setFirstName(user.getFirstName());
+//        userById.setLastName(user.getLastName());
+//        userById.setDescription(user.getDescription());
+//        userById.setCompany(user.getCompany());
+////        userById.setCreationDate();
+////        userById.setModificationDate();
 
-        this.userRepository.save(userById);
+        this.userRepository.save(user);
     }
 
     @Override

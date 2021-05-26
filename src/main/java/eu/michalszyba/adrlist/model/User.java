@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "users_company")
 @Where(clause = "is_active=true")
-public class User extends AbstractEntity {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,6 +43,9 @@ public class User extends AbstractEntity {
     @JoinColumn(name = "company_id")
     private Company company;
 
+    @Embedded
+    private Audit audit = new Audit();
+
     public User() {
     }
 
@@ -58,11 +61,16 @@ public class User extends AbstractEntity {
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", audit=" + audit +
                 ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", description='" + description + '\'' +
                 ", isSuperAdmin=" + isSuperAdmin +
                 ", isActive=" + isActive +
                 ", company=" + company +
-                "} " + super.toString();
+                '}';
     }
 
     public Long getId() {
@@ -135,5 +143,13 @@ public class User extends AbstractEntity {
 
     public void setActive(boolean active) {
         isActive = active;
+    }
+
+    public Audit getAudit() {
+        return audit;
+    }
+
+    public void setAudit(Audit audit) {
+        this.audit = audit;
     }
 }
