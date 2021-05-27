@@ -3,6 +3,7 @@ package eu.michalszyba.adrlist.controller;
 import eu.michalszyba.adrlist.model.Company;
 import eu.michalszyba.adrlist.service.CompanyService;
 import eu.michalszyba.adrlist.service.CustomerService;
+import eu.michalszyba.adrlist.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,10 +17,12 @@ public class CompanyController {
 
     private final CompanyService companyService;
     private final CustomerService customerService;
+    private final UserService userService;
 
-    public CompanyController(CompanyService companyService, CustomerService customerService) {
+    public CompanyController(CompanyService companyService, CustomerService customerService, UserService userService) {
         this.companyService = companyService;
         this.customerService = customerService;
+        this.userService = userService;
     }
 
     @GetMapping("/list")
@@ -46,7 +49,7 @@ public class CompanyController {
 
     @GetMapping("/delete/{id}")
     public String deleteCompanyById(@PathVariable Long id) {
-        companyService.deleteCompanyById(id);
+        companyService.softDeleteCompanyById(id);
         return "redirect:/company/list";
     }
 
@@ -61,5 +64,12 @@ public class CompanyController {
         model.addAttribute("customers", customerService.getAllCustomerByCompanyId(id));
         model.addAttribute("company", companyService.getCompanyById(id));
         return "/company/list-company-customers";
+    }
+
+    @GetMapping("/users/list/{id}")
+    public String showUsersByCompanyId(@PathVariable Long id, Model model) {
+        model.addAttribute("users", userService.getAllUserByCompanyId(id));
+        model.addAttribute("company", companyService.getCompanyById(id));
+        return "/company/list-company-users";
     }
 }

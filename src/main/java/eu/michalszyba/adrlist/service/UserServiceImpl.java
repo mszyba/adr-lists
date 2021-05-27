@@ -30,22 +30,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUser(User user) {
-        User userById = getUserById(user.getId());
-        userById.setId(user.getId());
-        userById.setEmail(user.getEmail());
-        userById.setPassword(user.getPassword());
-        userById.setFirstName(user.getFirstName());
-        userById.setLastName(user.getLastName());
-        userById.setDescription(user.getDescription());
-        userById.setCompany(user.getCompany());
-        userById.setModificationDate();
+        Long userId = user.getId();
+        String firstName = user.getFirstName();
+        String lastName = user.getLastName();
+        String password = user.getPassword();
+        String description = user.getDescription();
 
-        this.userRepository.save(userById);
+        this.userRepository.updateUser(firstName, lastName, password, description, userId);
     }
 
     @Override
-    public void deleteUserById(Long id) {
-        this.userRepository.deleteById(id);
+    public void softDeleteUserById(Long id) {
+        this.userRepository.softDelete(id);
     }
 
     @Override
@@ -58,5 +54,10 @@ public class UserServiceImpl implements UserService {
         } else {
             throw new EntityNotFoundException();
         }
+    }
+
+    @Override
+    public List<User> getAllUserByCompanyId(Long companyId) {
+        return userRepository.findAllByCompanyId(companyId);
     }
 }

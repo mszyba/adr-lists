@@ -1,5 +1,7 @@
 package eu.michalszyba.adrlist.model;
 
+import org.hibernate.annotations.Where;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -8,7 +10,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users_company")
-public class User extends AbstractEntity {
+@Where(clause = "is_active=true")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,9 +36,15 @@ public class User extends AbstractEntity {
     @Column(name = "description_user")
     private String description;
 
+    private boolean isSuperAdmin = false;
+    private boolean isActive = true;
+    private LocalDateTime createdOn;
+    private LocalDateTime updatedOn;
+
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
+
 
     public User() {
     }
@@ -53,6 +62,10 @@ public class User extends AbstractEntity {
         return "User{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
+                ", description='" + description + '\'' +
+                ", isSuperAdmin=" + isSuperAdmin +
+                ", isActive=" + isActive +
+                ", company=" + company +
                 '}';
     }
 
@@ -110,5 +123,46 @@ public class User extends AbstractEntity {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public boolean isSuperAdmin() {
+        return isSuperAdmin;
+    }
+
+    public void setSuperAdmin(boolean superAdmin) {
+        isSuperAdmin = superAdmin;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+
+    public LocalDateTime getCreatedOn() {
+        return createdOn;
+    }
+
+    public LocalDateTime getUpdatedOn() {
+        return updatedOn;
+    }
+
+    public void setUpdatedOn(LocalDateTime updatedOn) {
+        this.updatedOn = updatedOn;
+    }
+
+    @PrePersist
+    public void prePersist() {
+        if (createdOn == null) {
+            createdOn = LocalDateTime.now();
+        }
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        this.updatedOn = LocalDateTime.now();
     }
 }
