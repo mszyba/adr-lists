@@ -46,7 +46,7 @@ public class CompanyController {
 
     @GetMapping("/delete/{id}")
     public String deleteCompanyById(@PathVariable Long id) {
-        companyService.deleteCompanyById(id);
+        companyService.softDeleteCompanyById(id);
         return "redirect:/company/list";
     }
 

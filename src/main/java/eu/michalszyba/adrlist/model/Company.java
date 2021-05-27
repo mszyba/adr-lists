@@ -1,6 +1,7 @@
 package eu.michalszyba.adrlist.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "companies")
+@Where(clause = "is_active=true")
 public class Company {
 
     @Id
@@ -37,6 +39,7 @@ public class Company {
     private String email;
     private String personContact;
     private String referenceNo;
+    private boolean isActive = true;
 
     @JsonIgnore
     @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
@@ -72,6 +75,7 @@ public class Company {
                 ", email='" + email + '\'' +
                 ", personContact='" + personContact + '\'' +
                 ", referenceNo='" + referenceNo + '\'' +
+                ", isActive=" + isActive +
                 '}';
     }
 
@@ -145,6 +149,14 @@ public class Company {
 
     public void setReferenceNo(String referenceNo) {
         this.referenceNo = referenceNo;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 
     public List<User> getUsers() {

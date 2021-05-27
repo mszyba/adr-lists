@@ -29,8 +29,13 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public void deleteCompanyById(Long id) {
-        this.companyRepository.deleteById(id);
+    public void softDeleteCompanyById(Long id) {
+        Optional<Company> optionalCompany = companyRepository.findById(id);
+        if (optionalCompany.isPresent()) {
+            this.companyRepository.softDelete(id);
+        } else {
+            throw new EntityNotFoundException();
+        }
     }
 
     @Override
