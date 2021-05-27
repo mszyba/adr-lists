@@ -38,13 +38,13 @@ public class User {
 
     private boolean isSuperAdmin = false;
     private boolean isActive = true;
+    private LocalDateTime createdOn;
+    private LocalDateTime updatedOn;
 
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
 
-    @Embedded
-    private Audit audit = new Audit();
 
     public User() {
     }
@@ -61,11 +61,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", audit=" + audit +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
                 ", description='" + description + '\'' +
                 ", isSuperAdmin=" + isSuperAdmin +
                 ", isActive=" + isActive +
@@ -145,11 +141,28 @@ public class User {
         isActive = active;
     }
 
-    public Audit getAudit() {
-        return audit;
+
+    public LocalDateTime getCreatedOn() {
+        return createdOn;
     }
 
-    public void setAudit(Audit audit) {
-        this.audit = audit;
+    public LocalDateTime getUpdatedOn() {
+        return updatedOn;
+    }
+
+    public void setUpdatedOn(LocalDateTime updatedOn) {
+        this.updatedOn = updatedOn;
+    }
+
+    @PrePersist
+    public void prePersist() {
+        if (createdOn == null) {
+            createdOn = LocalDateTime.now();
+        }
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        this.updatedOn = LocalDateTime.now();
     }
 }
