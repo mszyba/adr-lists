@@ -60,4 +60,9 @@ public class UserServiceImpl implements UserService {
             throw new EntityNotFoundException();
         }
     }
+
+    @Override
+    public List<User> getAllUserByCompanyId(Long companyId) {
+        return userRepository.findAllByCompanyId(companyId);
+    }
 }

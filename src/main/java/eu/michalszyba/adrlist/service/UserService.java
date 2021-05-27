@@ -15,4 +15,6 @@ public interface UserService {
     void softDeleteUserById(Long id);
 
     User getUserById(Long id);
+
+    List<User> getAllUserByCompanyId(Long companyId);
 }
