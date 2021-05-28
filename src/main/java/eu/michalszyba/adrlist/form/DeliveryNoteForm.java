@@ -6,14 +6,16 @@ import eu.michalszyba.adrlist.model.Customer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainForm {
+public class DeliveryNoteForm {
 
     private Company company;
     private Customer customer;
     private String firstName;
     private String lastName;
-
     private List<UnForm> unForms = new ArrayList<>();
+
+    public DeliveryNoteForm() {
+    }
 
     @Override
     public String toString() {

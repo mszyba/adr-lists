@@ -20,20 +20,21 @@
           <th>Id</th>
           <th>Company</th>
           <th>Customer</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Rows</th>
+          <th>dddddddd</th>
+          <th>isActive</th>
+          <th>createdOn</th>
           <th>Edit</th>
+          <th>Delete</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="adrRow : ${adrLists}">
+        <tr th:each="adrRow : ${allDeliveryNotes}">
           <td th:text="${adrRow.id}"></td>
-          <td th:text="${adrRow.company}"></td>
-          <td th:text="${adrRow.customer}"></td>
-          <td th:text="${adrRow.firstName}"></td>
-          <td th:text="${adrRow.lastName}"></td>
-          <td th:text="${adrRow.unRows}"></td>
+          <td th:text="${adrRow.companyId}"></td>
+          <td th:text="${adrRow.customerId}"></td>
+          <td th:text="${adrRow.deliveryNoteForm}"></td>
+          <td th:text="${adrRow.isActive}"></td>
+          <td th:text="${adrRow.createdOn}"></td>
 
           <td><a th:href="@{/company/edit/{id}(id=${adrRow.id})}" class="btn btn-outline-info btn-sm">Edit</a></td>
           <td><a th:href="@{/company/delete/{id}(id=${adrRow.id})}" class="btn btn-outline-danger btn-sm">Delete</a></td>
