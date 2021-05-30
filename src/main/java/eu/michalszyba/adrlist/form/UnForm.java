@@ -1,5 +1,6 @@
 package eu.michalszyba.adrlist.form;
 
+import eu.michalszyba.adrlist.model.Packaging;
 import eu.michalszyba.adrlist.model.Un;
 
 import java.util.List;
@@ -7,14 +8,12 @@ import java.util.List;
 public class UnForm {
 
     private List<Un> unList;
+    private Long quantityPiece;
+    private List<Packaging> packagingList;
+    private Long quantityAll;
     private String unDesc;
 
     public UnForm() {
-    }
-
-    public UnForm(List<Un> unList, String unDesc) {
-        this.unList = unList;
-        this.unDesc = unDesc;
     }
 
     public List<Un> getUnList() {
@@ -23,6 +22,30 @@ public class UnForm {
 
     public void setUnList(List<Un> unList) {
         this.unList = unList;
+    }
+
+    public Long getQuantityPiece() {
+        return quantityPiece;
+    }
+
+    public void setQuantityPiece(Long quantityPiece) {
+        this.quantityPiece = quantityPiece;
+    }
+
+    public List<Packaging> getPackagingList() {
+        return packagingList;
+    }
+
+    public void setPackagingList(List<Packaging> packagingList) {
+        this.packagingList = packagingList;
+    }
+
+    public Long getQuantityAll() {
+        return quantityAll;
+    }
+
+    public void setQuantityAll(Long quantityAll) {
+        this.quantityAll = quantityAll;
     }
 
     public String getUnDesc() {
@@ -37,6 +60,9 @@ public class UnForm {
     public String toString() {
         return "UnForm{" +
                 "unList=" + unList +
+                ", quantityPiece=" + quantityPiece +
+                ", packagingList=" + packagingList +
+                ", quantityAll=" + quantityAll +
                 ", unDesc='" + unDesc + '\'' +
                 '}';
     }
