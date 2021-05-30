@@ -76,7 +76,8 @@
                   <select th:field="*{unForms[__${rowStat.index}__].unList}" class="form-select" id="unNumber">
                     <option th:each="un : ${unList}"
                             th:value="${un.id}"
-                            th:text="${un.unNumber} + ' ' + ${un.nameAndDescription}">Un number and descriptions</option>
+                            th:text="${un.unNumber} + ' ' + ${un.nameAndDescription} + ', ' + ${un.labels} + ', ' + ${un.packingGroup}">
+                            Un number, descriptions, label, packaging group</option>
                   </select>
                 </td>
                 <td>

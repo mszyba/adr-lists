@@ -72,12 +72,12 @@ insert into customers (address, city, customer_name, email, person_contact, phon
 insert into customers (address, city, customer_name, email, person_contact, phone, post_code, company_id) values ('44491 Tony Center', 'Niort', 'Sato Pharmaceutical Co., Ltd.', 'wrigebys@kickstarter.com', 'Ruì', '250-797-4117', '79021 CEDEX', 10);
 insert into customers (address, city, customer_name, email, person_contact, phone, post_code, company_id) values ('272 Scofield Avenue', 'Modot', 'Cardinal Health', 'gnaisbittt@youku.com', 'Maëlla', '219-154-5642', null, 6);
 
-insert into un_table (id, un_number, name_and_description) values (1, 5912, 'Bytecard');
-insert into un_table (id, un_number, name_and_description) values (2, 1587, 'Trippledex');
-insert into un_table (id, un_number, name_and_description) values (3, 6443, 'Holdlamis');
-insert into un_table (id, un_number, name_and_description) values (4, 5728, 'Regrant');
-insert into un_table (id, un_number, name_and_description) values (5, 7471, 'Cardify');
-insert into un_table (id, un_number, name_and_description) values (6, 2955, 'Alphazap');
+insert into un_table (id, un_number, name_and_description, labels, packing_group) values (1, 1263, 'PAINT', '3', 'I');
+insert into un_table (id, un_number, name_and_description, labels, packing_group) values (2, 1263, 'PAINT RELATED MATERIAL', '3', 'I');
+insert into un_table (id, un_number, name_and_description, labels, packing_group) values (3, 1263, 'PAINT', '3', 'II');
+insert into un_table (id, un_number, name_and_description, labels, packing_group) values (4, 1263, 'PAINT RELATED MATERIAL', '3', 'II');
+insert into un_table (id, un_number, name_and_description, labels, packing_group) values (5, 1263, 'PAINT', '3', 'III');
+insert into un_table (id, un_number, name_and_description, labels, packing_group) values (6, 1263, 'PAINT RELATED MATERIAL', '3', 'III');
 insert into un_table (id, un_number, name_and_description) values (7, 4850, 'Namfix');
 insert into un_table (id, un_number, name_and_description) values (8, 8542, 'Flowdesk');
 insert into un_table (id, un_number, name_and_description) values (9, 4223, 'Konklux');
