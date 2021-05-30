@@ -60,12 +60,16 @@
             <div class="col-sm-3">
               <button type="submit" name="addRow" class="btn-sm">Add new UN number</button>
             </div>
+
+<!--            TODO: change table to div-->
             <table>
               <thead>
                 <tr>
                   <th>No.</th>
                   <th>Un</th>
-                  <th>Description</th>
+                  <th>Quantity</th>
+                  <th>Packaging</th>
+                  <th>All volume</th>
                 </tr>
               </thead>
               <tbody>
@@ -81,8 +85,21 @@
                   </select>
                 </td>
                 <td>
-                  <label for="unDescription" class="form-label"></label>
-                  <input type="text" th:field="*{unForms[__${rowStat.index}__].unDesc}" class="form-control" id="unDescription"/>
+                  <label for="quantityPiece"></label>
+                  <input type="number" th:field="*{unForms[__${rowStat.index}__].quantityPiece}" class="form-control" id="quantityPiece"/>
+                </td>
+                <td>
+                  <label for="packaging"></label>
+                  <select th:field="*{unForms[__${rowStat.index}__].packagingList}" class="form-select" id="packaging">
+                    <option th:each="p : ${packagingList}"
+                            th:value="${p.id}"
+                            th:text="${p.codePackaging} + ' ' + ${p.descriptionPackaging}">
+                      Packaging number, descriptions</option>
+                  </select>
+                </td>
+                <td>
+                  <label for="quantityAll"></label>
+                  <input type="number" th:field="*{unForms[__${rowStat.index}__].quantityAll}" class="form-control" id="quantityAll">
                 </td>
               </tr>
               </tbody>
