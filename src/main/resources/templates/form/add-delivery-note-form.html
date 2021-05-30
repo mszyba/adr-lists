@@ -19,7 +19,6 @@
 
             <div class="col-sm-12">
               <label for="company" class="form-label">Company</label>
-
               <select th:field="*{company}" class="form-select" id="company" required>
                 <th:block th:each="c : ${companies}">
                   <option th:text="${c.companyName}" th:value="${c.id}"></option>
@@ -28,8 +27,7 @@
             </div>
 
             <div class="col-sm-12">
-              <label for="customer" class="form-label">Customer</label>
-
+              <label for="customer" class="form-label">Delivery to Customer:</label>
               <select th:field="*{customer}" class="form-select" id="customer" required>
                 <th:block th:each="customer : ${customers}">
                   <option th:text="${customer.customerName}" th:value="${customer.id}"></option>
@@ -59,35 +57,31 @@
 <!--                <input th:field="*{unForms[__${rowStat.index}__].unDesc}" type="text" class="form-control">-->
 <!--              </div>-->
 <!--            </div>-->
-
+            <div class="col-sm-3">
+              <button type="submit" name="addRow" class="btn-sm">Add new UN number</button>
+            </div>
             <table>
               <thead>
                 <tr>
                   <th>No.</th>
                   <th>Un</th>
-                  <th>Decription</th>
-                  <th>
-                    <button type="submit" name="addRow">Add row</button>
-                  </th>
+                  <th>Description</th>
                 </tr>
               </thead>
               <tbody>
               <tr th:each="row, rowStat : *{unForms}">
                 <td th:text="${rowStat.count}">1</td>
                 <td>
-<!--                  <label for="unNumber" class="form-label"></label>-->
-<!--                  <input type="text" th:field="*{unForms[__${rowStat.index}__].unNumber}" class="form-control" id="unNumber"/>-->
+                  <label for="unNumber"></label>
                   <select th:field="*{unForms[__${rowStat.index}__].unList}" class="form-select" id="unNumber">
-<!--                    <option selected>Choose UN Number</option>-->
                     <option th:each="un : ${unList}"
                             th:value="${un.id}"
-                            th:text="${un.unNumber}">Thymus Thymi</option>
+                            th:text="${un.unNumber} + ' ' + ${un.nameAndDescription}">Un number and descriptions</option>
                   </select>
-<!--                  <input type="text" th:field="*{unForms[__${rowStat.index}__].unList}" id="unNumber" class="form-control">-->
                 </td>
                 <td>
-<!--                  <label for="descriptionUn" class="form-label">unNo</label>-->
-                  <input type="text" th:field="*{unForms[__${rowStat.index}__].unDesc}" class="form-control" id="descriptionUn"/>
+                  <label for="unDescription" class="form-label"></label>
+                  <input type="text" th:field="*{unForms[__${rowStat.index}__].unDesc}" class="form-control" id="unDescription"/>
                 </td>
               </tr>
               </tbody>
