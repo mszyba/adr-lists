@@ -88,7 +88,6 @@ public class DeliveryNoteFormController {
 
         deliveryNoteService.add(deliveryNote);
 
-        model.addAttribute("mainForm", deliveryNoteForm);
-        return "redirect:/adr/list";
+        return "redirect:/delivery-note/list";
     }
 }

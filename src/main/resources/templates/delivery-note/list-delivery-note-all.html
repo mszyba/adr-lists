@@ -28,16 +28,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="adrRow : ${allDeliveryNotes}">
-          <td th:text="${adrRow.id}"></td>
-          <td th:text="${adrRow.companyId}"></td>
-          <td th:text="${adrRow.customerId}"></td>
-          <td th:text="${adrRow.deliveryNoteForm}"></td>
-          <td th:text="${adrRow.isActive}"></td>
-          <td th:text="${adrRow.createdOn}"></td>
+        <tr th:each="oneDn : ${allDeliveryNotes}">
+          <td th:text="${oneDn.id}"></td>
+          <td th:text="${oneDn.companyId}"></td>
+          <td th:text="${oneDn.customerId}"></td>
+          <td th:text="${oneDn.deliveryNoteForm}"></td>
+          <td th:text="${oneDn.isActive}"></td>
+          <td th:text="${oneDn.createdOn}"></td>
 
-          <td><a th:href="@{/company/edit/{id}(id=${adrRow.id})}" class="btn btn-outline-info btn-sm">Edit</a></td>
-          <td><a th:href="@{/company/delete/{id}(id=${adrRow.id})}" class="btn btn-outline-danger btn-sm">Delete</a></td>
+          <td><a th:href="@{/company/edit/{id}(id=${oneDn.id})}" class="btn btn-outline-info btn-sm">Edit</a></td>
+          <td><a th:href="@{/company/delete/{id}(id=${oneDn.id})}" class="btn btn-outline-danger btn-sm">Delete</a></td>
         </tr>
         </tbody>
       </table>

@@ -2,6 +2,7 @@ package eu.michalszyba.adrlist.converter;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import eu.michalszyba.adrlist.form.DeliveryNoteForm;
 import eu.michalszyba.adrlist.model.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,10 +28,10 @@ public class JsonConverter implements AttributeConverter<Object, String> {
     }
 
     @Override
-    public Object convertToEntityAttribute(String json) {
-        Object o = null;
+    public DeliveryNoteForm convertToEntityAttribute(String json) {
+        DeliveryNoteForm o = null;
         try {
-            o = objectMapper.readValue(json, Customer.class);
+            o = objectMapper.readValue(json, DeliveryNoteForm.class);
         } catch (final IOException e) {
             logger.error("JSON reading error", e);
         }
