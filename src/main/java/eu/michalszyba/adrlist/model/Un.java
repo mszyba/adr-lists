@@ -11,30 +11,121 @@ public class Un {
     private Long id;
 
     private String unNumber;
-    private String descriptionUn;
+    private String nameAndDescription;
+    private String unClass;
+    private String classificationCode;
+    private String packingGroup;
+    private String labels;
+    private String limitedQuantityVol;
+    private String limitedQuantityCode;
+    private String packagingInstructions;
+    private String packagingSpecialPP;
+    private String packagingMixedPP;
+    private String portableTanksInstructions;
+    private String portableTanksSpecialP;
+    private String adrTankCode;
+    private String adrTankSpecialP;
+    private String vehicleForTankCarriage;
+    private String transportCategory;
+    private String specialPFCPackages;
+    private String specialPFCBulk;
+    private String specialPFCLoading;
+    private String specialPFCOperation;
+    private String hazardIdNo;
+
+    public Un() {
+    }
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getUnNumber() {
         return unNumber;
     }
 
-    public void setUnNumber(String unNumber) {
-        this.unNumber = unNumber;
+    public String getNameAndDescription() {
+        return nameAndDescription;
     }
 
-    public String getDescriptionUn() {
-        return descriptionUn;
+    public String getUnClass() {
+        return unClass;
     }
 
-    public void setDescriptionUn(String descriptionUn) {
-        this.descriptionUn = descriptionUn;
+    public String getClassificationCode() {
+        return classificationCode;
+    }
+
+    public String getPackingGroup() {
+        return packingGroup;
+    }
+
+    public String getLabels() {
+        return labels;
+    }
+
+    public String getLimitedQuantityVol() {
+        return limitedQuantityVol;
+    }
+
+    public String getLimitedQuantityCode() {
+        return limitedQuantityCode;
+    }
+
+    public String getPackagingInstructions() {
+        return packagingInstructions;
+    }
+
+    public String getPackagingSpecialPP() {
+        return packagingSpecialPP;
+    }
+
+    public String getPackagingMixedPP() {
+        return packagingMixedPP;
+    }
+
+    public String getPortableTanksInstructions() {
+        return portableTanksInstructions;
+    }
+
+    public String getPortableTanksSpecialP() {
+        return portableTanksSpecialP;
+    }
+
+    public String getAdrTankCode() {
+        return adrTankCode;
+    }
+
+    public String getAdrTankSpecialP() {
+        return adrTankSpecialP;
+    }
+
+    public String getVehicleForTankCarriage() {
+        return vehicleForTankCarriage;
+    }
+
+    public String getTransportCategory() {
+        return transportCategory;
+    }
+
+    public String getSpecialPFCPackages() {
+        return specialPFCPackages;
+    }
+
+    public String getSpecialPFCBulk() {
+        return specialPFCBulk;
+    }
+
+    public String getSpecialPFCLoading() {
+        return specialPFCLoading;
+    }
+
+    public String getSpecialPFCOperation() {
+        return specialPFCOperation;
+    }
+
+    public String getHazardIdNo() {
+        return hazardIdNo;
     }
 
     @Override
@@ -42,7 +133,27 @@ public class Un {
         return "Un{" +
                 "id=" + id +
                 ", unNumber='" + unNumber + '\'' +
-                ", descriptionUn='" + descriptionUn + '\'' +
+                ", nameAndDescription='" + nameAndDescription + '\'' +
+                ", unClass='" + unClass + '\'' +
+                ", classificationCode='" + classificationCode + '\'' +
+                ", packingGroup='" + packingGroup + '\'' +
+                ", labels='" + labels + '\'' +
+                ", limitedQuantityVol='" + limitedQuantityVol + '\'' +
+                ", limitedQuantityCode='" + limitedQuantityCode + '\'' +
+                ", packagingInstructions='" + packagingInstructions + '\'' +
+                ", packagingSpecialPP='" + packagingSpecialPP + '\'' +
+                ", packagingMixedPP='" + packagingMixedPP + '\'' +
+                ", portableTanksInstructions='" + portableTanksInstructions + '\'' +
+                ", portableTanksSpecialP='" + portableTanksSpecialP + '\'' +
+                ", adrTankCode='" + adrTankCode + '\'' +
+                ", adrTankSpecialP='" + adrTankSpecialP + '\'' +
+                ", vehicleForTankCarriage='" + vehicleForTankCarriage + '\'' +
+                ", transportCategory='" + transportCategory + '\'' +
+                ", specialPFCPackages='" + specialPFCPackages + '\'' +
+                ", specialPFCBulk='" + specialPFCBulk + '\'' +
+                ", specialPFCLoading='" + specialPFCLoading + '\'' +
+                ", specialPFCOperation='" + specialPFCOperation + '\'' +
+                ", hazardIdNo='" + hazardIdNo + '\'' +
                 '}';
     }
 }
