@@ -10,7 +10,7 @@ public interface CompanyService {
 
     void saveCompany(Company company);
 
-    void deleteCompanyById(Long id);
+    void softDeleteCompanyById(Long id);
 
     Company getCompanyById(Long id);
 }

@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="parts/baseHead :: baseHeader(~{::link})">
+  <link rel="stylesheet">
+</head>
+
+<body>
+<header th:replace="parts/header :: header"></header>
+<div class="container-fluid">
+  <div class="row">
+
+    <div th:insert="parts/sidebar :: sidebar"></div>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="col-md-7 col-lg-8">
+        <form class="needs-validation" novalidate th:action="@{/delivery-note/add}" th:object="${deliveryNoteForm}" method="post">
+          <div class="row g-3">
+
+            <div class="col-sm-12">
+              <label for="company" class="form-label">Company</label>
+
+              <select th:field="*{company}" class="form-select" id="company" required>
+                <th:block th:each="c : ${companies}">
+                  <option th:text="${c.companyName}" th:value="${c.id}"></option>
+                </th:block>
+              </select>
+            </div>
+
+            <div class="col-sm-12">
+              <label for="customer" class="form-label">Customer</label>
+
+              <select th:field="*{customer}" class="form-select" id="customer" required>
+                <th:block th:each="customer : ${customers}">
+                  <option th:text="${customer.customerName}" th:value="${customer.id}"></option>
+                </th:block>
+              </select>
+            </div>
+
+            <div class="col-sm-12">
+              <label for="firstName" class="form-label">First name</label>
+              <input type="text" th:field="*{firstName}" class="form-control" id="firstName" placeholder="" value="" required>
+              <div class="invalid-feedback" th:if="${#fields.hasErrors('firstName')}" th:errors="*{lastName}"></div>
+            </div>
+
+            <div class="col-sm-12">
+              <label for="lastName" class="form-label">Last name</label>
+              <input type="text" th:field="*{lastName}" class="form-control" id="lastName" placeholder="" value="" required>
+<!--              <div class="invalid-feedback" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>-->
+            </div>
+
+<!--            <button class="w-100 btn btn-primary btn-lg" type="submit" name="addRow" value="Add New Row">ADD NEW ROW</button>-->
+
+<!--            <div class="col-sm-12" th:each="row, rowStat : *{unForms}" >-->
+<!--              <div class="col form-group d-none">-->
+<!--                <input th:field="*{unForms[__${rowStat.index}__].unNumber}" type="text" class="form-control">-->
+<!--              </div>-->
+<!--              <div class="col form-group">-->
+<!--                <input th:field="*{unForms[__${rowStat.index}__].unDesc}" type="text" class="form-control">-->
+<!--              </div>-->
+<!--            </div>-->
+
+            <table>
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Un</th>
+                  <th>Decription</th>
+                  <th>
+                    <button type="submit" name="addRow">Add row</button>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr th:each="row, rowStat : *{unForms}">
+                <td th:text="${rowStat.count}">1</td>
+                <td>
+<!--                  <label for="unNumber" class="form-label"></label>-->
+<!--                  <input type="text" th:field="*{unForms[__${rowStat.index}__].unNumber}" class="form-control" id="unNumber"/>-->
+                  <select th:field="*{unForms[__${rowStat.index}__].unList}" class="form-select" id="unNumber">
+<!--                    <option selected>Choose UN Number</option>-->
+                    <option th:each="un : ${unList}"
+                            th:value="${un.id}"
+                            th:text="${un.unNumber}">Thymus Thymi</option>
+                  </select>
+<!--                  <input type="text" th:field="*{unForms[__${rowStat.index}__].unList}" id="unNumber" class="form-control">-->
+                </td>
+                <td>
+<!--                  <label for="descriptionUn" class="form-label">unNo</label>-->
+                  <input type="text" th:field="*{unForms[__${rowStat.index}__].unDesc}" class="form-control" id="descriptionUn"/>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-primary btn-lg" name="saveForm" type="submit" value="Save">Save</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script th:replace="parts/script :: script"></script>
+
+</body>
+</html>

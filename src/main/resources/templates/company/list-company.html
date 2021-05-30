@@ -43,6 +43,7 @@
                     <td th:text="${company.personContact}"></td>
                     <td th:text="${company.referenceNo}"></td>
                     <td><a th:href="@{/company/customers/list/{id}(id=${company.id})}" class="btn btn-outline-primary btn-sm">Customers</a></td>
+                    <td><a th:href="@{/company/users/list/{id}(id=${company.id})}" class="btn btn-outline-secondary btn-sm">Users</a></td>
                     <td><a th:href="@{/company/edit/{id}(id=${company.id})}" class="btn btn-outline-info btn-sm">Edit</a></td>
                     <td><a th:href="@{/company/delete/{id}(id=${company.id})}" class="btn btn-outline-danger btn-sm">Delete</a></td>
                 </tr>

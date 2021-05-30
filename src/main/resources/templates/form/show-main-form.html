@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="parts/baseHead :: baseHeader(~{::link})">
+    <link rel="stylesheet">
+</head>
+
+<body>
+<header th:replace="parts/header :: header"></header>
+<div class="container-fluid">
+    <div class="row">
+
+        <div th:insert="parts/sidebar :: sidebar"></div>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <!--      <h2 th:if="${user.id == null}">Add User</h2>-->
+            <!--      <h2 th:unless="${user.id == null}">Edit User</h2>-->
+            <div class="col-md-7 col-lg-8">
+<!--                <p th:text="${mainForm.company}"></p>-->
+
+            </div>
+        </main>
+    </div>
+</div>
+
+<script th:replace="parts/script :: script"></script>
+
+</body>
+</html>

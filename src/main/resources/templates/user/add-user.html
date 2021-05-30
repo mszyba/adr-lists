@@ -18,7 +18,7 @@
             <div class="col-md-7 col-lg-8">
                 <form class="needs-validation" novalidate th:action="@{/user/add}" th:object="${user}" method="post">
                     <div class="row g-3">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <input type="hidden" th:field="*{id}" th:value="*{id}">
 
                             <label for="firstName" class="form-label">First name</label>
@@ -27,34 +27,33 @@
 
                         </div>
 
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <label for="lastName" class="form-label">Last name</label>
                             <input type="text" th:field="*{lastName}" class="form-control" th:errorclass="is-invalid" id="lastName" placeholder="" value="" required>
                             <div class="invalid-feedback" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-sm-12">
                             <label for="email" class="form-label">E-mail</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text">@</span>
                                 <input type="text" th:field="*{email}" class="form-control" th:errorclass="is-invalid" id="email" placeholder="e-mail" required>
                                 <div class="invalid-feedback" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
                             </div>
-                            </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-sm-12">
                             <label for="password" class="form-label">Password</label>
                             <input type="password" th:field="*{password}" class="form-control" th:errorclass="is-invalid" id="password" placeholder="" required>
                             <div class="invalid-feedback" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-sm-12">
                             <label for="description" class="form-label">Description <span class="text-muted">(Optional)</span></label>
-                            <input type="text" th:field="*{description}" class="form-control" id="description" placeholder="Apartment or suite">
+                            <input type="text" th:field="*{description}" class="form-control" id="description" placeholder="">
                         </div>
 
-                        <div class="col-md-12">
+                        <div class="col-sm-12">
                             <label for="company" class="form-label">Company</label>
 
                             <select th:field="*{company}" class="form-select" id="company" required>
@@ -63,10 +62,12 @@
                                 </th:block>
                             </select>
                         </div>
+                    </div>
 
                     <hr class="my-4">
 
-                    <button class="w-100 btn btn-primary btn-lg" type="submit" value="Save">Save</button>
+                    <button class="w-100 btn btn-primary btn-lg" type="submit" th:if="${user.id == null}" name="save" value="Save">Save</button>
+                    <button class="w-100 btn btn-primary btn-lg" type="submit" th:unless="${user.id == null}" name="edit" value="Edit">Edit</button>
                 </form>
             </div>
         </main>

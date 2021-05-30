@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="parts/baseHead :: baseHeader(~{::link})">
+  <link rel="stylesheet">
+</head>
+
+<body>
+<header th:replace="parts/header :: header"></header>
+<div class="container-fluid">
+  <div class="row">
+
+    <div th:insert="parts/sidebar :: sidebar"></div>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <h2>Delivery Note list for Company <i th:text="${company.companyName}"></i> </h2>
+      <table class="table table-striped table-sm table-hover">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Company</th>
+          <th>Customer</th>
+          <th>dddddddd</th>
+          <th>isActive</th>
+          <th>createdOn</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="oneDn : ${allDeliveriesForCompany}">
+          <td th:text="${oneDn.id}"></td>
+          <td th:text="${oneDn.companyId}"></td>
+          <td th:text="${oneDn.customerId}"></td>
+          <td th:text="${oneDn.deliveryNoteForm}"></td>
+          <td th:text="${oneDn.isActive}"></td>
+          <td th:text="${oneDn.createdOn}"></td>
+
+          <td><a th:href="@{/company/edit/{id}(id=${oneDn.id})}" class="btn btn-outline-info btn-sm">Edit</a></td>
+          <td><a th:href="@{/company/delete/{id}(id=${oneDn.id})}" class="btn btn-outline-danger btn-sm">Delete</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+</div>
+
+<script th:replace="parts/script :: script"></script>
+
+</body>
+</html>
