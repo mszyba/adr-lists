@@ -54,17 +54,4 @@ public class DeliveryNoteController {
 
         return"/delivery-note/list-delivery-note-company-test";
     }
-
-    @GetMapping("/one/{id}")
-    @ResponseBody
-    public String oneAdr(@PathVariable Long id, Model model) {
-        Optional<DeliveryNote> oneRow = deliveryNoteService.getOneRow(id);
-        if (oneRow.isPresent()) {
-//            String customerString = oneRow.get().getCustomer();
-//            Customer customer = (Customer) new JsonConverter().convertToEntityAttribute(customerString);
-//            return customer.toString();
-        }
-        model.addAttribute("row", deliveryNoteService.getOneRow(id));
-        return deliveryNoteService.getOneRow(id).toString();
-    }
 }
