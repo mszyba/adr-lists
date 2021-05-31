@@ -3,6 +3,8 @@ package eu.michalszyba.adrlist.form;
 import eu.michalszyba.adrlist.model.Company;
 import eu.michalszyba.adrlist.model.Customer;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,22 +12,17 @@ public class DeliveryNoteForm {
 
     private Company company;
     private Customer customer;
-    private String firstName;
-    private String lastName;
+
+    @Size(min = 2, max = 30)
+    private String driverName;
+
+    @Size(min = 2, max = 15)
+    private String truckNumber;
+
+    private String descriptionDelivery;
     private List<UnForm> unForms = new ArrayList<>();
 
     public DeliveryNoteForm() {
-    }
-
-    @Override
-    public String toString() {
-        return "MainForm{" +
-                "company=" + company +
-                ", customer=" + customer +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", unForms=" + unForms +
-                '}';
     }
 
     public Company getCompany() {
@@ -44,20 +41,28 @@ public class DeliveryNoteForm {
         this.customer = customer;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getDriverName() {
+        return driverName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setDriverName(String driverName) {
+        this.driverName = driverName;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getTruckNumber() {
+        return truckNumber;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setTruckNumber(String truckNumber) {
+        this.truckNumber = truckNumber;
+    }
+
+    public String getDescriptionDelivery() {
+        return descriptionDelivery;
+    }
+
+    public void setDescriptionDelivery(String descriptionDelivery) {
+        this.descriptionDelivery = descriptionDelivery;
     }
 
     public List<UnForm> getUnForms() {
@@ -66,5 +71,17 @@ public class DeliveryNoteForm {
 
     public void setUnForms(List<UnForm> unForms) {
         this.unForms = unForms;
+    }
+
+    @Override
+    public String toString() {
+        return "DeliveryNoteForm{" +
+                "company=" + company +
+                ", customer=" + customer +
+                ", driverName='" + driverName + '\'' +
+                ", truckNumber='" + truckNumber + '\'' +
+                ", descriptionDelivery='" + descriptionDelivery + '\'' +
+                ", unForms=" + unForms +
+                '}';
     }
 }

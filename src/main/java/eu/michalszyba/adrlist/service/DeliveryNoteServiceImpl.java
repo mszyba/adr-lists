@@ -3,14 +3,12 @@ package eu.michalszyba.adrlist.service;
 import eu.michalszyba.adrlist.converter.JsonConverter;
 import eu.michalszyba.adrlist.form.DeliveryNoteForm;
 import eu.michalszyba.adrlist.model.DeliveryNote;
-import eu.michalszyba.adrlist.model.Company;
 import eu.michalszyba.adrlist.repository.DeliveryNoteRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class DeliveryNoteServiceImpl implements DeliveryNoteService {
@@ -28,9 +26,6 @@ public class DeliveryNoteServiceImpl implements DeliveryNoteService {
 
     @Override
     public List<DeliveryNote> getAllDeliveriesForCompany(Long companyId) {
-        List<DeliveryNote> allByCompanyId = deliveryNoteRepository.findAllByCompanyId(companyId);
-
-
         return deliveryNoteRepository.findAllByCompanyId(companyId);
     }
 
@@ -50,7 +45,15 @@ public class DeliveryNoteServiceImpl implements DeliveryNoteService {
     }
 
     @Override
-    public void add(DeliveryNote deliveryNote) {
+    public void add(DeliveryNoteForm deliveryNoteForm) {
+        DeliveryNote deliveryNote = new DeliveryNote();
+        Long company_id = deliveryNoteForm.getCompany().getId();
+        Long customer_id = deliveryNoteForm.getCustomer().getId();
+        String columnDeliveryNoteForm = new JsonConverter().convertToDatabaseColumn(deliveryNoteForm);
+
+        deliveryNote.setCompanyId(company_id);
+        deliveryNote.setCustomerId(customer_id);
+        deliveryNote.setDeliveryNoteForm(columnDeliveryNoteForm);
         deliveryNoteRepository.save(deliveryNote);
     }
 
@@ -58,5 +61,4 @@ public class DeliveryNoteServiceImpl implements DeliveryNoteService {
     public Optional<DeliveryNote> getOneRow(Long id) {
         return deliveryNoteRepository.findById(id);
     }
-
 }
