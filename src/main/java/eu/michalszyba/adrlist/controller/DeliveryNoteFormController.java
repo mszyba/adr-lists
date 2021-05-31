@@ -8,8 +8,10 @@ import eu.michalszyba.adrlist.model.*;
 import eu.michalszyba.adrlist.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -66,7 +68,11 @@ public class DeliveryNoteFormController {
     }
 
     @PostMapping(value = "/add", params = {"saveForm"})
-    public String postFirstStepForm(DeliveryNoteForm deliveryNoteForm, Model model) {
+    public String postDeliveryNoteForm(@Valid DeliveryNoteForm deliveryNoteForm, BindingResult result) {
+        if (result.hasErrors()) {
+            return "/form/add-delivery-note-form";
+        }
+
         DeliveryNote deliveryNote = new DeliveryNote();
 
         Long company_id = deliveryNoteForm.getCompany().getId();
@@ -76,13 +82,6 @@ public class DeliveryNoteFormController {
         deliveryNote.setCompanyId(company_id);
         deliveryNote.setCustomerId(customer_id);
         deliveryNote.setDeliveryNoteForm(columnDeliveryNoteForm);
-
-
-//        List<UnForm> unForms = deliveryNoteForm.getUnForms();
-//
-//        String unFormsJson = new ObjectMapper().writeValueAsString(unForms);
-//        String companyJson = new ObjectMapper().writeValueAsString(deliveryNoteForm.getCompany());
-//        String customerJson = new ObjectMapper().writeValueAsString(deliveryNoteForm.getCustomer());
 
         deliveryNoteService.add(deliveryNote);
 
