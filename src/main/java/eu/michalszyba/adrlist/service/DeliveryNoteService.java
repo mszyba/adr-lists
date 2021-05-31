@@ -14,7 +14,7 @@ public interface DeliveryNoteService {
 
     List<DeliveryNoteForm> getAllDeliveriesFormForCompanyId(Long companyId);
 
-    void add(DeliveryNote deliveryNote);
+    void add(DeliveryNoteForm deliveryNoteForm);
 
     Optional<DeliveryNote> getOneRow(Long id);
 }

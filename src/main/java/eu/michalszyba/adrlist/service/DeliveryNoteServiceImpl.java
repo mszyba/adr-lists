@@ -50,7 +50,15 @@ public class DeliveryNoteServiceImpl implements DeliveryNoteService {
     }
 
     @Override
-    public void add(DeliveryNote deliveryNote) {
+    public void add(DeliveryNoteForm deliveryNoteForm) {
+        DeliveryNote deliveryNote = new DeliveryNote();
+        Long company_id = deliveryNoteForm.getCompany().getId();
+        Long customer_id = deliveryNoteForm.getCustomer().getId();
+        String columnDeliveryNoteForm = new JsonConverter().convertToDatabaseColumn(deliveryNoteForm);
+
+        deliveryNote.setCompanyId(company_id);
+        deliveryNote.setCustomerId(customer_id);
+        deliveryNote.setDeliveryNoteForm(columnDeliveryNoteForm);
         deliveryNoteRepository.save(deliveryNote);
     }
 
