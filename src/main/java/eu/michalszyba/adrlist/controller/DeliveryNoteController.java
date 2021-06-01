@@ -29,8 +29,9 @@ public class DeliveryNoteController {
 
     @GetMapping("/list")
     public String allDeliveryNote(Model model) {
-        List<DeliveryNote> allDeliveryNotes = deliveryNoteService.getAllDeliveryNotes();
+        List<DeliveryNoteForm> allDeliveryNotes = deliveryNoteService.getAllDeliveryNotes();
         model.addAttribute("allDeliveryNotes", allDeliveryNotes);
+        System.out.println(allDeliveryNotes);
         return "/delivery-note/list-delivery-note-all";
     }
 
@@ -42,16 +43,5 @@ public class DeliveryNoteController {
         model.addAttribute("allDeliveriesForCompany", allDeliveriesForCompany);
         model.addAttribute("company", companyById);
         return "/delivery-note/list-delivery-note-company";
-    }
-
-    @GetMapping("/list/company/json/{companyId}")
-    public String listForCompanyIdJson(@PathVariable Long companyId, Model model) {
-        List<DeliveryNoteForm> allDeliveriesFormForCompanyId = deliveryNoteService.getAllDeliveriesFormForCompanyId(companyId);
-
-        System.out.println(allDeliveriesFormForCompanyId);
-        model.addAttribute("allDeliveriesForCompany", allDeliveriesFormForCompanyId);
-        model.addAttribute("company", companyService.getCompanyById(companyId));
-
-        return"/delivery-note/list-delivery-note-company-test";
     }
 }

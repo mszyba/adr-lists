@@ -8,13 +8,11 @@ import java.util.Optional;
 
 public interface DeliveryNoteService {
 
-    List<DeliveryNote> getAllDeliveryNotes();
+    List<DeliveryNoteForm> getAllDeliveryNotes();
 
     List<DeliveryNote> getAllDeliveriesForCompany(Long companyId);
 
     List<DeliveryNoteForm> getAllDeliveriesFormForCompanyId(Long companyId);
 
     void add(DeliveryNoteForm deliveryNoteForm);
-
-    Optional<DeliveryNote> getOneRow(Long id);
 }

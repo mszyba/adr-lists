@@ -20,8 +20,21 @@ public class DeliveryNoteServiceImpl implements DeliveryNoteService {
     }
 
     @Override
-    public List<DeliveryNote> getAllDeliveryNotes() {
-        return deliveryNoteRepository.findAll();
+    public List<DeliveryNoteForm> getAllDeliveryNotes() {
+        List<DeliveryNote> deliveryNotes = deliveryNoteRepository.findAll();
+        return getDeliveryNoteForms(deliveryNotes);
+    }
+
+    private List<DeliveryNoteForm> getDeliveryNoteForms(List<DeliveryNote> deliveryNotes) {
+        List<DeliveryNoteForm> allDeliveryNotesForm = new ArrayList<>();
+
+        for (DeliveryNote s : deliveryNotes) {
+            String deliveryNoteFormJson = s.getDeliveryNoteForm();
+            DeliveryNoteForm deliveryNoteForm = new JsonConverter().convertToEntityAttribute(deliveryNoteFormJson);
+            allDeliveryNotesForm.add(deliveryNoteForm);
+        }
+
+        return allDeliveryNotesForm;
     }
 
     @Override
@@ -32,16 +45,7 @@ public class DeliveryNoteServiceImpl implements DeliveryNoteService {
     @Override
     public List<DeliveryNoteForm> getAllDeliveriesFormForCompanyId(Long companyId) {
         List<DeliveryNote> allByCompanyId = deliveryNoteRepository.findAllByCompanyId(companyId);
-        List<DeliveryNoteForm> allDeliveryNotesForm = new ArrayList<>();
-
-        // TODO: zmieć docelowo na stream?
-        for (DeliveryNote s : allByCompanyId) {
-            String deliveryNoteFormJson = s.getDeliveryNoteForm();
-            DeliveryNoteForm deliveryNoteForm = new JsonConverter().convertToEntityAttribute(deliveryNoteFormJson);
-            allDeliveryNotesForm.add(deliveryNoteForm);
-        }
-
-        return allDeliveryNotesForm;
+        return getDeliveryNoteForms(allByCompanyId);
     }
 
     @Override
@@ -55,10 +59,5 @@ public class DeliveryNoteServiceImpl implements DeliveryNoteService {
         deliveryNote.setCustomerId(customer_id);
         deliveryNote.setDeliveryNoteForm(columnDeliveryNoteForm);
         deliveryNoteRepository.save(deliveryNote);
-    }
-
-    @Override
-    public Optional<DeliveryNote> getOneRow(Long id) {
-        return deliveryNoteRepository.findById(id);
     }
 }
