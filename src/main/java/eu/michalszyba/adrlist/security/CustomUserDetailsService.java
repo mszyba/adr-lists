@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Component
 public class CustomUserDetailsService implements UserDetailsService {
@@ -33,11 +32,10 @@ public class CustomUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException(username);
         }
 
-        org.springframework.security.core.userdetails.User userDetails = new org.springframework.security.core.userdetails.User(
+        return new org.springframework.security.core.userdetails.User(
                 user.getEmail(),
                 user.getPassword(),
                 convertAuthorities(user.getRoles()));
-        return userDetails;
     }
 
     private Set<GrantedAuthority> convertAuthorities(Set<UserRole> userRoles) {
