@@ -13,7 +13,6 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping("/user")
 public class UserController {
 
     private final UserService userService;
@@ -34,18 +33,18 @@ public class UserController {
         return companyService.getAllCompany();
     }
 
-    @GetMapping("/list")
+    @GetMapping("/user/list")
     public String listUser() {
         return "/user/list-user";
     }
 
-    @GetMapping("/add")
+    @GetMapping("/user/add")
     public String getAddUserForm(Model model) {
         model.addAttribute("user", new User());
         return "/user/add-user";
     }
 
-    @PostMapping("/add")
+    @PostMapping("/user/add")
     public String postAddUserForm(@Valid User user, BindingResult result) {
         if (result.hasErrors()) {
             return "/user/add-user";
@@ -54,24 +53,40 @@ public class UserController {
         return "redirect:/user/list";
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/user/delete/{id}")
     public String deleteUserById(@PathVariable Long id) {
         userService.softDeleteUserById(id);
         return "redirect:/user/list";
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("/user/edit/{id}")
     public String getEditUserById(@PathVariable Long id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
         return "/user/edit-user";
     }
 
-    @PostMapping("/edit")
+    @PostMapping("/user/edit")
     public String postEditUserById(@Valid User user, BindingResult result) {
         if (result.hasErrors()) {
             return "/user/edit-user";
         }
         userService.updateUser(user);
         return "redirect:/user/list";
+    }
+
+    @GetMapping("/register")
+    public String register(Model model) {
+        model.addAttribute("user", new User());
+        return "/login/register-form";
+    }
+
+    @PostMapping("/register")
+    public String addUser(@ModelAttribute @Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "/login/register-form";
+        } else {
+            userService.addWithDefaultRole(user);
+            return "redirect:/login";
+        }
     }
 }
