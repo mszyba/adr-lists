@@ -7,6 +7,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users_company")
@@ -45,6 +47,8 @@ public class User {
     @JoinColumn(name = "company_id")
     private Company company;
 
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    private Set<UserRole> roles = new HashSet<>();
 
     public User() {
     }
@@ -55,18 +59,6 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.description = description;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
-                ", description='" + description + '\'' +
-                ", isSuperAdmin=" + isSuperAdmin +
-                ", isActive=" + isActive +
-                ", company=" + company +
-                '}';
     }
 
     public Long getId() {
@@ -141,7 +133,6 @@ public class User {
         isActive = active;
     }
 
-
     public LocalDateTime getCreatedOn() {
         return createdOn;
     }
@@ -164,5 +155,28 @@ public class User {
     @PreUpdate
     public void preUpdate() {
         this.updatedOn = LocalDateTime.now();
+    }
+
+    public Set<UserRole> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<UserRole> roles) {
+        this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", description='" + description + '\'' +
+                ", isSuperAdmin=" + isSuperAdmin +
+                ", isActive=" + isActive +
+                ", createdOn=" + createdOn +
+                ", updatedOn=" + updatedOn +
+                ", company=" + company +
+                ", roles=" + roles +
+                '}';
     }
 }

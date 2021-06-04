@@ -13,6 +13,8 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
+    User findByEmail(String email);
+
     @Query(value = "UPDATE #{#entityName} e SET e.isActive=false WHERE e.id=?1")
     @Modifying
     @Transactional

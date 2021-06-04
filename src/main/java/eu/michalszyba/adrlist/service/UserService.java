@@ -16,5 +16,9 @@ public interface UserService {
 
     User getUserById(Long id);
 
+    User getUserByEmail(String email);
+
+    void addWithDefaultRole(User user);
+
     List<User> getAllUserByCompanyId(Long companyId);
 }

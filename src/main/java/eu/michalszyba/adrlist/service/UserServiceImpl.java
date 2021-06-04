@@ -1,8 +1,11 @@
 package eu.michalszyba.adrlist.service;
 
 import eu.michalszyba.adrlist.model.User;
+import eu.michalszyba.adrlist.model.UserRole;
 import eu.michalszyba.adrlist.repository.UserRepository;
+import eu.michalszyba.adrlist.repository.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -12,11 +15,36 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService {
 
+    private static final String DEFAULT_ROLE = "ROLE_USER";
     private final UserRepository userRepository;
+    private final UserRoleRepository roleRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository) {
+    @Autowired
+    public UserServiceImpl(UserRepository userRepository, UserRoleRepository roleRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+        this.passwordEncoder = passwordEncoder;
     }
+//    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
+
+
+    public void addWithDefaultRole(User user) {
+        UserRole defaultRole = roleRepository.findByRole(DEFAULT_ROLE);
+        user.getRoles().add(defaultRole);
+        String passwordHash = passwordEncoder.encode(user.getPassword());
+        user.setPassword(passwordHash);
+        userRepository.save(user);
+    }
+
+//    public void saveUser(User user) {
+//        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+//        user.setActive(true);
+//        UserRole userRole = roleRepository.findByRole("ROLE_USER");
+//        user.setRoles(new HashSet<UserRole>(Arrays.asList(userRole)));
+//        userRepository.save(user);
+//    }
 
     @Override
     public List<User> getAllUser() {
@@ -54,6 +82,11 @@ public class UserServiceImpl implements UserService {
         } else {
             throw new EntityNotFoundException();
         }
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
     @Override
