@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="m.szyba@gmail.com">
+    <title>ADR List</title>
+
+    <!-- Common styles and scripts -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}" />
+</head>
+
+<body>
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">ADR List</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </header>
+
+<div class="container-fluid">
+    <div class="row">
+
+            <main class="col-md-9 ms-sm-auto col-lg-8 px-md-4">
+            <h2>Register Page</h2>
+                <div class="col-md-6 col-lg-6">
+                    <form class="needs-validation" novalidate th:action="@{/register}" th:object="${user}" method="post">
+                <div class="row g-3">
+                    <div class="col-sm-12">
+                        <input type="hidden" th:field="*{id}" th:value="*{id}">
+                        <label for="firstName" class="form-label">First name</label>
+                        <input type="text" th:field="*{firstName}" class="form-control" th:errorclass="is-invalid" id="firstName" placeholder="" value="" required>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <label for="lastName" class="form-label">Last name</label>
+                        <input type="text" th:field="*{lastName}" class="form-control" th:errorclass="is-invalid" id="lastName" placeholder="" value="" required>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <label for="email" class="form-label">E-mail</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text">@</span>
+                            <input type="text" th:field="*{email}" class="form-control" th:errorclass="is-invalid" id="email" placeholder="e-mail" required>
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" th:field="*{password}" class="form-control" th:errorclass="is-invalid" id="password" placeholder="" required>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <label for="description" class="form-label">Description <span class="text-muted">(Optional)</span></label>
+                        <input type="text" th:field="*{description}" class="form-control" id="description" placeholder="">
+                    </div>
+
+                    <div class="col-sm-12">
+                        <label for="company" class="form-label">Company</label>
+
+                        <select th:field="*{company}" class="form-select" id="company" required>
+                            <th:block th:each="c : ${companies}">
+                                <option th:text="${c.companyName}" th:value="${c.id}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <button class="w-100 btn btn-outline-dark" type="submit" name="save" value="Save">Save</button>
+            </form>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossOrigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+        integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+        crossOrigin="anonymous"></script>
+<script th:src="@{/webjars/feather-icons/4.28.0/dist/feather.js}"></script>
+<script th:src="@{/webjars/bootstrap/5.0.0/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+</html>

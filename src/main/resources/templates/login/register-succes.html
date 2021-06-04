@@ -25,31 +25,9 @@
     <div class="row">
 
         <main class="col-md-9 ms-sm-auto col-lg-8 px-md-4">
-            <h2>Login Page</h2>
-            <div class="col-md-6 col-lg-6">
-                <div th:if="${loginError}" class="alert alert-danger" role="alert">
-                    Wrong user or password
-                </div>
+            <h2>Thanks for registration</h2>
+            <a href="#" th:href="@{/login}">Go to homepage</a>
 
-                <form class="needs-validation" novalidate th:action="@{/login}" method="post">
-                    <div class="row g-3">
-                        <div class="col-sm-12">
-                            <label for="username" class="form-label">User name (e-mail)</label>
-                            <input type="text" name="username" class="form-control" id="username" placeholder="" value="" required>
-                        </div>
-                        <div class="col-sm-12">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control"  id="password" placeholder="" value="" required>
-                        </div>
-                    </div>
-                    <hr class="my-4">
-                    <button class="w-100 btn btn-outline-dark" type="submit" value="Save">Sign In</button>
-                    <div class="col-sm-12">
-                        <hr class="my-4">
-                        <a class="w-100 btn btn-outline-info" th:href="@{/register}">Register</a>
-                    </div>
-                </form>
-            </div>
         </main>
     </div>
 </div>
