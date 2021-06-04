@@ -1,4 +1,4 @@
-insert into companies (company_name, address, post_code, city, phone, email, person_contact, reference_no, is_active) values ('Yambee', '44 Clarendon Court', '765 02', 'Otrokovice', '+420 827 667 2354', 'btissiman0@noaa.gov', 'Booth Tissiman', '59-478-6950', 1);
+insert into companies (company_name, address, post_code, city, phone, email, person_contact, reference_no, is_active) values ('Michał Szyba', 'ul. Siechnicka', '55-011', 'Siechnice', '+48 888 777 666', 'm.szyba@gmail.com', 'Michał Szyba', 'SUPER_ADMIN', 1);
 insert into companies (company_name, address, post_code, city, phone, email, person_contact, reference_no, is_active) values ('Leenti', '60 Prairieview Point', null, 'Nagrog Wetan', '+62 886 836 0474', 'dkeatch1@ibm.com', 'Doris Keatch', '37-318-6297', 1);
 insert into companies (company_name, address, post_code, city, phone, email, person_contact, reference_no, is_active) values ('Yodoo', '66 Alpine Plaza', null, 'Kunmi Erdi', '+86 397 505 6821', 'sdensham2@patch.com', 'Sashenka Densham', '33-430-6517', 1);
 insert into companies (company_name, address, post_code, city, phone, email, person_contact, reference_no, is_active) values ('Rhynyx', '175 Superior Drive', '663914', 'Ol’ginskaya', '+7 998 210 3764', 'kthornebarrow3@reference.com', 'Kathrine Thornebarrow', '85-700-1271', 1);
@@ -19,7 +19,7 @@ insert into companies (company_name, address, post_code, city, phone, email, per
 insert into companies (company_name, address, post_code, city, phone, email, person_contact, reference_no, is_active) values ('Jazzy', '93 Sullivan Parkway', null, 'Munjungan', '+62 756 386 7011', 'msoutherni@miibeian.gov.cn', 'Mordecai Southern', '79-276-9705', 1);
 insert into companies (company_name, address, post_code, city, phone, email, person_contact, reference_no, is_active) values ('Zoomcast', '51141 Judy Plaza', '34-322', 'Gilowice', '+48 425 649 0210', 'fabrahmsonj@youku.com', 'Frasquito Abrahmson', '24-103-4863', 1);
 
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('maecenas', 'cdavidovitch0@dedecms.com', 'Carolin', 'Davidovitch', 'xA81qir9', 8, 0, 1);
+insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('maecenas', 'test', 'Carolin', 'Davidovitch', '$2y$12$43zFIhaYK05gJ/jJxtR1AOh1L03JlAlntm0xfOOdMcq3kv8CP/m36', 8, 0, 1);
 insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('elementum in', 'ndalman1@hexun.com', 'Nathaniel', 'Dalman', 'CxPhjhC6Orp0', 2, 0, 1);
 insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('orci eget', 'biceton2@wikia.com', 'Bonnee', 'Iceton', 'XOuIbWtyn5s', 9, 0, 1);
 insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('ultrices posuere cubilia', 'atremaine3@sphinn.com', 'Anjanette', 'Tremaine', 'iDV6gLiV', 5, 0, 1);
@@ -39,6 +39,12 @@ insert into users_company (description_user, email, first_name, last_name, passw
 insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('purus phasellus', 'hdriversh@digg.com', 'Haleigh', 'Drivers', 'LWG3e6k65', 8, 0, 1);
 insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('aliquam non mauris', 'everheijdeni@nsw.gov.au', 'Edna', 'Verheijden', 'qby2V0Q5', 1, 0, 1);
 insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('elit ac nulla', 'lgornallj@shinystat.com', 'Lauree', 'Gornall', 'QE5dcCl', 10, 0, 1);
+
+
+insert into user_role(role, description) VALUES ('ROLE_USER', 'default role for user');
+insert into user_role(role, description) VALUES ('ROLE_ADMIN', 'admin role for user');
+
+insert into users_company_roles(user_id_user, roles_id) values (1, 1), (2, 1);
 
 
 insert into customers (address, city, customer_name, email, person_contact, phone, post_code, company_id) values ('98 Shasta Street', 'Lapai', 'Sandoz Inc', 'rchurly0@constantcontact.com', 'Cléa', '725-493-5597', null, 1);
