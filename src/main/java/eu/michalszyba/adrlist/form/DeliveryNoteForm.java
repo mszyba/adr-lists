@@ -10,6 +10,8 @@ import java.util.List;
 
 public class DeliveryNoteForm {
 
+    //TODO: need add idNumber;
+
     private Company company;
     private Customer customer;
 
