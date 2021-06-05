@@ -22,7 +22,6 @@
           <th>Driver Name</th>
           <th>Truck Number</th>
           <th>Show</th>
-          <th>Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -31,10 +30,7 @@
           <td th:text="${oneDn.customer.customerName}"></td>
           <td th:text="${oneDn.driverName}"></td>
           <td th:text="${oneDn.truckNumber}"></td>
-
-
 <!--          <td><a th:href="@{/company/edit/{id}(id=${oneDn.id})}" class="btn btn-outline-info btn-sm">Edit</a></td>-->
-<!--          <td><a th:href="@{/company/delete/{id}(id=${oneDn.id})}" class="btn btn-outline-danger btn-sm">Delete</a></td>-->
         </tr>
         </tbody>
       </table>

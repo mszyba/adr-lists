@@ -2,20 +2,20 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="parts/baseHead :: baseHeader(~{::link})">
-    <link rel="stylesheet">
+  <link rel="stylesheet">
 </head>
 
 <body>
 <header th:replace="parts/header :: header"></header>
 <div class="container-fluid">
-    <div class="row">
+  <div class="row">
 
-        <div th:insert="parts/sidebar :: sidebar"></div>
+    <div th:insert="parts/sidebar :: sidebar"></div>
 
-            <p th:text="${exception}"></p>
-            <p th:text="${url}"></p>
-            <p th:text="${errorMessage}"></p>
-    </div>
+    <p th:text="${exception}"></p>
+    <p th:text="${url}"></p>
+    <p th:text="${errorMessage}"></p>
+  </div>
 </div>
 
 <script th:replace="parts/script :: script"></script>
