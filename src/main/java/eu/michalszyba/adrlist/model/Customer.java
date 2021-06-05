@@ -135,7 +135,6 @@ public class Customer {
                 ", email='" + email + '\'' +
                 ", personContact='" + personContact + '\'' +
                 ", referenceNo='" + referenceNo + '\'' +
-                ", company=" + company +
                 '}';
     }
 }
