@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="parts/baseHead :: baseHeader(~{::link})">
+  <link rel="stylesheet">
+</head>
+
+<body>
+<header th:replace="parts/header :: header"></header>
+<div class="container-fluid">
+  <div class="row">
+
+    <div th:insert="parts/sidebar :: sidebar"></div>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <h2>Adr list</h2>
+      <table class="table table-striped table-sm table-hover">
+        <thead>
+        <tr>
+          <th>Company</th>
+          <th>Customer</th>
+          <th>Driver Name</th>
+          <th>Truck Number</th>
+          <th>Qty of packages</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="oneDn : ${allDeliveryNotes}">
+          <td th:text="${oneDn.company.companyName}"></td>
+          <td th:text="${oneDn.customer.customerName}"></td>
+          <td th:text="${oneDn.driverName}"></td>
+          <td th:text="${oneDn.truckNumber}"></td>
+          <td>
+            <table class="table table-striped table-sm table-hover">
+              <thead>
+              <tr>
+                <th>Qty pc</th>
+                <th>Qty all</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="oneUn : ${oneDn.unForms}">
+                <td th:text="${oneUn.quantityPiece}"></td>
+                <td th:text="${oneUn.quantityAll}"></td>
+              </tr>
+              </tbody>
+            </table>
+          </td>
+<!--          <td><a th:href="@{/company/edit/{id}(id=${oneDn.ge})}" class="btn btn-outline-info btn-sm">Edit</a></td>-->
+        </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+</div>
+
+<script th:replace="parts/script :: script"></script>
+
+</body>
+</html>
