@@ -57,11 +57,11 @@ public class CustomerController {
     @GetMapping("/customer/edit/{id}")
     public String editCustomerById(@PathVariable Long id, Model model) {
         model.addAttribute("customer", customerService.getCustomerById(id));
-        return "/customer/add-customer";
+        return "/customer/edit-customer";
     }
 
     @PostMapping("/customer/edit")
-    public String postEditCustomerById(@ModelAttribute @Valid Customer customer, BindingResult result) {
+    public String postEditCustomerById(@Valid Customer customer, BindingResult result) {
         if (result.hasErrors()) {
             return "/customer/edit-customer";
         }
