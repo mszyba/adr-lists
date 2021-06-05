@@ -161,8 +161,6 @@ public class Company {
                 ", personContact='" + personContact + '\'' +
                 ", referenceNo='" + referenceNo + '\'' +
                 ", isActive=" + isActive +
-                ", users=" + users +
-                ", customers=" + customers +
                 '}';
     }
 }

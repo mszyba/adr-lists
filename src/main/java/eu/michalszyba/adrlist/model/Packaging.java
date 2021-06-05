@@ -29,13 +29,4 @@ public class Packaging {
     public String getDescriptionPackaging() {
         return descriptionPackaging;
     }
-
-    @Override
-    public String toString() {
-        return "Packaging{" +
-                "id=" + id +
-                ", codePackaging='" + codePackaging + '\'' +
-                ", descriptionPackaging='" + descriptionPackaging + '\'' +
-                '}';
-    }
 }

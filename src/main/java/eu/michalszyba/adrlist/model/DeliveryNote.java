@@ -107,9 +107,9 @@ public class DeliveryNote {
     public String toString() {
         return "DeliveryNote{" +
                 "id=" + id +
-                ", company_id=" + companyId +
-                ", user_id=" + userId +
-                ", customer_id=" + customerId +
+                ", companyId=" + companyId +
+                ", userId=" + userId +
+                ", customerId=" + customerId +
                 ", createdOn=" + createdOn +
                 ", updatedOn=" + updatedOn +
                 ", isActive=" + isActive +
