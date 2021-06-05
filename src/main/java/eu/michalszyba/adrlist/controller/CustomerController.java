@@ -1,6 +1,5 @@
 package eu.michalszyba.adrlist.controller;
 
-import eu.michalszyba.adrlist.service.CompanyService;
 import eu.michalszyba.adrlist.service.CustomerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

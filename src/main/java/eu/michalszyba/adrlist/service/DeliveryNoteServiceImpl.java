@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class DeliveryNoteServiceImpl implements DeliveryNoteService {
@@ -17,12 +16,6 @@ public class DeliveryNoteServiceImpl implements DeliveryNoteService {
 
     public DeliveryNoteServiceImpl(DeliveryNoteRepository deliveryNoteRepository) {
         this.deliveryNoteRepository = deliveryNoteRepository;
-    }
-
-    @Override
-    public List<DeliveryNoteForm> getAllDeliveryNotes() {
-        List<DeliveryNote> deliveryNotes = deliveryNoteRepository.findAll();
-        return getDeliveryNoteForms(deliveryNotes);
     }
 
     private List<DeliveryNoteForm> getDeliveryNoteForms(List<DeliveryNote> deliveryNotes) {
@@ -35,6 +28,12 @@ public class DeliveryNoteServiceImpl implements DeliveryNoteService {
         }
 
         return allDeliveryNotesForm;
+    }
+
+    @Override
+    public List<DeliveryNoteForm> getAllDeliveryNotes() {
+        List<DeliveryNote> deliveryNotes = deliveryNoteRepository.findAll();
+        return getDeliveryNoteForms(deliveryNotes);
     }
 
     @Override

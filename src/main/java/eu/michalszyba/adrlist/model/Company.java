@@ -52,33 +52,6 @@ public class Company {
     public Company() {
     }
 
-    public Company(String companyName, String address, String postCode, String city, String phone, String email, String personContact, String referenceNo) {
-        this.companyName = companyName;
-        this.address = address;
-        this.postCode = postCode;
-        this.city = city;
-        this.phone = phone;
-        this.email = email;
-        this.personContact = personContact;
-        this.referenceNo = referenceNo;
-    }
-
-    @Override
-    public String toString() {
-        return "Company{" +
-                "id=" + id +
-                ", companyName='" + companyName + '\'' +
-                ", address='" + address + '\'' +
-                ", postCode='" + postCode + '\'' +
-                ", city='" + city + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", personContact='" + personContact + '\'' +
-                ", referenceNo='" + referenceNo + '\'' +
-                ", isActive=" + isActive +
-                '}';
-    }
-
     public Long getId() {
         return id;
     }
@@ -173,5 +146,23 @@ public class Company {
 
     public void setCustomers(List<Customer> customers) {
         this.customers = customers;
+    }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "id=" + id +
+                ", companyName='" + companyName + '\'' +
+                ", address='" + address + '\'' +
+                ", postCode='" + postCode + '\'' +
+                ", city='" + city + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", personContact='" + personContact + '\'' +
+                ", referenceNo='" + referenceNo + '\'' +
+                ", isActive=" + isActive +
+                ", users=" + users +
+                ", customers=" + customers +
+                '}';
     }
 }
