@@ -28,13 +28,28 @@ public class CustomerServiceImp implements CustomerService {
     }
 
     @Override
+    public void updateCustomer(Customer customer) {
+        this.customerRepository.updateCustomer(
+                customer.getAddress(),
+                customer.getCity(),
+                customer.getCustomerName(),
+                customer.getEmail(),
+                customer.getPersonContact(),
+                customer.getPhone(),
+                customer.getPostCode(),
+                customer.getReferenceNo(),
+                customer.getId()
+        );
+    }
+
+    @Override
     public void deleteCustomerById(Long id) {
         this.customerRepository.deleteById(id);
     }
 
     @Override
     public Customer getCustomerById(Long id) {
-        Optional<Customer> optionalCustomer = customerRepository.findById(id);
+        Optional<Customer> optionalCustomer = customerRepository.findCustomerById(id);
         if (optionalCustomer.isPresent()) {
             return optionalCustomer.get();
         } else {
