@@ -41,8 +41,8 @@
           <td th:text="${customer.email}"></td>
           <td th:text="${customer.personContact}"></td>
           <td th:text="${customer.referenceNo}"></td>
-          <td><a th:href="@{/customer/edit/{id}(id=${customer.id})}" class="btn btn-outline-info">Edit</a></td>
-          <td><a th:href="@{/customer/delete/{id}(id=${customer.id})}" class="btn btn-outline-danger">Delete</a></td>
+          <td><a th:href="@{/customer/edit/{id}(id=${customer.id})}" class="btn btn-outline-info btn-sm">Edit</a></td>
+          <td><a th:href="@{/customer/delete/{id}(id=${customer.id})}" class="btn btn-outline-danger btn-sm">Delete</a></td>
         </tr>
         </tbody>
       </table>

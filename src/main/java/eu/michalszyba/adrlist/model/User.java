@@ -170,13 +170,13 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 ", description='" + description + '\'' +
                 ", isSuperAdmin=" + isSuperAdmin +
                 ", isActive=" + isActive +
                 ", createdOn=" + createdOn +
                 ", updatedOn=" + updatedOn +
                 ", company=" + company +
-                ", roles=" + roles +
                 '}';
     }
 }
