@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "users_company")
-@Where(clause = "is_active=true")
+@Where(clause = "is_active = true")
 public class User {
 
     @Id

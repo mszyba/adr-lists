@@ -2,42 +2,35 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="m.szyba@gmail.com">
-    <title>ADR List</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="m.szyba@gmail.com">
+  <title>ADR List</title>
 
-    <!-- Common styles and scripts -->
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" type="text/css"/>
-    <link rel="stylesheet" th:href="@{/css/dashboard.css}" />
+  <!-- Common styles and scripts -->
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" type="text/css"/>
+  <link rel="stylesheet" th:href="@{/css/dashboard.css}" />
 </head>
 
 <body>
-    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">ADR List</a>
-        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </header>
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">ADR List</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</header>
 
 <div class="container-fluid">
-    <div class="row">
+  <div class="row">
 
-        <main class="col-md-9 ms-sm-auto col-lg-8 px-md-4">
-            <h2>Thanks for registration</h2>
-            <a href="#" th:href="@{/login}">Go to homepage</a>
-
-        </main>
-    </div>
+    <main class="col-md-9 ms-sm-auto col-lg-8 px-md-4">
+      <h2>Thanks for registration</h2>
+      <a th:href="@{/login}">Go to homepage</a>
+    </main>
+  </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossOrigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
-        integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
-        crossOrigin="anonymous"></script>
 <script th:src="@{/webjars/feather-icons/4.28.0/dist/feather.js}"></script>
 <script th:src="@{/webjars/bootstrap/5.0.0/js/bootstrap.bundle.min.js}"></script>
 

@@ -3,7 +3,6 @@ package eu.michalszyba.adrlist.converter;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import eu.michalszyba.adrlist.form.DeliveryNoteForm;
-import eu.michalszyba.adrlist.model.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

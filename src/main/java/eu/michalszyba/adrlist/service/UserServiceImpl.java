@@ -26,9 +26,6 @@ public class UserServiceImpl implements UserService {
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
     }
-//    private final BCryptPasswordEncoder bCryptPasswordEncoder;
-
-
 
     public void addWithDefaultRole(User user) {
         UserRole defaultRole = roleRepository.findByRole(DEFAULT_ROLE);
@@ -37,14 +34,6 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordHash);
         userRepository.save(user);
     }
-
-//    public void saveUser(User user) {
-//        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-//        user.setActive(true);
-//        UserRole userRole = roleRepository.findByRole("ROLE_USER");
-//        user.setRoles(new HashSet<UserRole>(Arrays.asList(userRole)));
-//        userRepository.save(user);
-//    }
 
     @Override
     public List<User> getAllUser() {

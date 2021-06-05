@@ -43,32 +43,6 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String customerName, String address, String postCode, String city, String phone, String email, String personContact, String referenceNo) {
-        this.customerName = customerName;
-        this.address = address;
-        this.postCode = postCode;
-        this.city = city;
-        this.phone = phone;
-        this.email = email;
-        this.personContact = personContact;
-        this.referenceNo = referenceNo;
-    }
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", customerName='" + customerName + '\'' +
-                ", address='" + address + '\'' +
-                ", postCode='" + postCode + '\'' +
-                ", city='" + city + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", personContact='" + personContact + '\'' +
-                ", referenceNo='" + referenceNo + '\'' +
-                '}';
-    }
-
     public Long getId() {
         return id;
     }
@@ -147,5 +121,21 @@ public class Customer {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", customerName='" + customerName + '\'' +
+                ", address='" + address + '\'' +
+                ", postCode='" + postCode + '\'' +
+                ", city='" + city + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", personContact='" + personContact + '\'' +
+                ", referenceNo='" + referenceNo + '\'' +
+                ", company=" + company +
+                '}';
     }
 }
