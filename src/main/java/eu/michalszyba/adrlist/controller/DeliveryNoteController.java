@@ -1,5 +1,6 @@
 package eu.michalszyba.adrlist.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import eu.michalszyba.adrlist.form.DeliveryNoteForm;
 import eu.michalszyba.adrlist.model.Company;
 import eu.michalszyba.adrlist.model.DeliveryNote;
@@ -15,7 +16,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/delivery-note")
 public class DeliveryNoteController {
 
     private final DeliveryNoteService deliveryNoteService;
@@ -26,15 +26,14 @@ public class DeliveryNoteController {
         this.companyService = companyService;
     }
 
-    @GetMapping("/list")
+    @GetMapping("/delivery-note/list")
     public String allDeliveryNote(Model model) {
         List<DeliveryNoteForm> allDeliveryNotes = deliveryNoteService.getAllDeliveryNotes();
         model.addAttribute("allDeliveryNotes", allDeliveryNotes);
-        System.out.println(allDeliveryNotes);
         return "/delivery-note/list-delivery-note-all";
     }
 
-    @GetMapping("/list/company/{companyId}")
+    @GetMapping("/delivery-note/list/company/{companyId}")
     public String listForCompanyId(@PathVariable Long companyId, Model model) {
         List<DeliveryNote> allDeliveriesForCompany = deliveryNoteService.getAllDeliveriesForCompany(companyId);
         Company companyById = companyService.getCompanyById(companyId);
