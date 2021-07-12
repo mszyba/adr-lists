@@ -12,7 +12,7 @@
 	<artifactId>adr-list</artifactId>
 	<version>0.0.1</version>
 	<name>adr-list</name>
-	<description>adr-list v4</description>
+	<description>adr-list v5</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -69,23 +69,6 @@
 			<artifactId>feather-icons</artifactId>
 			<version>4.28.0</version>
 		</dependency>
-
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.12.3</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>2.12.3</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-annotations</artifactId>
-			<version>2.12.3</version>
-		</dependency>
-
 	</dependencies>
 
 	<build>
