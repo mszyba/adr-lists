@@ -1,17 +1,15 @@
 package eu.michalszyba.adrlist.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "material_rows")
 @Getter @Setter @NoArgsConstructor
-public class MaterialRow extends UnFirst {
+public class MaterialRow extends UnBaseEntity {
 
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)

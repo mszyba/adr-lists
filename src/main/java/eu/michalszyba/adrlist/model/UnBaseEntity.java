@@ -6,11 +6,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Getter
-@Setter
-@NoArgsConstructor
 @MappedSuperclass
-public class UnFirst {
+@Getter @Setter @NoArgsConstructor
+public class UnBaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -9,10 +9,5 @@ import javax.persistence.*;
 @Entity
 @Table(name = "un_table")
 @Getter @Setter @NoArgsConstructor
-public class Un extends UnFirst {
-
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
-
+public class Un extends UnBaseEntity {
 }
