@@ -1,16 +1,45 @@
 package eu.michalszyba.adrlist.service;
 
 import eu.michalszyba.adrlist.model.Company;
+import eu.michalszyba.adrlist.repository.CompanyRepository;
+import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 
-public interface CompanyService {
+@Service
+public class CompanyService {
 
-    List<Company> getAllCompany();
+    private final CompanyRepository companyRepository;
 
-    void saveCompany(Company company);
+    public CompanyService(CompanyRepository companyRepository) {
+        this.companyRepository = companyRepository;
+    }
 
-    void softDeleteCompanyById(Long id);
+    public List<Company> getAllCompany() {
+        return companyRepository.findAll();
+    }
 
-    Company getCompanyById(Long id);
+    public void saveCompany(Company company) {
+        this.companyRepository.save(company);
+    }
+
+    public void softDeleteCompanyById(Long id) {
+        Optional<Company> optionalCompany = companyRepository.findById(id);
+        if (optionalCompany.isPresent()) {
+            this.companyRepository.softDelete(id);
+        } else {
+            throw new EntityNotFoundException();
+        }
+    }
+
+    public Company getCompanyById(Long id) {
+        Optional<Company> optionalCompany = companyRepository.findById(id);
+        if (optionalCompany.isPresent()) {
+            return optionalCompany.get();
+        } else {
+            throw new EntityNotFoundException();
+        }
+    }
 }
