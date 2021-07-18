@@ -18,27 +18,27 @@ insert into companies (company_name, address, post_code, city, phone, email, per
 insert into companies (company_name, address, post_code, city, phone, email, person_contact, reference_no, is_active) values ('Skajo', '123 Mifflin Way', null, 'Bayt Sāḩūr', '+970 858 409 9085', 'bwallwoodh@cdbaby.com', 'Beverie Wallwood', '16-176-9964', 1);
 insert into companies (company_name, address, post_code, city, phone, email, person_contact, reference_no, is_active) values ('Jazzy', '93 Sullivan Parkway', null, 'Munjungan', '+62 756 386 7011', 'msoutherni@miibeian.gov.cn', 'Mordecai Southern', '79-276-9705', 1);
 insert into companies (company_name, address, post_code, city, phone, email, person_contact, reference_no, is_active) values ('Zoomcast', '51141 Judy Plaza', '34-322', 'Gilowice', '+48 425 649 0210', 'fabrahmsonj@youku.com', 'Frasquito Abrahmson', '24-103-4863', 1);
-
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('maecenas', 'cdavidovitch0@dedecms.com', 'Carolin', 'Davidovitch', 'xA81qir9', 8, 0, 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('elementum in', 'ndalman1@hexun.com', 'Nathaniel', 'Dalman', 'CxPhjhC6Orp0', 2, 0, 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('orci eget', 'biceton2@wikia.com', 'Bonnee', 'Iceton', 'XOuIbWtyn5s', 9, 0, 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('ultrices posuere cubilia', 'atremaine3@sphinn.com', 'Anjanette', 'Tremaine', 'iDV6gLiV', 5, 0, 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('eget nunc', 'ptixall4@edublogs.org', 'Paten', 'Tixall', 'm5BN8G3cqC', 8, 0, 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('purus', 'rbridgens5@com.com', 'Rivalee', 'Bridgens', 'tV6Gb4', 4, 0, 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('ultrices posuere', 'tjeanel6@naver.com', 'Teirtza', 'Jeanel', 'Kim8DaPp', 8, 0, 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('molestie nibh in', 'wprahl7@vimeo.com', 'Wainwright', 'Prahl', 'DrGMDy11o', 1, 0, 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('neque duis', 'hdabling8@arizona.edu', 'Harmony', 'Dabling', 'r0Bqqa1zdS', 7, 0, 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('enim', 'jrapps9@twitter.com', 'Jan', 'Rapps', 'DYdbnvbZb', 5, 0, 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('iaculis congue vivamus', 'mabramowitza@weebly.com', 'Milicent', 'Abramowitz', 'e2BZYss7v', 5, 0, 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('vitae consectetuer eget', 'bnindb@businessinsider.com', 'Barney', 'Nind', 'YxbVPacTWqlw', 9, 0, 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('tincidunt', 'mwattamc@tinyurl.com', 'Minne', 'Wattam', 'aCRlxCNbY8', 2, 0, 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('sit amet', 'omanolovd@mapquest.com', 'Obadias', 'Manolov', '8DoH3U1TeB', 1, 0, 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('sed lacus morbi', 'arouthame@com.com', 'Ardisj', 'Routham', 'e8oxVmjjxjp7', 7, 0, 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('id', 'cstuckleyf@wufoo.com', 'Corbin', 'Stuckley', 'JDYIjsvY', 2, 0, 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('pede justo lacinia', 'qgrigorushking@51.la', 'Quincy', 'Grigorushkin', 'ZAB1V8F5Nsv', 2, 0, 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('purus phasellus', 'hdriversh@digg.com', 'Haleigh', 'Drivers', 'LWG3e6k65', 8, 0, 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('aliquam non mauris', 'everheijdeni@nsw.gov.au', 'Edna', 'Verheijden', 'qby2V0Q5', 1, 0, 1);
-insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('elit ac nulla', 'lgornallj@shinystat.com', 'Lauree', 'Gornall', 'QE5dcCl', 10, 0, 1);
+#
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('maecenas', 'cdavidovitch0@dedecms.com', 'Carolin', 'Davidovitch', 'xA81qir9', 8, 0, 1);
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('elementum in', 'ndalman1@hexun.com', 'Nathaniel', 'Dalman', 'CxPhjhC6Orp0', 2, 0, 1);
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('orci eget', 'biceton2@wikia.com', 'Bonnee', 'Iceton', 'XOuIbWtyn5s', 9, 0, 1);
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('ultrices posuere cubilia', 'atremaine3@sphinn.com', 'Anjanette', 'Tremaine', 'iDV6gLiV', 5, 0, 1);
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('eget nunc', 'ptixall4@edublogs.org', 'Paten', 'Tixall', 'm5BN8G3cqC', 8, 0, 1);
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('purus', 'rbridgens5@com.com', 'Rivalee', 'Bridgens', 'tV6Gb4', 4, 0, 1);
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('ultrices posuere', 'tjeanel6@naver.com', 'Teirtza', 'Jeanel', 'Kim8DaPp', 8, 0, 1);
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('molestie nibh in', 'wprahl7@vimeo.com', 'Wainwright', 'Prahl', 'DrGMDy11o', 1, 0, 1);
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('neque duis', 'hdabling8@arizona.edu', 'Harmony', 'Dabling', 'r0Bqqa1zdS', 7, 0, 1);
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('enim', 'jrapps9@twitter.com', 'Jan', 'Rapps', 'DYdbnvbZb', 5, 0, 1);
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('iaculis congue vivamus', 'mabramowitza@weebly.com', 'Milicent', 'Abramowitz', 'e2BZYss7v', 5, 0, 1);
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('vitae consectetuer eget', 'bnindb@businessinsider.com', 'Barney', 'Nind', 'YxbVPacTWqlw', 9, 0, 1);
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('tincidunt', 'mwattamc@tinyurl.com', 'Minne', 'Wattam', 'aCRlxCNbY8', 2, 0, 1);
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('sit amet', 'omanolovd@mapquest.com', 'Obadias', 'Manolov', '8DoH3U1TeB', 1, 0, 1);
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('sed lacus morbi', 'arouthame@com.com', 'Ardisj', 'Routham', 'e8oxVmjjxjp7', 7, 0, 1);
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('id', 'cstuckleyf@wufoo.com', 'Corbin', 'Stuckley', 'JDYIjsvY', 2, 0, 1);
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('pede justo lacinia', 'qgrigorushking@51.la', 'Quincy', 'Grigorushkin', 'ZAB1V8F5Nsv', 2, 0, 1);
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('purus phasellus', 'hdriversh@digg.com', 'Haleigh', 'Drivers', 'LWG3e6k65', 8, 0, 1);
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('aliquam non mauris', 'everheijdeni@nsw.gov.au', 'Edna', 'Verheijden', 'qby2V0Q5', 1, 0, 1);
+# insert into users_company (description_user, email, first_name, last_name, password_user, company_id, is_super_admin, is_active) values ('elit ac nulla', 'lgornallj@shinystat.com', 'Lauree', 'Gornall', 'QE5dcCl', 10, 0, 1);
 
 
 insert into customers (address, city, customer_name, email, person_contact, phone, post_code, company_id) values ('98 Shasta Street', 'Lapai', 'Sandoz Inc', 'rchurly0@constantcontact.com', 'Cléa', '725-493-5597', null, 1);
@@ -72,41 +72,41 @@ insert into customers (address, city, customer_name, email, person_contact, phon
 insert into customers (address, city, customer_name, email, person_contact, phone, post_code, company_id) values ('44491 Tony Center', 'Niort', 'Sato Pharmaceutical Co., Ltd.', 'wrigebys@kickstarter.com', 'Ruì', '250-797-4117', '79021 CEDEX', 10);
 insert into customers (address, city, customer_name, email, person_contact, phone, post_code, company_id) values ('272 Scofield Avenue', 'Modot', 'Cardinal Health', 'gnaisbittt@youku.com', 'Maëlla', '219-154-5642', null, 6);
 
-insert into un_table (id, un_number, name_and_description, labels, packing_group) values (1, 1263, 'PAINT', '3', 'I');
-insert into un_table (id, un_number, name_and_description, labels, packing_group) values (2, 1263, 'PAINT RELATED MATERIAL', '3', 'I');
-insert into un_table (id, un_number, name_and_description, labels, packing_group) values (3, 1263, 'PAINT', '3', 'II');
-insert into un_table (id, un_number, name_and_description, labels, packing_group) values (4, 1263, 'PAINT RELATED MATERIAL', '3', 'II');
-insert into un_table (id, un_number, name_and_description, labels, packing_group) values (5, 1263, 'PAINT', '3', 'III');
-insert into un_table (id, un_number, name_and_description, labels, packing_group) values (6, 1263, 'PAINT RELATED MATERIAL', '3', 'III');
-insert into un_table (id, un_number, name_and_description) values (7, 4850, 'Namfix');
-insert into un_table (id, un_number, name_and_description) values (8, 8542, 'Flowdesk');
-insert into un_table (id, un_number, name_and_description) values (9, 4223, 'Konklux');
-insert into un_table (id, un_number, name_and_description) values (10, 8412, 'Aerified');
-insert into un_table (id, un_number, name_and_description) values (11, 5041, 'Alpha');
-insert into un_table (id, un_number, name_and_description) values (12, 9939, 'Fintone');
-insert into un_table (id, un_number, name_and_description) values (13, 5136, 'Fintone');
-insert into un_table (id, un_number, name_and_description) values (14, 3401, 'Cardguard');
-insert into un_table (id, un_number, name_and_description) values (15, 8131, 'Trippledex');
-insert into un_table (id, un_number, name_and_description) values (16, 4770, 'Andalax');
-insert into un_table (id, un_number, name_and_description) values (17, 9739, 'Stringtough');
-insert into un_table (id, un_number, name_and_description) values (18, 3652, 'Andalax');
-insert into un_table (id, un_number, name_and_description) values (19, 6902, 'Home Ing');
-insert into un_table (id, un_number, name_and_description) values (20, 4250, 'Latlux');
-insert into un_table (id, un_number, name_and_description) values (21, 4986, 'Tampflex');
-insert into un_table (id, un_number, name_and_description) values (22, 2687, 'Temp');
-insert into un_table (id, un_number, name_and_description) values (23, 9506, 'Home Ing');
-insert into un_table (id, un_number, name_and_description) values (24, 4681, 'Zamit');
-insert into un_table (id, un_number, name_and_description) values (25, 1897, 'Flexidy');
-insert into un_table (id, un_number, name_and_description) values (26, 6314, 'Konklux');
-insert into un_table (id, un_number, name_and_description) values (27, 2606, 'Sub-Ex');
-insert into un_table (id, un_number, name_and_description) values (28, 9559, 'Treeflex');
-insert into un_table (id, un_number, name_and_description) values (29, 7794, 'Ventosanzap');
-insert into un_table (id, un_number, name_and_description) values (30, 9543, 'Tampflex');
-
-# INSERT INTO adr_lists_entity (id, company, customer, first_name, last_name, un_rows) VALUES (1, '{"id": 1, "city": "Otrokovice", "email": "btissiman0@noaa.gov", "phone": "+420 827 667 2354", "address": "44 Clarendon Court", "postCode": "765 02", "companyName": "Yambee", "referenceNo": "59-478-6950", "personContact": "Booth Tissiman"}', '{"id": 6, "city": "Vimmerby", "email": "lstefanovic5@dagondesign.com", "phone": "724-852-0974", "address": "00821 Continental Terrace", "postCode": "598 24", "referenceNo": null, "customerName": "Laboratoires Dermo Cosmetik Inc.", "personContact": "Esbjörn"}', '', 'Davidovitchddddddd', '[{"unDesc": "", "unList": [{"id": 1, "unNumber": "5912", "descriptionUn": "Bytecard"}]}]');
-
-
-# INSERT INTO adr_list.delivery_notes (id, company_id, created_on, customer_id, delivery_note_form, is_active, updated_on, user_id) VALUES (1, 1, '2021-05-28 18:45:39', 1, '{"company": {"id": 1, "city": "Otrokovice", "email": "btissiman0@noaa.gov", "phone": "+420 827 667 2354", "active": true, "address": "44 Clarendon Court", "postCode": "765 02", "companyName": "Yambee", "referenceNo": "59-478-6950", "personContact": "Booth Tissiman"}, "unForms": [{"unDesc": null, "unList": [{"id": 1, "labels": "3", "unClass": null, "unNumber": "1263", "hazardIdNo": null, "adrTankCode": null, "packingGroup": "I", "specialPFCBulk": null, "adrTankSpecialP": null, "packagingMixedPP": null, "specialPFCLoading": null, "transportCategory": null, "classificationCode": null, "limitedQuantityVol": null, "nameAndDescription": "PAINT", "packagingSpecialPP": null, "specialPFCPackages": null, "limitedQuantityCode": null, "specialPFCOperation": null, "packagingInstructions": null, "portableTanksSpecialP": null, "vehicleForTankCarriage": null, "portableTanksInstructions": null}], "quantityAll": 30, "packagingList": [{"id": 2, "codePackaging": "3H1", "descriptionPackaging": "kanister"}], "quantityPiece": 2}], "customer": {"id": 1, "city": "Lapai", "email": "rchurly0@constantcontact.com", "phone": "725-493-5597", "address": "98 Shasta Street", "postCode": null, "referenceNo": null, "customerName": "Sandoz Inc", "personContact": "Cléa"}, "lastName": "Dalmanddddddddddddddddddddddddddd", "firstName": "Carolin77777777777777"}', true, null, null);
+insert into un_table (id, un_number, un_name_and_description, un_labels, un_packing_group) values (1, 1263, 'PAINT', '3', 'I');
+insert into un_table (id, un_number, un_name_and_description, un_labels, un_packing_group) values (2, 1263, 'PAINT RELATED MATERIAL', '3', 'I');
+insert into un_table (id, un_number, un_name_and_description, un_labels, un_packing_group) values (3, 1263, 'PAINT', '3', 'II');
+insert into un_table (id, un_number, un_name_and_description, un_labels, un_packing_group) values (4, 1263, 'PAINT RELATED MATERIAL', '3', 'II');
+insert into un_table (id, un_number, un_name_and_description, un_labels, un_packing_group) values (5, 1263, 'PAINT', '3', 'III');
+insert into un_table (id, un_number, un_name_and_description, un_labels, un_packing_group) values (6, 1263, 'PAINT RELATED MATERIAL', '3', 'III');
+insert into un_table (id, un_number, un_name_and_description) values (7, 4850, 'Namfix');
+insert into un_table (id, un_number, un_name_and_description) values (8, 8542, 'Flowdesk');
+insert into un_table (id, un_number, un_name_and_description) values (9, 4223, 'Konklux');
+insert into un_table (id, un_number, un_name_and_description) values (10, 8412, 'Aerified');
+insert into un_table (id, un_number, un_name_and_description) values (11, 5041, 'Alpha');
+insert into un_table (id, un_number, un_name_and_description) values (12, 9939, 'Fintone');
+insert into un_table (id, un_number, un_name_and_description) values (13, 5136, 'Fintone');
+insert into un_table (id, un_number, un_name_and_description) values (14, 3401, 'Cardguard');
+insert into un_table (id, un_number, un_name_and_description) values (15, 8131, 'Trippledex');
+insert into un_table (id, un_number, un_name_and_description) values (16, 4770, 'Andalax');
+insert into un_table (id, un_number, un_name_and_description) values (17, 9739, 'Stringtough');
+insert into un_table (id, un_number, un_name_and_description) values (18, 3652, 'Andalax');
+insert into un_table (id, un_number, un_name_and_description) values (19, 6902, 'Home Ing');
+insert into un_table (id, un_number, un_name_and_description) values (20, 4250, 'Latlux');
+insert into un_table (id, un_number, un_name_and_description) values (21, 4986, 'Tampflex');
+insert into un_table (id, un_number, un_name_and_description) values (22, 2687, 'Temp');
+insert into un_table (id, un_number, un_name_and_description) values (23, 9506, 'Home Ing');
+insert into un_table (id, un_number, un_name_and_description) values (24, 4681, 'Zamit');
+insert into un_table (id, un_number, un_name_and_description) values (25, 1897, 'Flexidy');
+insert into un_table (id, un_number, un_name_and_description) values (26, 6314, 'Konklux');
+insert into un_table (id, un_number, un_name_and_description) values (27, 2606, 'Sub-Ex');
+insert into un_table (id, un_number, un_name_and_description) values (28, 9559, 'Treeflex');
+insert into un_table (id, un_number, un_name_and_description) values (29, 7794, 'Ventosanzap');
+insert into un_table (id, un_number, un_name_and_description) values (30, 9543, 'Tampflex');
+#
+# # INSERT INTO adr_lists_entity (id, company, customer, first_name, last_name, un_rows) VALUES (1, '{"id": 1, "city": "Otrokovice", "email": "btissiman0@noaa.gov", "phone": "+420 827 667 2354", "address": "44 Clarendon Court", "postCode": "765 02", "companyName": "Yambee", "referenceNo": "59-478-6950", "personContact": "Booth Tissiman"}', '{"id": 6, "city": "Vimmerby", "email": "lstefanovic5@dagondesign.com", "phone": "724-852-0974", "address": "00821 Continental Terrace", "postCode": "598 24", "referenceNo": null, "customerName": "Laboratoires Dermo Cosmetik Inc.", "personContact": "Esbjörn"}', '', 'Davidovitchddddddd', '[{"unDesc": "", "unList": [{"id": 1, "unNumber": "5912", "descriptionUn": "Bytecard"}]}]');
+#
+#
+# # INSERT INTO adr_list.delivery_notes (id, company_id, created_on, customer_id, delivery_note_form, is_active, updated_on, user_id) VALUES (1, 1, '2021-05-28 18:45:39', 1, '{"company": {"id": 1, "city": "Otrokovice", "email": "btissiman0@noaa.gov", "phone": "+420 827 667 2354", "active": true, "address": "44 Clarendon Court", "postCode": "765 02", "companyName": "Yambee", "referenceNo": "59-478-6950", "personContact": "Booth Tissiman"}, "unForms": [{"unDesc": null, "unList": [{"id": 1, "labels": "3", "unClass": null, "unNumber": "1263", "hazardIdNo": null, "adrTankCode": null, "packingGroup": "I", "specialPFCBulk": null, "adrTankSpecialP": null, "packagingMixedPP": null, "specialPFCLoading": null, "transportCategory": null, "classificationCode": null, "limitedQuantityVol": null, "nameAndDescription": "PAINT", "packagingSpecialPP": null, "specialPFCPackages": null, "limitedQuantityCode": null, "specialPFCOperation": null, "packagingInstructions": null, "portableTanksSpecialP": null, "vehicleForTankCarriage": null, "portableTanksInstructions": null}], "quantityAll": 30, "packagingList": [{"id": 2, "codePackaging": "3H1", "descriptionPackaging": "kanister"}], "quantityPiece": 2}], "customer": {"id": 1, "city": "Lapai", "email": "rchurly0@constantcontact.com", "phone": "725-493-5597", "address": "98 Shasta Street", "postCode": null, "referenceNo": null, "customerName": "Sandoz Inc", "personContact": "Cléa"}, "lastName": "Dalmanddddddddddddddddddddddddddd", "firstName": "Carolin77777777777777"}', true, null, null);
 
 INSERT INTO packaging (id, code_packaging, description_packaging) VALUES (1, '1A2', 'bęben');
 INSERT INTO packaging (id, code_packaging, description_packaging) VALUES (2, '3H1', 'kanister');

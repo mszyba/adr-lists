@@ -1,6 +1,7 @@
 package eu.michalszyba.adrlist.service;
 
 import eu.michalszyba.adrlist.form.DeliveryNoteForm;
+import eu.michalszyba.adrlist.model.Delivery;
 import eu.michalszyba.adrlist.model.DeliveryNote;
 
 import java.util.List;
@@ -15,4 +16,6 @@ public interface DeliveryNoteService {
     List<DeliveryNoteForm> getAllDeliveriesFormForCompanyId(Long companyId);
 
     void add(DeliveryNoteForm deliveryNoteForm);
+
+    void addNew(DeliveryNoteForm deliveryNoteForm);
 }
