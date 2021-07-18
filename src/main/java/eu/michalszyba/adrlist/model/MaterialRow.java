@@ -11,17 +11,9 @@ import javax.persistence.*;
 @Getter @Setter @NoArgsConstructor
 public class MaterialRow extends UnBaseEntity {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
-
-
-//    private String unNumber;
-//    private String unNameAndDescription;
-
-    private Long quantityPiece;
     private String packagingCode;
-    private Long quantityAll;
+    private Integer quantityPiece;
+    private Integer quantityAll;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "delivery_id")
