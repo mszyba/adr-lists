@@ -19,31 +19,46 @@
           <input type="hidden" th:field="${delivery.id}">
 
           <div class="row g-3">
+
             <div class="col-lg-6">
               <label for="company" class="form-label">Company</label>
               <select th:field="*{companyId}" class="form-select" id="company" required>
                 <th:block th:each="c : ${companies}">
-                  <option th:text="${c.companyName}" th:value="${c.id}"></option>
+                  <option th:text="${c.name}" th:value="${c.id}"></option>
                 </th:block>
               </select>
             </div>
+
             <div class="col-lg-6">
               <label for="customer" class="form-label">Delivery to Customer:</label>
               <select th:field="*{customerId}" class="form-select" id="customer" required>
                 <th:block th:each="customer : ${customers}">
-                  <option th:text="${customer.customerName}" th:value="${customer.id}"></option>
+                  <option th:text="${customer.name}" th:value="${customer.id}"></option>
                 </th:block>
               </select>
             </div>
+
             <div class="col-lg-6">
               <label for="driverName" class="form-label">Driver Name</label>
-              <input type="text" th:field="*{driverName}" class="form-control" th:errorclass="is-invalid" id="driverName" placeholder="" value="" required>
+              <input type="text" th:field="*{driverName}" class="form-control" th:errorclass="is-invalid" id="driverName" placeholder="" value="">
               <div class="invalid-feedback" th:if="${#fields.hasErrors('driverName')}" th:errors="*{driverName}"></div>
             </div>
+
+            <div class="col-lg-6">
+              <label for="driverDocument" class="form-label">Driver Document</label>
+              <input type="text" th:field="*{driverDocument}" class="form-control" th:errorclass="is-invalid" id="driverDocument" placeholder="" value="">
+              <div class="invalid-feedback" th:if="${#fields.hasErrors('driverDocument')}" th:errors="*{driverDocument}"></div>
+            </div>
+
             <div class="col-lg-6">
               <label for="truckNumber" class="form-label">Truck Plate Number</label>
               <input type="text" th:field="*{truckNumber}" class="form-control" th:errorclass="is-invalid" id="truckNumber" placeholder="" value="">
               <div class="invalid-feedback" th:if="${#fields.hasErrors('truckNumber')}" th:errors="*{truckNumber}"></div>
+            </div>
+            <div class="col-lg-6">
+              <label for="truckDescription" class="form-label">Truck Description</label>
+              <input type="text" th:field="*{truckDescription}" class="form-control" th:errorclass="is-invalid" id="truckDescription" placeholder="" value="">
+              <div class="invalid-feedback" th:if="${#fields.hasErrors('truckDescription')}" th:errors="*{truckDescription}"></div>
             </div>
 
 
@@ -52,9 +67,9 @@
                 <div class="form-row row g-3">
                   <div class="form-group col-lg-6">
                     <label for="unNumber">Choose UN number</label>
-                    <select th:field="*{materialRows[__${rowStat.index}__].unNumber}" class="form-select" id="unNumber">
+                    <select th:field="*{materialRows[__${rowStat.index}__].unId}" class="form-select" id="unNumber">
                       <option th:each="un : ${unList}"
-                              th:value="${un.unNumber}"
+                              th:value="${un.id}"
                               th:text="${un.unNumber} + ' ' + ${un.unNameAndDescription} + ', ' + ${un.unLabels} + ', ' + ${un.unPackingGroup}">
                         Un number, descriptions, label, packaging group</option>
                     </select>
@@ -62,9 +77,9 @@
 
                   <div class="form-group col-lg-6">
                     <label for="packaging">Packaging</label>
-                    <select th:field="*{materialRows[__${rowStat.index}__].packagingCode}" class="form-select" id="packaging">
+                    <select th:field="*{materialRows[__${rowStat.index}__].packagingId}" class="form-select" id="packaging">
                       <option th:each="p : ${packagings}"
-                              th:value="${p.codePackaging}"
+                              th:value="${p.id}"
                               th:text="${p.codePackaging} + ' ' + ${p.descriptionPackaging}">
                         Packaging number, descriptions</option>
                     </select>
@@ -81,7 +96,6 @@
                   </div>
                 </div>
               </div>
-
 
               <div class="col-sm-6">
                 <button type="submit" name="addRow" class="btn-sm btn-outline-dark">Add new UN number</button>

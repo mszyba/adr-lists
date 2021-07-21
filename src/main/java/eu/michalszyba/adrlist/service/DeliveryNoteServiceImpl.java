@@ -59,11 +59,11 @@ public class DeliveryNoteServiceImpl implements DeliveryNoteService {
     @Override
     public void add(DeliveryNoteForm deliveryNoteForm) {
         DeliveryNote deliveryNote = new DeliveryNote();
-        Long company_id = deliveryNoteForm.getCompany().getId();
+//        Long company_id = deliveryNoteForm.getCompany().getId();
         Long customer_id = deliveryNoteForm.getCustomer().getId();
         String columnDeliveryNoteForm = new JsonConverter().convertToDatabaseColumn(deliveryNoteForm);
 
-        deliveryNote.setCompanyId(company_id);
+//        deliveryNote.setCompanyId(company_id);
         deliveryNote.setCustomerId(customer_id);
         deliveryNote.setDeliveryNoteForm(columnDeliveryNoteForm);
         deliveryNoteRepository.save(deliveryNote);
@@ -73,12 +73,12 @@ public class DeliveryNoteServiceImpl implements DeliveryNoteService {
     public void addNew(DeliveryNoteForm deliveryNoteForm) {
 
         Delivery delivery = new Delivery();
-        Long companyId = deliveryNoteForm.getCompany().getId();
-        String companyName = deliveryNoteForm.getCompany().getCompanyName();
+//        Long companyId = deliveryNoteForm.getCompany().getId();
+//        String companyName = deliveryNoteForm.getCompany().getCompanyName();
         String companyAddress = deliveryNoteForm.getCompany().getAddress();
 
         Long customerId = deliveryNoteForm.getCustomer().getId();
-        String customerName = deliveryNoteForm.getCustomer().getCustomerName();
+//        String customerName = deliveryNoteForm.getCustomer().getCustomerName();
 
         String driverName = deliveryNoteForm.getDriverName();
 
@@ -112,11 +112,11 @@ public class DeliveryNoteServiceImpl implements DeliveryNoteService {
         System.out.println("WWWWWWWW    " + materialRow);
         System.out.println("RRRRRRRR   " + materialRows);
 
-        delivery.setCompanyId(companyId);
-        delivery.setCompanyName(companyName);
-        delivery.setCompanyAddress(companyAddress);
+//        delivery.setCompanyId(companyId);
+//        delivery.setCompanyName(companyName);
+//        delivery.setCompanyAddress(companyAddress);
         delivery.setCustomerId(customerId);
-        delivery.setCustomerName(customerName);
+//        delivery.setCustomerName(customerName);
         delivery.setDriverName(driverName);
 
         delivery.setMaterialRows(materialRows);

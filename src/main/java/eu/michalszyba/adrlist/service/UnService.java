@@ -4,7 +4,9 @@ import eu.michalszyba.adrlist.model.Un;
 import eu.michalszyba.adrlist.repository.UnRepository;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UnService {
@@ -13,6 +15,16 @@ public class UnService {
 
     public UnService(UnRepository unRepository) {
         this.unRepository = unRepository;
+    }
+
+    public Un getUnById(Long id) {
+        Optional<Un> optionalUn = unRepository.findById(id);
+        if (optionalUn.isPresent()) {
+            return optionalUn.get();
+        }
+        else {
+            throw new EntityNotFoundException();
+        }
     }
 
     public List<Un> getAllUn() {

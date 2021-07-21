@@ -2,7 +2,7 @@ package eu.michalszyba.adrlist.controller;
 
 import eu.michalszyba.adrlist.model.*;
 import eu.michalszyba.adrlist.service.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,25 +12,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
+@Slf4j
 @Controller
 public class DeliveryController {
 
     private final CompanyService companyService;
     private final CustomerService customerService;
     private final UnService unService;
-    private final DeliveryNoteService deliveryNoteService;
     private final PackagingService packagingService;
     private final DeliveryService deliveryService;
+    private final FirmaService firmaService;
 
-    public DeliveryController(CompanyService companyService, CustomerService customerService, UnService unService, DeliveryNoteService deliveryNoteService, PackagingService packagingService, DeliveryService deliveryService) {
+    public DeliveryController(CompanyService companyService,
+                              CustomerService customerService,
+                              UnService unService,
+                              PackagingService packagingService,
+                              DeliveryService deliveryService, FirmaService firmaService) {
         this.companyService = companyService;
         this.customerService = customerService;
         this.unService = unService;
-        this.deliveryNoteService = deliveryNoteService;
         this.packagingService = packagingService;
         this.deliveryService = deliveryService;
+        this.firmaService = firmaService;
     }
-
 
     @ModelAttribute("unList")
     public List<Un> populateUnForm() {
@@ -52,6 +56,11 @@ public class DeliveryController {
         return packagingService.getAllPackages();
     }
 
+    @ModelAttribute("firmy")
+    public List<Firma> populateFirma() {
+        return firmaService.findAll();
+    }
+
     @GetMapping("/delivery/add")
     public String getNewForm(Model model) {
         model.addAttribute("delivery", new Delivery());
@@ -61,22 +70,16 @@ public class DeliveryController {
     @RequestMapping(value = "/delivery/add", params = {"addRow"})
     public String addNewRow(Delivery delivery) {
         deliveryService.addMaterialRow(delivery);
-//        delivery.getMaterialRows().add(new MaterialRow());
         return "/form/add-new";
     }
 
     @PostMapping(value = "/delivery/add", params = {"saveForm"})
-    public String postDelivery(@ModelAttribute Delivery delivery, Model model) {
+    public String postDelivery(@ModelAttribute Delivery delivery) {
+//        log.info("=======" + delivery.getCompany());
 
-        int i = 1;
-        for (MaterialRow materialRow : delivery.getMaterialRows()) {
-            System.out.println("BBBBB   " +  materialRow);
-        }
-//        model.addAttribute("delivery", deliveryService.save(delivery));
-//        return "/form/add-new";
-
+        log.info("======Material Rows: " + delivery.getMaterialRows());
         Delivery saveDelivery = deliveryService.save(delivery);
-        System.out.println("SAVE DELIVERY " + saveDelivery);
+        log.info("=====Save delivery: " + saveDelivery);
 
         return "redirect:/delivery-note/list";
     }
