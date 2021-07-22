@@ -21,19 +21,17 @@ public class DeliveryController {
     private final UnService unService;
     private final PackagingService packagingService;
     private final DeliveryService deliveryService;
-    private final FirmaService firmaService;
 
     public DeliveryController(CompanyService companyService,
                               CustomerService customerService,
                               UnService unService,
                               PackagingService packagingService,
-                              DeliveryService deliveryService, FirmaService firmaService) {
+                              DeliveryService deliveryService) {
         this.companyService = companyService;
         this.customerService = customerService;
         this.unService = unService;
         this.packagingService = packagingService;
         this.deliveryService = deliveryService;
-        this.firmaService = firmaService;
     }
 
     @ModelAttribute("unList")
@@ -54,11 +52,6 @@ public class DeliveryController {
     @ModelAttribute("packagings")
     public List<Packaging> populatePackaging() {
         return packagingService.getAllPackages();
-    }
-
-    @ModelAttribute("firmy")
-    public List<Firma> populateFirma() {
-        return firmaService.findAll();
     }
 
     @GetMapping("/delivery/add")

@@ -113,6 +113,6 @@ INSERT INTO packaging (id, code_packaging, description_packaging) VALUES (2, '3H
 INSERT INTO packaging (id, code_packaging, description_packaging) VALUES (3, '1A1', 'bęben');
 INSERT INTO packaging (id, code_packaging, description_packaging) VALUES (4, '3H1', 'kanister');
 
-insert into firma(firma_id, nazwa) values (1, 'nazwa1');
-insert into firma(firma_id, nazwa) values (2, 'nazwa2');
-insert into firma(firma_id, nazwa) values (3, 'nazwa3');
+# insert into firma(firma_id, nazwa) values (1, 'nazwa1');
+# insert into firma(firma_id, nazwa) values (2, 'nazwa2');
+# insert into firma(firma_id, nazwa) values (3, 'nazwa3');
