@@ -66,6 +66,13 @@ public class Delivery {
     * */
     private String typeActivities;
 
+    private Integer pointClass0;
+    private Integer pointClass1;
+    private Integer pointClass2;
+    private Integer pointClass3;
+    private Integer pointClass4;
+    private Integer points;
+
     /*
     * Rows of material
     * */

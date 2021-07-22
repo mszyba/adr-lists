@@ -21,6 +21,8 @@ public class MaterialRow {
     private String unNumber;
     private String unNameAndDescription;
     private String unClass;
+    private String unPackingGroup;
+
     private String unLabels;
 
     private Long packagingId;

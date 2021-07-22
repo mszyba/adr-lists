@@ -2,8 +2,10 @@ package eu.michalszyba.adrlist.service;
 
 import eu.michalszyba.adrlist.model.*;
 import eu.michalszyba.adrlist.repository.DeliveryRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 public class DeliveryService {
 
@@ -23,14 +25,52 @@ public class DeliveryService {
 
     public Delivery save(Delivery delivery) {
 
+        var ref = new Object() {
+            Integer pointsClass1 = 0;
+            Integer pointsClass2 = 0;
+            Integer pointsClass3 = 0;
+            Integer pointsAll = 0;
+        };
+
+
         delivery.getMaterialRows().forEach(materialRow -> {
             Long unId= materialRow.getUnId();
             Un unById = unService.getUnById(unId);
+
+            String unPackingGroup = unById.getUnPackingGroup();
+            Integer quantityAll = materialRow.getQuantityAll();
+
+
+            /*
+            * check each Packing Group and add for each result of points
+            * */
+            switch (unPackingGroup) {
+                case "I":
+                    ref.pointsClass1 += 6 * quantityAll;
+                    ref.pointsAll += ref.pointsClass1;
+                    break;
+                case "II":
+                    ref.pointsClass2 += 3 * quantityAll;
+                    ref.pointsAll += ref.pointsClass2;
+                    break;
+                case "III":
+                    ref.pointsClass3 += quantityAll;
+                    ref.pointsAll += ref.pointsClass3;
+                    break;
+            }
+
+            delivery.setPointClass1(ref.pointsClass1);
+            delivery.setPointClass2(ref.pointsClass2);
+            delivery.setPointClass3(ref.pointsClass3);
+            delivery.setPoints(ref.pointsAll);
+
 
             materialRow.setUnId(unById.getId());
             materialRow.setUnNameAndDescription(unById.getUnNameAndDescription());
             materialRow.setUnNumber(unById.getUnNumber());
             materialRow.setUnLabels(unById.getUnLabels());
+            materialRow.setUnPackingGroup(unById.getUnPackingGroup());
+
 
             Long packagingId = materialRow.getPackagingId();
             Packaging packagingById = packagingService.getPackagingById(packagingId);
