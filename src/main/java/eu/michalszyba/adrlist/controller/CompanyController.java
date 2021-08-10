@@ -36,16 +36,13 @@ public class CompanyController {
     private final CustomerService customerService;
     private final UserService userService;
     private final PdfService pdfService;
-    private final PdfGenaratorUtil pdfGenaratorUtil;
 
 
-    public CompanyController(CompanyService companyService, CustomerService customerService, UserService userService, PdfService pdfService, PdfGenaratorUtil pdfGenaratorUtil) {
+    public CompanyController(CompanyService companyService, CustomerService customerService, UserService userService, PdfService pdfService) {
         this.companyService = companyService;
         this.customerService = customerService;
         this.userService = userService;
         this.pdfService = pdfService;
-        this.pdfGenaratorUtil = pdfGenaratorUtil;
-
     }
 
     @GetMapping("/list")
@@ -68,13 +65,6 @@ public class CompanyController {
         } catch (DocumentException | IOException ex) {
             ex.printStackTrace();
         }
-    }
-
-    @GetMapping("/download-pdf-2")
-    public void downloadPdf2() throws Exception {
-        Map<String,String> data = new HashMap<String,String>();
-        data.put("name","James");
-        pdfGenaratorUtil.createPdf("testpdf",data);
     }
 
     @GetMapping("/add")
