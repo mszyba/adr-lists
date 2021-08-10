@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<!--  <meta charset="utf-8"></meta>-->
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--  <meta name="description" content="">-->
+<!--  <meta name="author" content="m.szyba@gmail.com">-->
+  <title>ADR List</title>
+
+
+
+  <!-- Common styles and scripts -->
+<!--  <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" type="text/css"/>-->
+<!--  <link rel="stylesheet" th:href="@{/css/dashboard.css}" />-->
+  <link rel="stylesheet" type="text/css" href="/pdf-resources/css/dashboard.css"/>
+  <link rel="stylesheet" type="text/css" href="/pdf-resources/css/bootstrap.min.css" media="print"/>
+
+  <!--/* This is a laceholder for additional links */-->
+<!--  <th:block th:replace="${links}" />-->
+
+</head>
+
+
+<body>
+<!--<header th:replace="parts/header :: header"></header>-->
+<div class="container-fluid">
+    <div class="row">
+
+<!--        <div th:insert="parts/sidebar :: sidebar"></div>-->
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <h2>Company list</h2>
+            <table class="table">
+                <thead class="alert">
+                <tr>
+                    <th class="alert">Id</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Post Code</th>
+                    <th>City</th>
+                    <th>Phone</th>
+                    <th>E-mail</th>
+                    <th>Person Contact</th>
+                    <th>Ref. No.</th>
+<!--                    <th>Customers</th>-->
+<!--                    <th>Edit</th>-->
+<!--                    <th>Delete</th>-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="company : ${companies}">
+                    <td th:text="${company.id}"></td>
+                    <td th:text="${company.country}"></td>
+                    <td th:text="${company.address}"></td>
+                    <td th:text="${company.postcode}"></td>
+                    <td th:text="${company.city}"></td>
+                    <td th:text="${company.phone}"></td>
+                    <td th:text="${company.email}"></td>
+                    <td th:text="${company.personContact}"></td>
+                    <td th:text="${company.referenceNo}"></td>
+<!--                    <td><a th:href="@{/company/customers/list/{id}(id=${company.id})}" class="btn btn-outline-primary btn-sm">Customers</a></td>-->
+<!--                    <td><a th:href="@{/company/users/list/{id}(id=${company.id})}" class="btn btn-outline-secondary btn-sm">Users</a></td>-->
+<!--                    <td><a th:href="@{/company/edit/{id}(id=${company.id})}" class="btn btn-outline-info btn-sm">Edit</a></td>-->
+<!--                    <td><a th:href="@{/company/delete/{id}(id=${company.id})}" class="btn btn-outline-danger btn-sm">Delete</a></td>-->
+                </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+</div>
+
+
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/dashboard.js"></script>
+
+</body>
+</html>

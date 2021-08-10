@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"></meta>
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--  <meta name="description" content="">-->
+<!--  <meta name="author" content="m.szyba@gmail.com">-->
+
+
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+
+<body>
+<header>
+  <div class="header">
+    <h1>Michał Szyba</h1>
+    <h2>Edit h2</h2>
+    <h3>Edit h3</h3>
+  </div>
+</header>
+<!--<header th:replace="parts/header :: header"></header>-->
+<div class="border">
+<!--    <div class="row">-->
+
+<!--        <div th:insert="parts/sidebar :: sidebar"></div>-->
+
+<!--        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">-->
+            <h2>Company list</h2>
+      <table class="students_table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Post Code</th>
+                    <th>City</th>
+                    <th>Phone</th>
+                    <th>E-mail</th>
+                    <th>Person Contact</th>
+                    <th>Ref. No.</th>
+<!--                    <th>Customers</th>-->
+<!--                    <th>Edit</th>-->
+<!--                    <th>Delete</th>-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="company : ${companies}">
+                    <td th:text="${company.id}"></td>
+                    <td th:text="${company.country}"></td>
+                    <td th:text="${company.address}"></td>
+                    <td th:text="${company.postcode}"></td>
+                    <td th:text="${company.city}"></td>
+                    <td th:text="${company.phone}"></td>
+                    <td th:text="${company.email}"></td>
+                    <td th:text="${company.personContact}"></td>
+                    <td th:text="${company.referenceNo}"></td>
+                </tr>
+                </tbody>
+            </table>
+<!--        </main>-->
+<!--    </div>-->
+</div>
+
+</body>
+</html>
