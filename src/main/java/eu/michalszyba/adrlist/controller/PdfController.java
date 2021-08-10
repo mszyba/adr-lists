@@ -3,7 +3,9 @@ package eu.michalszyba.adrlist.controller;
 import com.itextpdf.html2pdf.ConverterProperties;
 import com.itextpdf.html2pdf.HtmlConverter;
 import eu.michalszyba.adrlist.model.Company;
+import eu.michalszyba.adrlist.model.Delivery;
 import eu.michalszyba.adrlist.service.CompanyService;
+import eu.michalszyba.adrlist.service.DeliveryService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -24,11 +26,13 @@ public class PdfController {
     private final ServletContext servletContext;
     private final TemplateEngine templateEngine;
     private final CompanyService companyService;
+    private final DeliveryService deliveryService;
 
-    public PdfController(ServletContext servletContext, TemplateEngine templateEngine, CompanyService companyService) {
+    public PdfController(ServletContext servletContext, TemplateEngine templateEngine, CompanyService companyService, DeliveryService deliveryService) {
         this.servletContext = servletContext;
         this.templateEngine = templateEngine;
         this.companyService = companyService;
+        this.deliveryService = deliveryService;
     }
 
     @RequestMapping(path = "/pdf")
@@ -39,9 +43,13 @@ public class PdfController {
 //        Order order = OrderHelper.getOrder();
         List<Company> companies = companyService.getAllCompany();
 
+        Delivery oneDelivery = deliveryService.getOneDelivery(1L);
+
+
         /* Create HTML using Thymeleaf template Engine */
         WebContext context = new WebContext(request, response, servletContext);
         context.setVariable("companies", companies);
+        context.setVariable("delivery", oneDelivery);
         String orderHtml = templateEngine.process("/pdf/order-pdf", context);
 
         /* Setup Source and target I/O streams */

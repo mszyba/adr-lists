@@ -14,40 +14,50 @@
 <div class="rounded-lg border shadow-lg p-10 w-3/5">
     <div class="flex flex-row justify-between pb-4">
         <div>
-            <h2 class="text-xl font-bold">Order #<span class="text-green-600" th:text="${companies.get(0).name}"></span>
+            <h2 class="text-xl font-bold">Order #<span class="text-green-600" th:text="${delivery.companyName}"></span>
             </h2>
         </div>
         <div>
-            <div class="text-xl font-bold" th:text="${companies.get(0).country}"></div>
+            <div class="text-xl font-bold" th:text="${delivery.companyAddress}"></div>
         </div>
     </div>
     <div class="flex flex-col pb-8">
         <div class="pb-2">
-            <h2 class="text-xl font-bold">Delivery Addressłśasałsałsaąąą</h2>
+            <h2 class="text-xl font-bold">Delivery Address</h2>
         </div>
-        <div th:text="${companies.get(1).name}"></div>
-        <div th:text="${companies.get(1).address}"></div>
-        <div th:text="${companies.get(1).postcode}"></div>
-        <div th:text="${companies.get(1).city}"></div>
+        <div th:text="${delivery.companyName}"></div>
+        <div th:text="${delivery.companyAddress}"></div>
+        <div th:text="${delivery.companyCity}"></div>
+        <div th:text="${delivery.customerName}"></div>
+        <div th:text="${delivery.customerAddress}"></div>
+        <div th:text="${delivery.customerCity}"></div>
+        <div th:text="${delivery.driverName}"></div>
+        <div th:text="${delivery.truckNumber}"></div>
+<!--        <div th:text="${delivery.materialRows.get(0).quantityAll}"></div>-->
+        <div th:text="${delivery.points}"></div>
 <!--        <div th:text="${orderEntry.account.address.city}"></div>-->
 <!--        <div th:text="${orderEntry.account.address.state}"></div>-->
 <!--        <div th:text="${orderEntry.account.address.zipCode}"></div>-->
-
     </div>
     <table class="table-fixed w-full text-right border rounded">
         <thead class="bg-gray-100">
         <tr>
             <th class="text-left pl-4">Product</th>
             <th>Qty</th>
-            <th>Price</th>
-            <th class="pr-4">Total</th>
+            <th>Qty piece</th>
+            <th>Qty points</th>
+            <th>Un labels</th>
+            <th>Un No</th>
         </tr>
         </thead>
         <tbody class="text-sm">
-        <tr th:each="item : ${companies}">
-            <td class="pl-4 text-left" th:text="${item.name}"></td>
-            <td th:text="${item.address}"></td>
-            <td th:text="${item.postcode}"></td>
+        <tr th:each="item : ${delivery.materialRows}">
+            <td class="pl-4 text-left" th:text="${item.unClass}"></td>
+            <td th:text="${item.quantityAll}"></td>
+            <td th:text="${item.quantityPiece}"></td>
+            <td th:text="${item.quantityPoint}"></td>
+            <td th:text="${item.unLabels}"></td>
+            <td th:text="${item.unNumber}"></td>
 <!--            <td class="pr-4" th:text="${item.price * item.quantity}"></td>-->
         </tr>
         </tbody>

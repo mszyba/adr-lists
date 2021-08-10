@@ -116,3 +116,9 @@ INSERT INTO packaging (id, code_packaging, description_packaging) VALUES (4, '3H
 # insert into firma(firma_id, nazwa) values (1, 'nazwa1');
 # insert into firma(firma_id, nazwa) values (2, 'nazwa2');
 # insert into firma(firma_id, nazwa) values (3, 'nazwa3');
+
+INSERT INTO deliveries (id, company_address, company_city, company_country, company_id, company_name, company_postcode, customer_address, customer_city, customer_country, customer_id, customer_name, customer_postcode, description_delivery, driver_document, driver_name, point_class0, point_class1, point_class2, point_class3, point_class4, points, transportation, truck_description, truck_number, type_activities) VALUES (1, '44 Clarendon Court', 'Otrokovice', null, 1, 'Yambee', '765 02', '98 Shasta Street', 'Lapai', null, 1, 'Sandoz Inc', null, null, 'DWR22222', 'Michał', null, 6012, 0, 0, null, 6012, null, 'dsdsdsds', 'DWR333222', null);
+
+INSERT INTO material_rows (id, packaging_code, packaging_description, packaging_id, quantity_all, quantity_piece, quantity_point, un_class, un_id, un_labels, un_name_and_description, un_number, un_packing_group, delivery_id) VALUES (1, '1A2', 'bęben', 1, 20, 100, null, null, 1, '3', 'PAINT', '1263', 'I', 1);
+INSERT INTO material_rows (id, packaging_code, packaging_description, packaging_id, quantity_all, quantity_piece, quantity_point, un_class, un_id, un_labels, un_name_and_description, un_number, un_packing_group, delivery_id) VALUES (2, '3H1', 'kanister', 2, 2000, 10, null, null, 2, '3', 'PAINT RELATED MATERIAL', '1263', 'I', 1);
+INSERT INTO material_rows (id, packaging_code, packaging_description, packaging_id, quantity_all, quantity_piece, quantity_point, un_class, un_id, un_labels, un_name_and_description, un_number, un_packing_group, delivery_id) VALUES (3, '3H1', 'kanister', 4, 1400, 22, null, null, 6, '3', 'PAINT RELATED MATERIAL', '1263', 'III', 1);

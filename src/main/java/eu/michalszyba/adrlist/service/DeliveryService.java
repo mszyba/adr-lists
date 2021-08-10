@@ -5,6 +5,9 @@ import eu.michalszyba.adrlist.repository.DeliveryRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Slf4j
 @Service
 public class DeliveryService {
@@ -107,5 +110,13 @@ public class DeliveryService {
 
     public void addMaterialRow(Delivery delivery) {
         delivery.getMaterialRows().add(new MaterialRow());
+    }
+
+    public List<Delivery> getAllDeliveries() {
+        return deliveryRepository.findAll();
+    }
+
+    public Delivery getOneDelivery(Long id) {
+        return deliveryRepository.findById(id).orElseThrow();
     }
 }
