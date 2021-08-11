@@ -14,27 +14,27 @@
 <div class="rounded-lg border shadow-lg p-10 w-3/5">
     <div class="flex flex-row justify-between pb-4">
         <div>
-            <h2 class="text-xl font-bold">Order #<span class="text-green-600" th:text="${delivery.companyName}"></span>
+            <h2 class="text-xl font-bold">Order #<span class="text-green-600" th:text="${waybill.companyName}"></span>
             </h2>
         </div>
         <div>
-            <div class="text-xl font-bold" th:text="${delivery.companyAddress}"></div>
+            <div class="text-xl font-bold" th:text="${waybill.companyAddress}"></div>
         </div>
     </div>
     <div class="flex flex-col pb-8">
         <div class="pb-2">
             <h2 class="text-xl font-bold">Delivery Address</h2>
         </div>
-        <div th:text="${delivery.companyName}"></div>
-        <div th:text="${delivery.companyAddress}"></div>
-        <div th:text="${delivery.companyCity}"></div>
-        <div th:text="${delivery.customerName}"></div>
-        <div th:text="${delivery.customerAddress}"></div>
-        <div th:text="${delivery.customerCity}"></div>
-        <div th:text="${delivery.driverName}"></div>
-        <div th:text="${delivery.truckNumber}"></div>
-<!--        <div th:text="${delivery.materialRows.get(0).quantityAll}"></div>-->
-        <div th:text="${delivery.points}"></div>
+        <div th:text="${waybill.companyName}"></div>
+        <div th:text="${waybill.companyAddress}"></div>
+        <div th:text="${waybill.companyCity}"></div>
+        <div th:text="${waybill.customerName}"></div>
+        <div th:text="${waybill.customerAddress}"></div>
+        <div th:text="${waybill.customerCity}"></div>
+        <div th:text="${waybill.driverName}"></div>
+        <div th:text="${waybill.truckNumber}"></div>
+<!--        <div th:text="${waybill.materialRows.get(0).quantityAll}"></div>-->
+        <div th:text="${waybill.points}"></div>
 <!--        <div th:text="${orderEntry.account.address.city}"></div>-->
 <!--        <div th:text="${orderEntry.account.address.state}"></div>-->
 <!--        <div th:text="${orderEntry.account.address.zipCode}"></div>-->
@@ -51,7 +51,7 @@
         </tr>
         </thead>
         <tbody class="text-sm">
-        <tr th:each="item : ${delivery.materialRows}">
+        <tr th:each="item : ${waybill.materialRows}">
             <td class="pl-4 text-left" th:text="${item.unClass}"></td>
             <td th:text="${item.quantityAll}"></td>
             <td th:text="${item.quantityPiece}"></td>

@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "deliveries")
+@Table(name = "waybills")
 @Getter @Setter @NoArgsConstructor
 @ToString(exclude = "materialRows")
-public class Delivery {
+public class Waybill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -76,7 +76,7 @@ public class Delivery {
     /*
     * Rows of material
     * */
-    @OneToMany(mappedBy = "delivery", orphanRemoval = true,
+    @OneToMany(mappedBy = "waybill", orphanRemoval = true,
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
     private List<MaterialRow> materialRows = new ArrayList<>();

@@ -19,18 +19,18 @@ public class WaybillController {
     private final CustomerService customerService;
     private final UnService unService;
     private final PackagingService packagingService;
-    private final DeliveryService deliveryService;
+    private final WaybillService waybillService;
 
     public WaybillController(CompanyService companyService,
                              CustomerService customerService,
                              UnService unService,
                              PackagingService packagingService,
-                             DeliveryService deliveryService) {
+                             WaybillService waybillService) {
         this.companyService = companyService;
         this.customerService = customerService;
         this.unService = unService;
         this.packagingService = packagingService;
-        this.deliveryService = deliveryService;
+        this.waybillService = waybillService;
     }
 
     @ModelAttribute("unList")
@@ -56,7 +56,25 @@ public class WaybillController {
 
     @GetMapping("/waybill/list")
     public String listWaybill(Model model) {
-        model.addAttribute("waybills", deliveryService.getAllDeliveries());
+        model.addAttribute("waybills", waybillService.getAllWaybill());
         return "/waybill/waybill-list-all";
+    }
+
+    @GetMapping("/waybill/add")
+    public String getNewForm(Model model) {
+        model.addAttribute("waybill", new Waybill());
+        return "/form/add-new";
+    }
+
+    @RequestMapping(value = "/waybill/add", params = {"addRow"})
+    public String addNewRow(Waybill waybill) {
+        waybillService.addMaterialRow(waybill);
+        return "/form/add-new";
+    }
+
+    @PostMapping(value = "/waybill/add", params = {"saveForm"})
+    public String postDelivery(@ModelAttribute Waybill waybill) {
+        waybillService.save(waybill);
+        return "redirect:/waybill/list";
     }
 }
