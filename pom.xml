@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>eu.michalszyba</groupId>
-	<artifactId>adr-list-2</artifactId>
+	<artifactId>adr-list</artifactId>
 	<version>0.0.2</version>
-	<name>adr-list-2</name>
+	<name>adr-list</name>
     <packaging>war</packaging>
     <properties>
 		<java.version>11</java.version>
@@ -82,18 +82,6 @@
             <optional>true</optional>
         </dependency>
 
-
-<!--        <dependency>-->
-<!--            <groupId>com.itextpdf</groupId>-->
-<!--            <artifactId>itextpdf</artifactId>-->
-<!--            <version>5.5.13.2</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>com.itextpdf</groupId>-->
-<!--            <artifactId>html2pdf</artifactId>-->
-<!--            <version>3.0.5</version>-->
-<!--        </dependency>-->
-
         <dependency>
             <groupId>com.itextpdf</groupId>
             <artifactId>html2pdf</artifactId>
@@ -104,8 +92,6 @@
             <artifactId>kernel</artifactId>
             <version>7.1.12</version>
         </dependency>
-
-
 
         <dependency>
             <groupId>org.xhtmlrenderer</groupId>
@@ -122,11 +108,9 @@
             <artifactId>flying-saucer-pdf-itext5</artifactId>
             <version>9.1.22</version>
         </dependency>
-
     </dependencies>
 
 	<build>
-        <finalName>${project.artifactId}</finalName>
         <plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -134,5 +118,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
