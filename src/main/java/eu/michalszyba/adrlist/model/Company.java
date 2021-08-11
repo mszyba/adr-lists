@@ -8,9 +8,6 @@ import lombok.ToString;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +17,7 @@ import java.util.List;
 @Getter @Setter @NoArgsConstructor
 @ToString(exclude = {"users", "customers"})
 @Embeddable
-public class Company extends DetailsBaseEntity {
+public class Company extends AddressBaseEntity {
 
     @JsonIgnore
     @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)

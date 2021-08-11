@@ -2,7 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="parts/baseHead :: baseHeader(~{::link})">
-    <link rel="stylesheet">
+  <title>Add new company</title>
+  <link rel="stylesheet">
 </head>
 
 <body>
@@ -22,8 +23,8 @@
                             <input type="hidden" th:field="*{id}" th:value="*{id}">
 
                             <label for="companyName" class="form-label">Company name</label>
-                            <input type="text" th:field="*{companyName}" class="form-control" th:errorclass="is-invalid" id="companyName" placeholder="" value="" required>
-                            <div class="invalid-feedback" th:if="${#fields.hasErrors('companyName')}" th:errors="*{companyName}"></div>
+                            <input type="text" th:field="*{name}" class="form-control" th:errorclass="is-invalid" id="companyName" placeholder="" value="" required>
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
                         </div>
 
                         <div class="col-sm-12">
@@ -34,14 +35,20 @@
 
                         <div class="col-sm-12">
                             <label for="postCode" class="form-label">Post Code</label>
-                            <input type="text" th:field="*{postCode}" class="form-control" th:errorclass="is-invalid" id="postCode" placeholder="" value="" required>
-                            <div class="invalid-feedback" th:if="${#fields.hasErrors('postCode')}" th:errors="*{postCode}"></div>
+                            <input type="text" th:field="*{postcode}" class="form-control" th:errorclass="is-invalid" id="postCode" placeholder="" value="" required>
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('postcode')}" th:errors="*{postcode}"></div>
                         </div>
 
                         <div class="col-sm-12">
                             <label for="city" class="form-label">City</label>
                             <input type="text" th:field="*{city}" class="form-control" th:errorclass="is-invalid" id="city" placeholder="" value="" required>
                             <div class="invalid-feedback" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="text" th:field="*{country}" class="form-control" th:errorclass="is-invalid" id="country" placeholder="" value="" required>
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('country')}" th:errors="*{country}"></div>
                         </div>
 
                         <div class="col-12">

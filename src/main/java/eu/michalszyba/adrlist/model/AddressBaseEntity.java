@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 
 @MappedSuperclass
 @Getter @Setter @NoArgsConstructor
-public class DetailsBaseEntity {
+public class AddressBaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
