@@ -63,13 +63,13 @@ public class WaybillController {
     @GetMapping("/waybill/add")
     public String getNewForm(Model model) {
         model.addAttribute("waybill", new Waybill());
-        return "/form/add-new";
+        return "/waybill/waybill-add";
     }
 
     @RequestMapping(value = "/waybill/add", params = {"addRow"})
     public String addNewRow(Waybill waybill) {
         waybillService.addMaterialRow(waybill);
-        return "/form/add-new";
+        return "/waybill/waybill-add";
     }
 
     @PostMapping(value = "/waybill/add", params = {"saveForm"})
