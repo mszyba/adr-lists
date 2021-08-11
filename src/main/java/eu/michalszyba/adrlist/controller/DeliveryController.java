@@ -3,22 +3,12 @@ package eu.michalszyba.adrlist.controller;
 import eu.michalszyba.adrlist.model.*;
 import eu.michalszyba.adrlist.service.*;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.thymeleaf.ITemplateEngine;
-import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.context.ITemplateContext;
-import org.thymeleaf.context.WebContext;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 @Slf4j
@@ -29,18 +19,18 @@ public class DeliveryController {
     private final CustomerService customerService;
     private final UnService unService;
     private final PackagingService packagingService;
-    private final DeliveryService deliveryService;
+    private final WaybillService waybillService;
 
     public DeliveryController(CompanyService companyService,
                               CustomerService customerService,
                               UnService unService,
                               PackagingService packagingService,
-                              DeliveryService deliveryService) {
+                              WaybillService waybillService) {
         this.companyService = companyService;
         this.customerService = customerService;
         this.unService = unService;
         this.packagingService = packagingService;
-        this.deliveryService = deliveryService;
+        this.waybillService = waybillService;
     }
 
     @ModelAttribute("unList")
@@ -65,23 +55,23 @@ public class DeliveryController {
 
     @GetMapping("/delivery/add")
     public String getNewForm(Model model) {
-        model.addAttribute("delivery", new Delivery());
+        model.addAttribute("delivery", new Waybill());
         return "/form/add-new";
     }
 
     @RequestMapping(value = "/delivery/add", params = {"addRow"})
-    public String addNewRow(Delivery delivery) {
-        deliveryService.addMaterialRow(delivery);
+    public String addNewRow(Waybill waybill) {
+        waybillService.addMaterialRow(waybill);
         return "/form/add-new";
     }
 
     @PostMapping(value = "/delivery/add", params = {"saveForm"})
-    public String postDelivery(@ModelAttribute Delivery delivery) {
+    public String postDelivery(@ModelAttribute Waybill waybill) {
 //        log.info("=======" + delivery.getCompany());
 
-        log.info("======Material Rows: " + delivery.getMaterialRows());
-        Delivery saveDelivery = deliveryService.save(delivery);
-        log.info("=====Save delivery: " + saveDelivery);
+        log.info("======Material Rows: " + waybill.getMaterialRows());
+        Waybill saveWaybill = waybillService.save(waybill);
+        log.info("=====Save delivery: " + saveWaybill);
 
         return "redirect:/delivery-note/list";
     }

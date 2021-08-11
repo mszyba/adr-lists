@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "material_rows")
 @Getter @Setter @NoArgsConstructor
-@ToString(exclude = "delivery")
+@ToString(exclude = "waybill")
 public class MaterialRow {
 
     @Id
@@ -35,6 +35,6 @@ public class MaterialRow {
     private Integer quantityPoint;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "delivery_id")
-    private Delivery delivery;
+    @JoinColumn(name = "waybill_id")
+    private Waybill waybill;
 }

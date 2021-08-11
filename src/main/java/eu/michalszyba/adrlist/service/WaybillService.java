@@ -1,32 +1,31 @@
 package eu.michalszyba.adrlist.service;
 
 import eu.michalszyba.adrlist.model.*;
-import eu.michalszyba.adrlist.repository.DeliveryRepository;
+import eu.michalszyba.adrlist.repository.WaybillRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @Service
-public class DeliveryService {
+public class WaybillService {
 
-    private final DeliveryRepository deliveryRepository;
+    private final WaybillRepository waybillRepository;
     private final CompanyService companyService;
     private final CustomerService customerService;
     private final UnService unService;
     private final PackagingService packagingService;
 
-    public DeliveryService(DeliveryRepository deliveryRepository, CompanyService companyService, CustomerService customerService, UnService unService, PackagingService packagingService) {
-        this.deliveryRepository = deliveryRepository;
+    public WaybillService(WaybillRepository waybillRepository, CompanyService companyService, CustomerService customerService, UnService unService, PackagingService packagingService) {
+        this.waybillRepository = waybillRepository;
         this.companyService = companyService;
         this.customerService = customerService;
         this.unService = unService;
         this.packagingService = packagingService;
     }
 
-    public Delivery save(Delivery delivery) {
+    public Waybill save(Waybill waybill) {
 
         var ref = new Object() {
             Integer pointsClass1 = 0;
@@ -36,7 +35,7 @@ public class DeliveryService {
         };
 
 
-        delivery.getMaterialRows().forEach(materialRow -> {
+        waybill.getMaterialRows().forEach(materialRow -> {
             Long unId= materialRow.getUnId();
             Un unById = unService.getUnById(unId);
 
@@ -62,10 +61,10 @@ public class DeliveryService {
                     break;
             }
 
-            delivery.setPointClass1(ref.pointsClass1);
-            delivery.setPointClass2(ref.pointsClass2);
-            delivery.setPointClass3(ref.pointsClass3);
-            delivery.setPoints(ref.pointsAll);
+            waybill.setPointClass1(ref.pointsClass1);
+            waybill.setPointClass2(ref.pointsClass2);
+            waybill.setPointClass3(ref.pointsClass3);
+            waybill.setPoints(ref.pointsAll);
 
 
             materialRow.setUnId(unById.getId());
@@ -74,7 +73,6 @@ public class DeliveryService {
             materialRow.setUnLabels(unById.getUnLabels());
             materialRow.setUnPackingGroup(unById.getUnPackingGroup());
 
-
             Long packagingId = materialRow.getPackagingId();
             Packaging packagingById = packagingService.getPackagingById(packagingId);
 
@@ -82,41 +80,41 @@ public class DeliveryService {
             materialRow.setPackagingCode(packagingById.getCodePackaging());
             materialRow.setPackagingDescription(packagingById.getDescriptionPackaging());
 
-            materialRow.setDelivery(delivery);
+            materialRow.setWaybill(waybill);
         });
 
-        Long companyId = delivery.getCompanyId();
+        Long companyId = waybill.getCompanyId();
         Company companyById = companyService.getCompanyById(companyId);
 
-        Long customerId = delivery.getCustomerId();
+        Long customerId = waybill.getCustomerId();
         Customer customerById = customerService.getCustomerById(customerId);
 
-        delivery.setCompanyAddress(companyById.getAddress());
-        delivery.setCompanyCity(companyById.getCity());
-        delivery.setCompanyCountry(companyById.getCountry());
-        delivery.setCompanyId(companyById.getId());
-        delivery.setCompanyName(companyById.getName());
-        delivery.setCompanyPostcode(companyById.getPostcode());
+        waybill.setCompanyAddress(companyById.getAddress());
+        waybill.setCompanyCity(companyById.getCity());
+        waybill.setCompanyCountry(companyById.getCountry());
+        waybill.setCompanyId(companyById.getId());
+        waybill.setCompanyName(companyById.getName());
+        waybill.setCompanyPostcode(companyById.getPostcode());
         
-        delivery.setCustomerAddress(customerById.getAddress());
-        delivery.setCustomerCity(customerById.getCity());
-        delivery.setCustomerCountry(customerById.getCountry());
-        delivery.setCustomerId(customerById.getId());
-        delivery.setCustomerName(customerById.getName());
-        delivery.setCustomerPostcode(customerById.getPostcode());
+        waybill.setCustomerAddress(customerById.getAddress());
+        waybill.setCustomerCity(customerById.getCity());
+        waybill.setCustomerCountry(customerById.getCountry());
+        waybill.setCustomerId(customerById.getId());
+        waybill.setCustomerName(customerById.getName());
+        waybill.setCustomerPostcode(customerById.getPostcode());
         
-        return this.deliveryRepository.save(delivery);
+        return this.waybillRepository.save(waybill);
     }
 
-    public void addMaterialRow(Delivery delivery) {
-        delivery.getMaterialRows().add(new MaterialRow());
+    public void addMaterialRow(Waybill waybill) {
+        waybill.getMaterialRows().add(new MaterialRow());
     }
 
-    public List<Delivery> getAllDeliveries() {
-        return deliveryRepository.findAll();
+    public List<Waybill> getAllWaybill() {
+        return waybillRepository.findAll();
     }
 
-    public Delivery getOneDelivery(Long id) {
-        return deliveryRepository.findById(id).orElseThrow();
+    public Waybill getOneWaybillById(Long id) {
+        return waybillRepository.findById(id).orElseThrow();
     }
 }
