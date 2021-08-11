@@ -24,6 +24,8 @@ import java.util.List;
 @Controller
 public class PdfController {
 
+    private static final String BASE_URI = "http://localhost:8081";
+
     private final ServletContext servletContext;
     private final TemplateEngine templateEngine;
     private final CompanyService companyService;
@@ -40,26 +42,23 @@ public class PdfController {
     public ResponseEntity<?> getPDF(HttpServletRequest request, HttpServletResponse response) {
 
         /* Do Business Logic*/
-
-//        Order order = OrderHelper.getOrder();
         List<Company> companies = companyService.getAllCompany();
 
         Waybill oneWaybill = waybillService.getOneWaybillById(1L);
-
 
         /* Create HTML using Thymeleaf template Engine */
         WebContext context = new WebContext(request, response, servletContext);
         context.setVariable("companies", companies);
         context.setVariable("delivery", oneWaybill);
-        String orderHtml = templateEngine.process("/pdf/order-pdf", context);
+        String html = templateEngine.process("/pdf/order-pdf", context);
 
         /* Setup Source and target I/O streams */
         ByteArrayOutputStream target = new ByteArrayOutputStream();
         ConverterProperties converterProperties = new ConverterProperties();
-        converterProperties.setBaseUri("http://localhost:8080");
+        converterProperties.setBaseUri(BASE_URI);
 
         /* Call convert method */
-        HtmlConverter.convertToPdf(orderHtml, target, converterProperties);
+        HtmlConverter.convertToPdf(html, target, converterProperties);
 
         /* extract output as bytes */
         byte[] bytes = target.toByteArray();
@@ -75,26 +74,23 @@ public class PdfController {
     public ResponseEntity<?> getPDFById(HttpServletRequest request, HttpServletResponse response, @PathVariable Long id) {
 
         /* Do Business Logic*/
-
-//        Order order = OrderHelper.getOrder();
         List<Company> companies = companyService.getAllCompany();
 
         Waybill oneWaybill = waybillService.getOneWaybillById(id);
-
 
         /* Create HTML using Thymeleaf template Engine */
         WebContext context = new WebContext(request, response, servletContext);
         context.setVariable("companies", companies);
         context.setVariable("waybill", oneWaybill);
-        String orderHtml = templateEngine.process("/pdf/pdf-by-id", context);
+        String html = templateEngine.process("/pdf/pdf-by-id", context);
 
         /* Setup Source and target I/O streams */
         ByteArrayOutputStream target = new ByteArrayOutputStream();
         ConverterProperties converterProperties = new ConverterProperties();
-        converterProperties.setBaseUri("http://localhost:8080");
+        converterProperties.setBaseUri(BASE_URI);
 
         /* Call convert method */
-        HtmlConverter.convertToPdf(orderHtml, target, converterProperties);
+        HtmlConverter.convertToPdf(html, target, converterProperties);
 
         /* extract output as bytes */
         byte[] bytes = target.toByteArray();
