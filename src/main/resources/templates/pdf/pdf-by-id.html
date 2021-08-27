@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>ADR List</title>
+  <link th:href="@{/css/main-pdf.css}" rel="stylesheet"/>
+</head>
+
+<body class="flex items-center justify-center h-screen">
+  <div class="rounded-lg border shadow-lg p-5 w-3/5">
+    <table class="table-fixed w-full text-left border rounded">
+      <thead>
+      <tr>
+        <th>Nadawca: </th>
+        <th>Przewożnik </th>
+        <th>Odbiorca: </th>
+      </tr>
+      </thead>
+      <tbody class="text-sm">
+      <tr>
+        <td th:text="${waybill.companyName}"></td>
+        <td th:text="${waybill.customerName}"></td>
+        <td th:text="${waybill.customerName}"></td>
+      </tr>
+      <tr>
+        <td th:text="${waybill.companyAddress}"></td>
+        <td th:text="${waybill.customerAddress}"></td>
+        <td th:text="${waybill.customerAddress}"></td>
+      </tr>
+      <tr>
+        <td th:text="${waybill.companyPostcode}"></td>
+        <td th:text="${waybill.customerPostcode}"></td>
+        <td th:text="${waybill.customerPostcode}"></td>
+      </tr>
+      <tr>
+        <td th:text="${waybill.companyCity}"></td>
+        <td th:text="${waybill.customerCity}"></td>
+        <td th:text="${waybill.customerCity}"></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div class="flex flex-col pb-2">
+      <div class="pb-2">
+        <h2 class="text-xl font-bold">Kierowca: </h2>
+      </div>
+        <div th:text="${waybill.driverName}"></div>
+        <div th:text="${waybill.truckNumber}"></div>
+        <div th:text="${waybill.points}"></div>
+    </div>
+
+    <table class="table-fixed w-full text-right border rounded">
+      <thead class="bg-gray-100">
+      <tr>
+        <th class="text-left pl-4">Product</th>
+        <th>Qty</th>
+        <th>Qty piece</th>
+        <th>Qty points</th>
+        <th>Un labels</th>
+        <th>Un No</th>
+      </tr>
+      </thead>
+      <tbody class="text-sm">
+      <tr th:each="item : ${waybill.materialRows}">
+        <td class="pl-4 text-left" th:text="${item.unClass}"></td>
+        <td th:text="${item.quantityAll}"></td>
+        <td th:text="${item.quantityPiece}"></td>
+        <td th:text="${item.quantityPoint}"></td>
+        <td th:text="${item.unLabels}"></td>
+        <td th:text="${item.unNumber}"></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div class="flex flex-row-reverse p-5">
+      <h2 class="font-medium  bg-gray-200 p-2 rounded">
+  <!--            Grand Total: <span class="text-green-600" th:text="${orderEntry.payment.amount}"></span>-->
+      </h2>
+    </div>
+  </div>
+</body>
+</html>

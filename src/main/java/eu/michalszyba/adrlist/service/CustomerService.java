@@ -1,22 +1,48 @@
 package eu.michalszyba.adrlist.service;
 
 import eu.michalszyba.adrlist.model.Customer;
+import eu.michalszyba.adrlist.repository.CustomerRepository;
+import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 
-public interface CustomerService {
+@Service
+public class CustomerService {
 
-    List<Customer> getAllCustomer();
+    private final CustomerRepository customerRepository;
 
-    void saveCustomer(Customer customer);
+    public CustomerService(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
 
-    void updateCustomer(Customer customer);
+    public List<Customer> getAllCustomer() {
+        return customerRepository.findAll();
+    }
 
-    void deleteCustomerById(Long id);
+    public void saveCustomer(Customer customer) {
+        this.customerRepository.save(customer);
+    }
 
-    Customer getCustomerById(Long id);
+    public void deleteCustomerById(Long id) {
+        this.customerRepository.deleteById(id);
+    }
 
-    List<Customer> getAllCustomerByCompanyId(Long companyId);
+    public Customer getCustomerById(Long id) {
+        Optional<Customer> optionalCustomer = customerRepository.findById(id);
+        if (optionalCustomer.isPresent()) {
+            return optionalCustomer.get();
+        } else {
+            throw new EntityNotFoundException();
+        }
+    }
 
-    List<Customer> getAllCustomerByUserId(Long userId);
+    public List<Customer> getAllCustomerByCompanyId(Long companyId) {
+        return customerRepository.findAllByCompanyId(companyId);
+    }
+
+    public List<Customer> getAllCustomerByUserId(Long userId) {
+        return null;
+    }
 }

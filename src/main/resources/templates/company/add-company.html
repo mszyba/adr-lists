@@ -2,80 +2,87 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="parts/baseHead :: baseHeader(~{::link})">
+  <title>Add new company</title>
   <link rel="stylesheet">
 </head>
 
 <body>
 <header th:replace="parts/header :: header"></header>
 <div class="container-fluid">
-  <div class="row">
+    <div class="row">
 
-    <div th:insert="parts/sidebar :: sidebar"></div>
+        <div th:insert="parts/sidebar :: sidebar"></div>
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <h2 th:if="${company.id == null}">Add Company</h2>
-      <h2 th:unless="${company.id == null}">Edit Company</h2>
-      <div class="col-md-7 col-lg-8">
-        <form class="needs-validation" novalidate th:action="@{/company/add}" th:object="${company}" method="post">
-          <div class="row g-3">
-            <div class="col-sm-12">
-              <input type="hidden" th:field="*{id}" th:value="*{id}">
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <h2 th:if="${company.id == null}">Add Company</h2>
+            <h2 th:unless="${company.id == null}">Edit Company</h2>
+            <div class="col-md-7 col-lg-8">
+                <form class="needs-validation" novalidate th:action="@{/company/add}" th:object="${company}" method="post">
+                    <div class="row g-3">
+                        <div class="col-sm-12">
+                            <input type="hidden" th:field="*{id}" th:value="*{id}">
 
-              <label for="companyName" class="form-label">Company name</label>
-              <input type="text" th:field="*{companyName}" class="form-control" th:errorclass="is-invalid" id="companyName" placeholder="" value="" required>
-              <div class="invalid-feedback" th:if="${#fields.hasErrors('companyName')}" th:errors="*{companyName}"></div>
+                            <label for="companyName" class="form-label">Company name</label>
+                            <input type="text" th:field="*{name}" class="form-control" th:errorclass="is-invalid" id="companyName" placeholder="" value="" required>
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" th:field="*{address}" class="form-control" th:errorclass="is-invalid" id="address" placeholder="" value="" required>
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <label for="postCode" class="form-label">Post Code</label>
+                            <input type="text" th:field="*{postcode}" class="form-control" th:errorclass="is-invalid" id="postCode" placeholder="" value="" required>
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('postcode')}" th:errors="*{postcode}"></div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" th:field="*{city}" class="form-control" th:errorclass="is-invalid" id="city" placeholder="" value="" required>
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="text" th:field="*{country}" class="form-control" th:errorclass="is-invalid" id="country" placeholder="" value="" required>
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('country')}" th:errors="*{country}"></div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="email" class="form-label">E-mail</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text">@</span>
+                                <input type="email" th:field="*{email}" class="form-control" th:errorclass="is-invalid" id="email" placeholder="e-mail" required>
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="tel" th:field="*{phone}" class="form-control" id="phone" placeholder="" required>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <label for="personContact" class="form-label">Person Contact <span class="text-muted">(Optional)</span></label>
+                            <input type="text" th:field="*{personContact}" class="form-control" id="personContact" placeholder="">
+                        </div>
+
+                        <div class="col-sm-12">
+                            <label for="referenceNo" class="form-label">Reference No. <span class="text-muted">(Optional)</span></label>
+                            <input type="text" th:field="*{referenceNo}" class="form-control" id="referenceNo" placeholder="">
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <button class="w-100 btn btn-primary btn-lg" type="submit">Save</button>
+                </form>
             </div>
-
-            <div class="col-sm-12">
-              <label for="address" class="form-label">Address</label>
-              <input type="text" th:field="*{address}" class="form-control" th:errorclass="is-invalid" id="address" placeholder="" value="" required>
-              <div class="invalid-feedback" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></div>
-            </div>
-
-            <div class="col-sm-12">
-              <label for="postCode" class="form-label">Post Code</label>
-              <input type="text" th:field="*{postCode}" class="form-control" th:errorclass="is-invalid" id="postCode" placeholder="" value="" required>
-              <div class="invalid-feedback" th:if="${#fields.hasErrors('postCode')}" th:errors="*{postCode}"></div>
-            </div>
-
-            <div class="col-sm-12">
-              <label for="city" class="form-label">City</label>
-              <input type="text" th:field="*{city}" class="form-control" th:errorclass="is-invalid" id="city" placeholder="" value="" required>
-              <div class="invalid-feedback" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></div>
-            </div>
-
-            <div class="col-12">
-              <label for="email" class="form-label">E-mail</label>
-              <div class="input-group has-validation">
-                <span class="input-group-text">@</span>
-                <input type="email" th:field="*{email}" class="form-control" th:errorclass="is-invalid" id="email" placeholder="e-mail" required>
-                <div class="invalid-feedback" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
-              </div>
-            </div>
-
-            <div class="col-sm-12">
-              <label for="phone" class="form-label">Phone</label>
-              <input type="tel" th:field="*{phone}" class="form-control" id="phone" placeholder="" required>
-            </div>
-
-            <div class="col-sm-12">
-              <label for="personContact" class="form-label">Person Contact <span class="text-muted">(Optional)</span></label>
-              <input type="text" th:field="*{personContact}" class="form-control" id="personContact" placeholder="">
-            </div>
-
-            <div class="col-sm-12">
-              <label for="referenceNo" class="form-label">Reference No. <span class="text-muted">(Optional)</span></label>
-              <input type="text" th:field="*{referenceNo}" class="form-control" id="referenceNo" placeholder="">
-            </div>
-          </div>
-
-          <hr class="my-4">
-
-          <button class="w-100 btn btn-primary btn-lg" type="submit">Save</button>
-        </form>
-      </div>
-    </main>
-  </div>
+        </main>
+    </div>
 </div>
 
 <script th:replace="parts/script :: script"></script>
