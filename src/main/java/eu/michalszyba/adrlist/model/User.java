@@ -9,8 +9,6 @@ import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "users_company")
-@Where(clause = "is_active=true")
 public class User {
 
     @Id

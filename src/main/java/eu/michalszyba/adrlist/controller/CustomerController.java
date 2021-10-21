@@ -20,6 +20,6 @@ public class CustomerController {
     @GetMapping("/list")
     public String listCustomer(Model model) {
         model.addAttribute("customers", customerService.getAllCustomer());
-        return "/customer/list-customer";
+        return "customer/list-customer";
     }
 }

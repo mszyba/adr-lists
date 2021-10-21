@@ -8,7 +8,6 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "material_rows")
 @Getter @Setter @NoArgsConstructor
 @ToString(exclude = "waybill")
 public class MaterialRow {

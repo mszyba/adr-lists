@@ -36,42 +36,42 @@ public class UserController {
 
     @GetMapping("/list")
     public String listUser() {
-        return "/user/list-user";
+        return "user/list-user";
     }
 
     @GetMapping("/add")
     public String getAddUserForm(Model model) {
         model.addAttribute("user", new User());
-        return "/user/add-user";
+        return "user/add-user";
     }
 
     @PostMapping("/add")
     public String postAddUserForm(@Valid User user, BindingResult result) {
         if (result.hasErrors()) {
-            return "/user/add-user";
+            return "user/add-user";
         }
         userService.saveUser(user);
-        return "redirect:/user/list";
+        return "redirect:user/list";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteUserById(@PathVariable Long id) {
         userService.softDeleteUserById(id);
-        return "redirect:/user/list";
+        return "redirect:user/list";
     }
 
     @GetMapping("/edit/{id}")
     public String getEditUserById(@PathVariable Long id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
-        return "/user/edit-user";
+        return "user/edit-user";
     }
 
     @PostMapping("/edit")
     public String postEditUserById(@Valid User user, BindingResult result) {
         if (result.hasErrors()) {
-            return "/user/edit-user";
+            return "user/edit-user";
         }
         userService.updateUser(user);
-        return "redirect:/user/list";
+        return "redirect:user/list";
     }
 }
