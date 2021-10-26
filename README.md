@@ -27,7 +27,7 @@ The latest stable version of the app you can test it [**here**](http://51.83.131
 I used remote own server Ubuntu 20.04. Application is running on Docker.
 
 
-###On branch develop you can't use below instruction yet.
+### On branch develop you can't use below instruction yet.
 
 You can create a new account. Use `Register` button.
 
