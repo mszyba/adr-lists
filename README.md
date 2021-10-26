@@ -20,11 +20,16 @@ Project is created with:
 * Hibernate
 * Thymeleaf
 * MSQL
+* Docker
 
 ## Access
-The latest stable version of the app you can test it [**here**](http://51.83.131.183:8080/adr-list/).
+The latest stable version of the app you can test it [**here**](http://51.83.131.183:8090/).
+I used remote own server Ubuntu 20.04. Application is running on Docker.
 
-You can create a new account. Use `Register` button. 
+
+###On branch develop you can't use below instruction yet.
+
+You can create a new account. Use `Register` button.
 
 You can use also test account. Login: `test@test.com`, password: `test`.
 
