@@ -10,7 +10,6 @@
 	</parent>
 	<groupId>eu.michalszyba</groupId>
 	<artifactId>adr-list</artifactId>
-	<version>0.0.2</version>
 	<name>adr-list</name>
     <properties>
 		<java.version>11</java.version>
@@ -122,7 +121,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<finalName>adr-list-mysql</finalName>
+					<finalName>adr-list</finalName>
 				</configuration>
 			</plugin>
 		</plugins>

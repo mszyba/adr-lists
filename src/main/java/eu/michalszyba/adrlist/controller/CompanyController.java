@@ -49,13 +49,13 @@ public class CompanyController {
         }
         model.addAttribute("company", company);
         companyService.saveCompany(company);
-        return "redirect:company/list";
+        return "redirect:/company/list";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteCompanyById(@PathVariable Long id) {
         companyService.softDeleteCompanyById(id);
-        return "redirect:company/list";
+        return "redirect:/company/list";
     }
 
     @GetMapping("/edit/{id}")
