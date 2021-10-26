@@ -7,7 +7,6 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "un_table")
 @Getter @Setter @NoArgsConstructor
 public class Un extends UnBaseEntity {
 }

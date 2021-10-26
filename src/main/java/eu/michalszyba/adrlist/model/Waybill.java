@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "waybills")
 @Getter @Setter @NoArgsConstructor
 @ToString(exclude = "materialRows")
 public class Waybill {

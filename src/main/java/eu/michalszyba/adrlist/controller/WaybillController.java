@@ -57,24 +57,24 @@ public class WaybillController {
     @GetMapping("/waybill/list")
     public String listWaybill(Model model) {
         model.addAttribute("waybills", waybillService.getAllWaybill());
-        return "/waybill/waybill-list-all";
+        return "waybill/waybill-list-all";
     }
 
     @GetMapping("/waybill/add")
     public String getNewForm(Model model) {
         model.addAttribute("waybill", new Waybill());
-        return "/waybill/waybill-add";
+        return "waybill/waybill-add";
     }
 
     @RequestMapping(value = "/waybill/add", params = {"addRow"})
     public String addNewRow(Waybill waybill) {
         waybillService.addMaterialRow(waybill);
-        return "/waybill/waybill-add";
+        return "waybill/waybill-add";
     }
 
     @PostMapping(value = "/waybill/add", params = {"saveForm"})
     public String postDelivery(@ModelAttribute Waybill waybill) {
         waybillService.save(waybill);
-        return "redirect:/waybill/list";
+        return "redirect:waybill/list";
     }
 }
