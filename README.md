@@ -21,18 +21,17 @@ Project is created with:
 * Thymeleaf
 * MSQL
 * Docker
+* Nginx
 
 ## Access
-The latest stable version of the app you can test it [**here**](http://51.83.131.183:8090/).
-I used remote own server Ubuntu 20.04. Application is running on Docker.
-
+The latest stable version of the app you can test it [**http://adr.michalszyba.eu**](http://adr.michalszyba.eu/).
+I used remote own server Ubuntu 20.04 and Nginx. Application is running on Docker.
 
 ### On branch develop you can't use below instruction yet.
 
 You can create a new account. Use `Register` button.
 
 You can use also test account. Login: `test@test.com`, password: `test`.
-
 
 
 ## Screenshots
