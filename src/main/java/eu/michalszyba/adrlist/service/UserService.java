@@ -1,7 +1,10 @@
 package eu.michalszyba.adrlist.service;
 
 import eu.michalszyba.adrlist.model.User;
+import eu.michalszyba.adrlist.model.UserRole;
 import eu.michalszyba.adrlist.repository.UserRepository;
+import eu.michalszyba.adrlist.repository.UserRoleRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -11,10 +14,15 @@ import java.util.Optional;
 @Service
 public class UserService {
 
+    private static final String DEFAULT_ROLE = "ROLE_USER";
     private final UserRepository userRepository;
+    private final UserRoleRepository roleRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, UserRoleRepository roleRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public List<User> getAllUser() {
@@ -52,5 +60,17 @@ public class UserService {
 
     public List<User> getAllUserByCompanyId(Long companyId) {
         return userRepository.findAllByCompanyId(companyId);
+    }
+
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
+    public void addWithDefaultRole(User user) {
+        UserRole defaultRole = roleRepository.findByRole(DEFAULT_ROLE);
+        user.getRoles().add(defaultRole);
+        String passwordHash = passwordEncoder.encode(user.getPassword());
+        user.setPassword(passwordHash);
+        userRepository.save(user);
     }
 }

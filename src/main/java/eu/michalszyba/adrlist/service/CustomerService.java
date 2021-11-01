@@ -45,4 +45,18 @@ public class CustomerService {
     public List<Customer> getAllCustomerByUserId(Long userId) {
         return null;
     }
+
+//    public void updateCustomer(Customer customer) {
+//        customerRepository.updateCustomer(
+//                customer.getAddress(),
+//                customer.getCity(),
+//                customer.getName(),
+//                customer.getEmail(),
+//                customer.getPersonContact(),
+//                customer.getPhone(),
+//                customer.getPostcode(),
+//                customer.getReferenceNo(),
+//                customer.getId()
+//        );
+//    }
 }

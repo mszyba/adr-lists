@@ -66,12 +66,12 @@ public class CustomerController {
         return "/customer/edit-customer";
     }
 
-    @PostMapping("/customer/edit")
-    public String postEditCustomerById(@Valid Customer customer, BindingResult result) {
-        if (result.hasErrors()) {
-            return "/customer/edit-customer";
-        }
-        customerService.updateCustomer(customer);
-        return "redirect:/customer/list";
-    }
+//    @PostMapping("/customer/edit")
+//    public String postEditCustomerById(@Valid Customer customer, BindingResult result) {
+//        if (result.hasErrors()) {
+//            return "/customer/edit-customer";
+//        }
+//        customerService.updateCustomer(customer);
+//        return "redirect:/customer/list";
+//    }
 }
