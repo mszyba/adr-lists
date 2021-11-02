@@ -1,8 +1,17 @@
 package eu.michalszyba.adrlist.service;
 
 import eu.michalszyba.adrlist.model.UserRole;
+import eu.michalszyba.adrlist.repository.UserRoleRepository;
 
-public interface UserRoleService {
+public class UserRoleService {
 
-    UserRole getUserRoleByRole(String role);
+    private final UserRoleRepository userRoleRepository;
+
+    public UserRoleService(UserRoleRepository userRoleRepository) {
+        this.userRoleRepository = userRoleRepository;
+    }
+
+    UserRole getUserRoleByRole(String role) {
+        return userRoleRepository.findByRole(role);
+    }
 }
