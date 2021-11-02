@@ -24,7 +24,7 @@ import java.util.List;
 @Controller
 public class PdfController {
 
-    private static final String BASE_URI = "http://localhost:8081";
+    private static final String BASE_URI = "http://localhost:8091";
 
     private final ServletContext servletContext;
     private final TemplateEngine templateEngine;
@@ -50,7 +50,7 @@ public class PdfController {
         WebContext context = new WebContext(request, response, servletContext);
         context.setVariable("companies", companies);
         context.setVariable("delivery", oneWaybill);
-        String html = templateEngine.process("/pdf/order-pdf", context);
+        String html = templateEngine.process("pdf/order-pdf", context);
 
         /* Setup Source and target I/O streams */
         ByteArrayOutputStream target = new ByteArrayOutputStream();
@@ -82,7 +82,7 @@ public class PdfController {
         WebContext context = new WebContext(request, response, servletContext);
         context.setVariable("companies", companies);
         context.setVariable("waybill", oneWaybill);
-        String html = templateEngine.process("/pdf/pdf-by-id", context);
+        String html = templateEngine.process("pdf/pdf-by-id", context);
 
         /* Setup Source and target I/O streams */
         ByteArrayOutputStream target = new ByteArrayOutputStream();

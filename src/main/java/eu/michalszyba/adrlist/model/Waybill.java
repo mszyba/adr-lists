@@ -77,6 +77,6 @@ public class Waybill {
     * */
     @OneToMany(mappedBy = "waybill", orphanRemoval = true,
             cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY)
+            fetch = FetchType.EAGER)
     private List<MaterialRow> materialRows = new ArrayList<>();
 }

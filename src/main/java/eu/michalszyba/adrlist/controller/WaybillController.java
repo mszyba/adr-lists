@@ -75,6 +75,6 @@ public class WaybillController {
     @PostMapping(value = "/waybill/add", params = {"saveForm"})
     public String postDelivery(@ModelAttribute Waybill waybill) {
         waybillService.save(waybill);
-        return "redirect:waybill/list";
+        return "redirect:/waybill/list";
     }
 }
