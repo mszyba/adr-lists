@@ -1,4 +1,7 @@
 # ADR List
+
+## I'm preparing a new version here [**https://github.com/mszyba/adr-waybill**]
+
 ## Introduction
 The purpose of the app is creating documentation of road transport of dangerous goods
 for employees, which for various reasons have to participate
